@@ -25,6 +25,7 @@ public class CosmoDBLayer {
     private CosmosDatabase db;
     private CosmosContainer users;
     private CosmosContainer auctions;
+    private CosmosContainer bids;
 
     public static synchronized CosmoDBLayer getInstance() {
         if (instance != null) {
@@ -45,6 +46,7 @@ public class CosmoDBLayer {
             this.db = this.client.getDatabase("scc148287db");
             this.users = this.db.getContainer("users");
             this.auctions = this.db.getContainer("auctions");
+            this.bids = this.db.getContainer("auctions");
 
         }
     }
@@ -77,6 +79,10 @@ public class CosmoDBLayer {
         this.init();
         return this.auctions.createItem(auction);
     }
+    public CosmosItemResponse<BidDAO> putBid(BidDAO bid) {
+        this.init();
+        return this.bids.createItem(bid);
+    }
 
     public CosmosPagedIterable<UserDAO> getUserById(String id) {
         this.init();
@@ -90,6 +96,10 @@ public class CosmoDBLayer {
     public CosmosPagedIterable<UserDAO> getUsers() {
         this.init();
         return this.users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
+    }
+    public CosmosPagedIterable<BidDAO> getBids(String id) {
+        this.init();
+        return this.bids.queryItems("SELECT * FROM bids where bids.auction.id=\""+id+"\"", new CosmosQueryRequestOptions(), BidDAO.class);
     }
     public CosmosPagedIterable<AuctionDAO> getAuctions() {
         this.init();

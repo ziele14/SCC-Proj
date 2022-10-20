@@ -1,6 +1,7 @@
 package scc.data;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 
 public class AuctionDAO {
 
@@ -105,5 +106,10 @@ public class AuctionDAO {
 
     public void setChannelIds(String[] channelIds) {
         this.channelIds = channelIds;
+    }
+    public String toString() {
+        String var10000 = this._rid;
+        return "BidDAO [_rid=" + var10000 + ", _ts=" + this._ts + ", id=" + this.id + ", title=" + this.title + ", photo_id=" + this.photo_id +", owner"+this.owner+", minimum price"+this.min_price+", winner"+this.winner+", channelIds=" + Arrays.toString(this.channelIds) + "]";
+
     }
 }

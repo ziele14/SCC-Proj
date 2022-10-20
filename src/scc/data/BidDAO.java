@@ -1,5 +1,7 @@
 package scc.data;
 
+import java.util.Arrays;
+
 public class BidDAO {
     private String _rid;
     private String _ts;
@@ -49,5 +51,11 @@ public class BidDAO {
 
     public void setBid_value(int bid_value) {
         this.bid_value = bid_value;
+    }
+
+    public String toString() {
+        String var10000 = this._rid;
+        return "BidDAO [_rid=" + var10000 + ", _ts=" + this._ts + ", auction=" + this.auction + ", bid_maker=" + this.bid_maker + ", bid value=" + this.bid_value + "]";
+
     }
 }
