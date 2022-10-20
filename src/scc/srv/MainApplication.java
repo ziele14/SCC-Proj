@@ -1,28 +1,30 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package scc.srv;
 
+import jakarta.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
-
-public class MainApplication extends Application
-{
-	private Set<Object> singletons = new HashSet<Object>();
-	private Set<Class<?>> resources = new HashSet<Class<?>>();
+public class MainApplication extends Application {
+	private Set<Object> singletons = new HashSet();
+	private Set<Class<?>> resources = new HashSet();
 
 	public MainApplication() {
-		resources.add(ControlResource.class);
-		resources.add(MediaResource.class);
+		this.resources.add(UserResource.class);
+		this.resources.add(ControlResource.class);
+		this.resources.add(MediaResource.class);
+		this.singletons.add(new MediaResource());
 	}
 
-	@Override
 	public Set<Class<?>> getClasses() {
-		return resources;
+		return this.resources;
 	}
 
-	@Override
 	public Set<Object> getSingletons() {
-		return singletons;
+		return this.singletons;
 	}
 }
