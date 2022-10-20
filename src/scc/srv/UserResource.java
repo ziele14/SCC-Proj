@@ -6,6 +6,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import scc.data.CosmoDBLayer;
 import scc.data.UserDAO;
+import scc.utils.Hash;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class UserResource {
     public String object_create(String inpucik){
         Gson gson = new Gson();
         UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
+        userDAO.setPwd(Hash.of(userDAO.getPwd()));
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         db.putUser(userDAO);
         db.close();
