@@ -73,7 +73,7 @@ public class UserResource {
     }
 
     /**
-     * wypierdala usera
+     * usuwa usera
      */
 
     @Path("/{id}")

@@ -24,7 +24,7 @@ public class AuctionResource {
         AuctionDAO auctionDAO=gson.fromJson(input,AuctionDAO.class);
         db.putAuction(auctionDAO);
         db.close();
-        return "udało się stworzyć aukcję chuj w dupie chlupie co się dzieje w tej chałupie"+auctionDAO.getTitle();
+        return "udało się stworzyć aukcję "+auctionDAO.getTitle();
     }
 
     @Path("{id}/bid")
