@@ -24,7 +24,7 @@ public class AuctionResource {
         AuctionDAO auctionDAO=gson.fromJson(input,AuctionDAO.class);
         db.putAuction(auctionDAO);
         db.close();
-        return "udało się stworzyć aukcję "+auctionDAO.getTitle();
+        return "Auction created:  "+auctionDAO.getTitle();
     }
 
     @Path("{id}/bid")
@@ -35,7 +35,7 @@ public class AuctionResource {
         BidDAO bidDAO=gson.fromJson(input,BidDAO.class);
         db.putBid(bidDAO);
         db.close();
-        return "stworzyłeś bida gratulacje";
+        return "You have created a bid ";
     }
     @Path("{id}/bid")
     @GET
