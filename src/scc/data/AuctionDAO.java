@@ -2,17 +2,21 @@ package scc.data;
 
 import java.time.LocalTime;
 
-public class Auction {
+public class AuctionDAO {
+
+    private String _rid;
+    private String _ts;
     private String id;
     private String title;
     private String photo_id;
     private User owner;
-    /*private LocalTime end_time;*/
+    //private LocalTime end_time;
     private int min_price;
     private Bid winner;
+    private String[] channelIds;
 
-    public Auction(String id, String title, String photo_id, User owner /*,
-    LocalTime end_time*/, int min_price, Bid winner, String status) {
+    public AuctionDAO( String id, String title, String photo_id, User owner /*,LocalTime end_time*/, int min_price, Bid winner, String[] channelIds) {
+
         this.id = id;
         this.title = title;
         this.photo_id = photo_id;
@@ -20,7 +24,23 @@ public class Auction {
         //this.end_time = end_time;
         this.min_price = min_price;
         this.winner = winner;
-        this.status = status;
+        this.channelIds = channelIds;
+    }
+
+    public String get_rid() {
+        return _rid;
+    }
+
+    public void set_rid(String _rid) {
+        this._rid = _rid;
+    }
+
+    public String get_ts() {
+        return _ts;
+    }
+
+    public void set_ts(String _ts) {
+        this._ts = _ts;
     }
 
     public String getId() {
@@ -79,14 +99,11 @@ public class Auction {
         this.winner = winner;
     }
 
-    public String getStatus() {
-        return status;
+    public String[] getChannelIds() {
+        return channelIds;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setChannelIds(String[] channelIds) {
+        this.channelIds = channelIds;
     }
-
-    private String status;
-
 }
