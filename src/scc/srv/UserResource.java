@@ -16,6 +16,7 @@ import java.util.ArrayList;
 @Path("/user")
 public class UserResource {
 
+    CosmoDBLayer db = CosmoDBLayer.getInstance();
 
     /**
      * creates a user from a json file and adds it to our cosmoDB database
@@ -28,7 +29,6 @@ public class UserResource {
         Gson gson = new Gson();
         UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
         userDAO.setPwd(Hash.of(userDAO.getPwd()));
-        CosmoDBLayer db = CosmoDBLayer.getInstance();
         db.putUser(userDAO);
         db.close();
         return "udało się : " + userDAO.getName() + " " + userDAO.getId();
@@ -42,7 +42,6 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String object_get(){
-        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<UserDAO> resGet = db.getUsers();
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: resGet) {
@@ -61,7 +60,6 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String object_get_id(@PathParam("id") String id){
-        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<UserDAO> res = db.getUserById(id);
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: res) {
@@ -82,8 +80,8 @@ public class UserResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public String wypierdalaj(@PathParam("id")String id){
-        CosmoDBLayer db = CosmoDBLayer.getInstance();
         db.delUserById(id);
+        db.close();
         return "User with id = " + id + " has been deleted";
     }
 
