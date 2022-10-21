@@ -15,7 +15,12 @@
       <groupId>javax.ws.rs</groupId>  
       <artifactId>javax.ws.rs-api</artifactId>  
       <version>2.1.1</version> 
-    </dependency>  
+    </dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-blob</artifactId>
+      <version>12.19.1</version>
+    </dependency>
     <dependency> 
       <groupId>com.azure</groupId>  
       <artifactId>azure-cosmos</artifactId>  

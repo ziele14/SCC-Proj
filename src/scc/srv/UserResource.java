@@ -79,7 +79,7 @@ public class UserResource {
     @Path("/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    public String wypierdalaj(@PathParam("id")String id){
+    public String delete_user(@PathParam("id")String id){
         db.delUserById(id);
         db.close();
         return "User with id = " + id + " has been deleted";
