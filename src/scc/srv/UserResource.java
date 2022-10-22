@@ -27,17 +27,21 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String object_create(String inpucik){
         Gson gson = new Gson();
-        UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
-        userDAO.setPwd(Hash.of(userDAO.getPwd()));
-        db.putUser(userDAO);
-        db.close();
-        return "User created : " + userDAO.getName() + " " + userDAO.getId();
+        try {
+            UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
+            userDAO.setPwd(Hash.of(userDAO.getPwd()));
+            db.putUser(userDAO);
+            db.close();
+            return "User created, id : " + userDAO.getName() + ", name : " + userDAO.getId();
+        }
+        catch(Exception e){
+            return "The input user data seems to be invalid";
+        }
     }
 
     /**
      * returns all users
      */
-
     @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -48,14 +52,18 @@ public class UserResource {
             users.add(e.toString());
         }
         db.close();
-        return users.toString();
+        if(users.size() == 0){
+            return "It seems there are no users in the database";
+        }
+        else {
+            return users.toString();
+        }
     }
 
 
     /**
      * returns user by id
      */
-
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -67,7 +75,7 @@ public class UserResource {
         }
         db.close();
         if (users.size() == 0) {
-            return "there is no such user here :/";
+            return "There is no such user here :/";
         }
         return users.toString();
     }
@@ -75,14 +83,18 @@ public class UserResource {
     /**
      * deletes user
      */
-
     @Path("/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public String delete_user(@PathParam("id")String id){
-        db.delUserById(id);
-        db.close();
-        return "User with id = " + id + " has been deleted";
+        try {
+            db.delUserById(id);
+            db.close();
+            return "User with id = " + id + " has been deleted";
+        }
+        catch(Exception e){
+            return "There is no such user in our database";
+        }
     }
 
 }

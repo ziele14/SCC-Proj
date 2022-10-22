@@ -17,7 +17,6 @@ public class AuctionDAO {
     private String[] channelIds;
 
     public AuctionDAO( String id, String title, String photo_id, User owner /*,LocalTime end_time*/, int min_price, Bid winner, String[] channelIds) {
-
         this.id = id;
         this.title = title;
         this.photo_id = photo_id;

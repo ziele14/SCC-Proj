@@ -6,18 +6,13 @@ import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
 import com.azure.storage.blob.models.BlobItem;
+import jakarta.ws.rs.*;
 import scc.utils.Hash;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 
@@ -48,7 +43,7 @@ public class MediaResource
 		map.put( key, contents);
 		BlobClient blob = containerClient.getBlobClient(key);
 		blob.upload(BinaryData.fromBytes(contents));
-		return key;
+		return "The image has been added with this ID : " + key;
 	}
 
 	/**
@@ -59,11 +54,15 @@ public class MediaResource
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public byte[] download(@PathParam("id") String id) {
-		BlobClient blob = containerClient.getBlobClient( id);
-		BinaryData data = blob.downloadContent();
-		byte[] arr = data.toBytes();
-		//throw new ServiceUnavailableException();
-		return arr;
+		try {
+			BlobClient blob = containerClient.getBlobClient(id);
+			BinaryData data = blob.downloadContent();
+			byte[] arr = data.toBytes();
+			return arr;
+		}
+		catch(Exception e) {
+			throw new ServiceUnavailableException();
+		}
 	}
 
 	/**
@@ -79,6 +78,11 @@ public class MediaResource
 			String BName = bb.getName();
 			users.add(BName);
 		}
-		return users.toString();
+		if (users.size() == 0){
+			return "The images list is unfortunately empty";
+		}
+		else {
+			return users.toString();
+		}
 	}
 }
