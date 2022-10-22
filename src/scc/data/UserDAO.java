@@ -93,6 +93,6 @@ public class UserDAO {
 
     public String toString() {
         String var10000 = this._rid;
-        return "UserDAO [_rid=" + var10000 + ", _ts=" + this._ts + ", id=" + this.id + ", name=" + this.name + ", pwd=" + this.pwd + ", photoId=" + this.photoId + ", channelIds=" + Arrays.toString(this.channelIds) + "]";
+        return "( _rid = " + var10000 + ", _ts = " + this._ts + ", id = " + this.id + ", name = " + this.name + ", pwd = " + this.pwd + ", photoId = " + this.photoId + ", channelIds = " + Arrays.toString(this.channelIds) + ")";
     }
 }

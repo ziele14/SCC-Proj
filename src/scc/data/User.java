@@ -64,7 +64,7 @@ public class User {
 
     public String toString() {
         String var10000 = this.id;
-        return "User [id=" + var10000 + ", name=" + this.name + ", pwd=" + this.pwd + ", photoId=" + this.photoId + ", channelIds=" + Arrays.toString(this.channelIds) + "]";
+        return "id = " + var10000 + ", name = " + this.name + ", pwd = " + this.pwd + ", photoId = " + this.photoId + ", channelIds = " + Arrays.toString(this.channelIds);
     }
 }
 
