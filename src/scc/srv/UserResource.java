@@ -79,7 +79,7 @@ public class UserResource {
         if (users.size() == 0) {
             return "There is no such user here :/";
         }
-        return users.toString();
+        return users.get(0).toString();
     }
 
 

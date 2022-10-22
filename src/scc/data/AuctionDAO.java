@@ -1,6 +1,7 @@
 package scc.data;
 
-import java.time.LocalTime;
+import scc.utils.Hash;
+
 import java.util.Arrays;
 
 public class AuctionDAO {
@@ -10,21 +11,23 @@ public class AuctionDAO {
     private String id;
     private String title;
     private String photo_id;
-    private User owner;
-    //private LocalTime end_time;
+    private String description;
+    private String ownerID;
+    private String end_time;
     private int min_price;
-    private Bid winner;
-    private String[] channelIds;
+    private String winner;
+    private String status;
 
-    public AuctionDAO( String id, String title, String photo_id, User owner /*,LocalTime end_time*/, int min_price, Bid winner, String[] channelIds) {
+    public AuctionDAO( String id,String title, String description, String photoId, String owner,String endTime, int minPrice) {
         this.id = id;
         this.title = title;
-        this.photo_id = photo_id;
-        this.owner = owner;
-        //this.end_time = end_time;
-        this.min_price = min_price;
-        this.winner = winner;
-        this.channelIds = channelIds;
+        this.description = description;
+        this.photo_id = photoId;
+        this.ownerID = owner;
+        this.end_time = endTime;
+        this.min_price = minPrice;
+        this.status = "open";
+        this.winner = null;
     }
 
     public String get_rid() {
@@ -67,21 +70,29 @@ public class AuctionDAO {
         this.photo_id = photo_id;
     }
 
-    public User getOwner() {
-        return owner;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    /*public LocalTime getEnd_time() {
+    public String getOwnerID() {
+        return ownerID;
+    }
+
+    public void setOwnerID(String ownerID) {
+        this.ownerID = ownerID;
+    }
+
+    public String getEnd_time() {
         return end_time;
     }
 
-    public void setEnd_time(LocalTime end_time) {
+    public void setEnd_time(String end_time) {
         this.end_time = end_time;
-    }*/
+    }
 
     public int getMin_price() {
         return min_price;
@@ -91,24 +102,39 @@ public class AuctionDAO {
         this.min_price = min_price;
     }
 
-    public Bid getWinner() {
+    public String getWinner() {
         return winner;
     }
 
-    public void setWinner(Bid winner) {
+    public void setWinner(String winner) {
         this.winner = winner;
     }
 
-    public String[] getChannelIds() {
-        return channelIds;
+    public String getStatus() {
+        return status;
     }
 
-    public void setChannelIds(String[] channelIds) {
-        this.channelIds = channelIds;
+    public void setStatus(String status) {
+        this.status = status;
     }
+    
+    public Auction toAuction(){
+        return new Auction(this.title,this.description,this.photo_id,this.ownerID,this.end_time,this.min_price,this.status);
+    }
+
+    @Override
     public String toString() {
-        String var10000 = this._rid;
-        return "BidDAO [_rid=" + var10000 + ", _ts=" + this._ts + ", id=" + this.id + ", title=" + this.title + ", photo_id=" + this.photo_id +", owner"+this.owner+", minimum price"+this.min_price+", winner"+this.winner+", channelIds=" + Arrays.toString(this.channelIds) + "]";
-
+        return "AuctionDAO{" +
+                "_rid='" + _rid + '\'' +
+                ", _ts='" + _ts + '\'' +
+                ", id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", photo_id='" + photo_id + '\'' +
+                ", description='" + description + '\'' +
+                ", ownerID='" + ownerID + '\'' +
+                ", end_time='" + end_time + '\'' +
+                ", min_price=" + min_price +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

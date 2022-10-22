@@ -1,25 +1,29 @@
 package scc.data;
 
+import scc.utils.Hash;
+
 import java.time.LocalTime;
 
 public class Auction {
+
     private String id;
     private String title;
     private String photo_id;
-    private User owner;
-    /*private LocalTime end_time;*/
+    private String description;
+    private String ownerID;
+    private String end_time;
     private int min_price;
-    private Bid winner;
+    private String winner;
+    private String status;
 
-    public Auction(String id, String title, String photo_id, User owner /*,
-    LocalTime end_time*/, int min_price, Bid winner, String status) {
-        this.id = id;
+    public Auction( String title, String description, String photo_id, String owner,String end_time, int min_price, String status) {
+        this.id = Hash.of(title);
         this.title = title;
+        this.description = description;
         this.photo_id = photo_id;
-        this.owner = owner;
-        //this.end_time = end_time;
+        this.ownerID = owner;
+        this.end_time = end_time;
         this.min_price = min_price;
-        this.winner = winner;
         this.status = status;
     }
 
@@ -47,21 +51,29 @@ public class Auction {
         this.photo_id = photo_id;
     }
 
-    public User getOwner() {
-        return owner;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    /*public LocalTime getEnd_time() {
+    public String getOwnerID() {
+        return ownerID;
+    }
+
+    public void setOwnerID(String ownerID) {
+        this.ownerID = ownerID;
+    }
+
+    public String getEnd_time() {
         return end_time;
     }
 
-    public void setEnd_time(LocalTime end_time) {
+    public void setEnd_time(String end_time) {
         this.end_time = end_time;
-    }*/
+    }
 
     public int getMin_price() {
         return min_price;
@@ -71,11 +83,11 @@ public class Auction {
         this.min_price = min_price;
     }
 
-    public Bid getWinner() {
+    public String getWinner() {
         return winner;
     }
 
-    public void setWinner(Bid winner) {
+    public void setWinner(String winner) {
         this.winner = winner;
     }
 
@@ -87,6 +99,17 @@ public class Auction {
         this.status = status;
     }
 
-    private String status;
-
+    @Override
+    public String toString() {
+        return "Auction{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", photo_id='" + photo_id + '\'' +
+                ", description='" + description + '\'' +
+                ", ownerID='" + ownerID + '\'' +
+                ", end_time='" + end_time + '\'' +
+                ", min_price=" + min_price +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }
