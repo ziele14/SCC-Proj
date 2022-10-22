@@ -22,7 +22,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.azure:azure-cosmos:4.37.0" level="project" />
+    <orderEntry type="library" name="Maven: com.azure:azure-storage-blob:12.19.1" level="project" />
     <orderEntry type="library" name="Maven: com.azure:azure-core:1.32.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.woodstox:stax2-api:4.2.1" level="project" />
@@ -57,6 +57,9 @@
     <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-native-macos:osx-x86_64:4.1.79.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-classes-macos:4.1.79.Final" level="project" />
     <orderEntry type="library" name="Maven: io.projectreactor.netty:reactor-netty-core:1.0.22" level="project" />
+    <orderEntry type="library" name="Maven: com.azure:azure-storage-common:12.18.1" level="project" />
+    <orderEntry type="library" name="Maven: com.azure:azure-storage-internal-avro:12.4.2" level="project" />
+    <orderEntry type="library" name="Maven: com.azure:azure-cosmos:4.37.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-afterburner:2.13.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />

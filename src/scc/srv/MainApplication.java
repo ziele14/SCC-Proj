@@ -18,6 +18,7 @@ public class MainApplication extends Application {
 		this.resources.add(ControlResource.class);
 		this.resources.add(MediaResource.class);
 		this.singletons.add(new MediaResource());
+		this.resources.add(AuctionResource.class);
 	}
 
 	public Set<Class<?>> getClasses() {

@@ -31,11 +31,11 @@ public class UserResource {
         userDAO.setPwd(Hash.of(userDAO.getPwd()));
         db.putUser(userDAO);
         db.close();
-        return "udało się : " + userDAO.getName() + " " + userDAO.getId();
+        return "User created : " + userDAO.getName() + " " + userDAO.getId();
     }
 
     /**
-     * zwraca wszystkich userów
+     * returns all users
      */
 
     @Path("/")
@@ -53,7 +53,7 @@ public class UserResource {
 
 
     /**
-     * zwraca usera po ID
+     * returns user by id
      */
 
     @Path("/{id}")
@@ -73,13 +73,13 @@ public class UserResource {
     }
 
     /**
-     * wypierdala usera
+     * deletes user
      */
 
     @Path("/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    public String wypierdalaj(@PathParam("id")String id){
+    public String delete_user(@PathParam("id")String id){
         db.delUserById(id);
         db.close();
         return "User with id = " + id + " has been deleted";
