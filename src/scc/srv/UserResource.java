@@ -70,7 +70,6 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String object_get_id(@PathParam("id") String id){
         CosmosPagedIterable<UserDAO> res = db.getUserById(id);
-        System.out.println(res);
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: res) {
             users.add(e.toUser().toString());

@@ -1,30 +1,40 @@
 package scc.data;
 
 public class Bid {
-    private Auction auction;
-    private User bid_maker;
+    private String id;
+    private String auctionId;
+    private String userId;
     private int bid_value;
 
-    public Bid(Auction auction, User bid_maker, int bid_value) {
-        this.auction = auction;
-        this.bid_maker = bid_maker;
+    public Bid(String id,String auctionId, String userId, int bid_value) {
+        this.id = id;
+        this.auctionId = auctionId;
+        this.userId = userId;
         this.bid_value = bid_value;
     }
 
-    public Auction getAuction() {
-        return auction;
+    public String getId() {
+        return id;
     }
 
-    public void setAuction(Auction auction) {
-        this.auction = auction;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public User getBid_maker() {
-        return bid_maker;
+    public String getAuctionId() {
+        return auctionId;
     }
 
-    public void setBid_maker(User bid_maker) {
-        this.bid_maker = bid_maker;
+    public void setAuctionId(String auctionId) {
+        this.auctionId = auctionId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public int getBid_value() {
@@ -33,5 +43,15 @@ public class Bid {
 
     public void setBid_value(int bid_value) {
         this.bid_value = bid_value;
+    }
+
+    @Override
+    public String toString() {
+        return "Bid{" +
+                "id='" + id + '\'' +
+                ", auctionId='" + auctionId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", bid_value=" + bid_value +
+                '}';
     }
 }

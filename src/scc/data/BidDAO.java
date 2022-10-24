@@ -1,18 +1,34 @@
 package scc.data;
 
-import java.util.Arrays;
-
 public class BidDAO {
     private String _rid;
     private String _ts;
-    private Auction auction;
-    private User bid_maker;
+    private String id;
+    private String auctionId;
+    private String userId;
     private int bid_value;
 
-    public BidDAO(Auction auction, User bid_maker) {
-        this.auction = auction;
-        this.bid_maker = bid_maker;
+    public BidDAO() {
     }
+
+    public BidDAO(Bid b) {
+        this();
+    }
+    public BidDAO(String id,String auctionId, String userId, int bid_value) {
+        this.id = id;
+        this.auctionId = auctionId;
+        this.userId = userId;
+        this.bid_value = bid_value;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String get_rid() {
         return _rid;
     }
@@ -29,20 +45,20 @@ public class BidDAO {
         this._ts = _ts;
     }
 
-    public Auction getAuction() {
-        return auction;
+    public String getAuctionId() {
+        return auctionId;
     }
 
-    public void setAuction(Auction auction) {
-        this.auction = auction;
+    public void setAuctionId(String auctionId) {
+        this.auctionId = auctionId;
     }
 
-    public User getBid_maker() {
-        return bid_maker;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setBid_maker(User bid_maker) {
-        this.bid_maker = bid_maker;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public int getBid_value() {
@@ -53,9 +69,7 @@ public class BidDAO {
         this.bid_value = bid_value;
     }
 
-    public String toString() {
-        String var10000 = this._rid;
-        return "BidDAO [_rid=" + var10000 + ", _ts=" + this._ts + ", auction=" + this.auction + ", bid_maker=" + this.bid_maker + ", bid value=" + this.bid_value + "]";
-
+    public Bid toBid(){
+        return new Bid(this.id,this.auctionId,this.userId,this.bid_value);
     }
 }

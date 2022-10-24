@@ -1,11 +1,9 @@
 package scc.data;
 
-import scc.utils.Hash;
 
-import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Auction {
-
     private String id;
     private String title;
     private String photo_id;
@@ -15,16 +13,35 @@ public class Auction {
     private int min_price;
     private String winner;
     private String status;
+    private ArrayList<String> listOfBids;
 
-    public Auction( String title, String description, String photo_id, String owner,String end_time, int min_price, String status) {
-        this.id = Hash.of(title);
+    public Auction(String id,String title, String description, String photo_id, String owner,String end_time, int min_price,String winner, String status, ArrayList<String> listOfBids) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.photo_id = photo_id;
         this.ownerID = owner;
         this.end_time = end_time;
         this.min_price = min_price;
+        this.listOfBids = listOfBids;
         this.status = status;
+        this.winner = winner;
+    }
+
+    @Override
+    public String toString() {
+        return "Auction{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", photo_id='" + photo_id + '\'' +
+                ", description='" + description + '\'' +
+                ", ownerID='" + ownerID + '\'' +
+                ", end_time='" + end_time + '\'' +
+                ", min_price=" + min_price +
+                ", winner='" + winner + '\'' +
+                ", status='" + status + '\'' +
+                ", listOfBids=" + listOfBids +
+                '}';
     }
 
     public String getId() {
@@ -99,17 +116,11 @@ public class Auction {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Auction{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", photo_id='" + photo_id + '\'' +
-                ", description='" + description + '\'' +
-                ", ownerID='" + ownerID + '\'' +
-                ", end_time='" + end_time + '\'' +
-                ", min_price=" + min_price +
-                ", status='" + status + '\'' +
-                '}';
+    public ArrayList<String> getListOfBids() {
+        return listOfBids;
+    }
+
+    public void setListOfBids(ArrayList<String> listOfBids) {
+        this.listOfBids = listOfBids;
     }
 }

@@ -1,8 +1,6 @@
 package scc.data;
 
-import scc.utils.Hash;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class AuctionDAO {
 
@@ -10,24 +8,30 @@ public class AuctionDAO {
     private String _ts;
     private String id;
     private String title;
-    private String photo_id;
+    private String photoId;
     private String description;
-    private String ownerID;
-    private String end_time;
-    private int min_price;
+    private String ownerId;
+    private String endTime;
+    private int minPrice;
     private String winner;
     private String status;
+    private ArrayList<String> listOfBids;
 
-    public AuctionDAO( String id,String title, String description, String photoId, String owner,String endTime, int minPrice) {
+    public AuctionDAO() {
+    }
+
+    public AuctionDAO(Auction a) {
+        this(a.getId(), a.getTitle(), a.getDescription(),a.getPhoto_id(),a.getOwnerID(),a.getEnd_time(),a.getMin_price());
+    }
+    public AuctionDAO( String id,String title, String description, String photoId, String ownerId,String endTime, int minPrice) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.photo_id = photoId;
-        this.ownerID = owner;
-        this.end_time = endTime;
-        this.min_price = minPrice;
-        this.status = "open";
-        this.winner = null;
+        this.photoId = photoId;
+        this.ownerId = ownerId;
+        this.endTime = endTime;
+        this.minPrice = minPrice;
+
     }
 
     public String get_rid() {
@@ -62,12 +66,12 @@ public class AuctionDAO {
         this.title = title;
     }
 
-    public String getPhoto_id() {
-        return photo_id;
+    public String getPhotoId() {
+        return photoId;
     }
 
-    public void setPhoto_id(String photo_id) {
-        this.photo_id = photo_id;
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     public String getDescription() {
@@ -78,28 +82,37 @@ public class AuctionDAO {
         this.description = description;
     }
 
-    public String getOwnerID() {
-        return ownerID;
+    public String getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwnerID(String ownerID) {
-        this.ownerID = ownerID;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
-    public String getEnd_time() {
-        return end_time;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public int getMin_price() {
-        return min_price;
+    public ArrayList<String> getListOfBids() {
+        return listOfBids;
     }
 
-    public void setMin_price(int min_price) {
-        this.min_price = min_price;
+    public void setListOfBids(ArrayList<String> listOfBids) {
+        this.listOfBids = listOfBids;
+    }
+    public void addBid(String bidId){this.listOfBids.add(bidId);}
+
+    public int getMinPrice() {
+        return minPrice;
+    }
+
+    public void setMinPrice(int minPrice) {
+        this.minPrice = minPrice;
     }
 
     public String getWinner() {
@@ -119,7 +132,7 @@ public class AuctionDAO {
     }
     
     public Auction toAuction(){
-        return new Auction(this.title,this.description,this.photo_id,this.ownerID,this.end_time,this.min_price,this.status);
+        return new Auction(this.id, this.title,this.description,this.photoId,this.ownerId,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids);
     }
 
     @Override
@@ -129,12 +142,13 @@ public class AuctionDAO {
                 ", _ts='" + _ts + '\'' +
                 ", id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", photo_id='" + photo_id + '\'' +
+                ", photoId='" + photoId + '\'' +
                 ", description='" + description + '\'' +
-                ", ownerID='" + ownerID + '\'' +
-                ", end_time='" + end_time + '\'' +
-                ", min_price=" + min_price +
+                ", ownerId='" + ownerId + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", minPrice=" + minPrice +
                 ", status='" + status + '\'' +
+//                ", bids= " + listOfBids.toString() + '\'' +
                 '}';
     }
 }

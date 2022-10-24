@@ -5,17 +5,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.Gson;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import scc.data.AuctionDAO;
-import scc.data.BidDAO;
-import scc.data.CosmoDBLayer;
-import scc.data.UserDAO;
+import scc.data.*;
 import scc.utils.Hash;
 
 import java.util.ArrayList;
 
+
 @Path("/auction")
 public class AuctionResource {
     CosmoDBLayer db = CosmoDBLayer.getInstance();
+
 
     @Path("/")
     @POST
@@ -54,6 +53,7 @@ public class AuctionResource {
 
     }
 
+
     @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -73,30 +73,77 @@ public class AuctionResource {
     }
 
 
+    @Path("/{id}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String object_get_id(@PathParam("id") String id){
+        CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
+        ArrayList<String> auction = new ArrayList<String>();
+        for( AuctionDAO e: res) {
+            auction.add(e.toAuction().toString());
+        }
+        db.close();
+        if (auction.size() == 0) {
+            return "There is no such auction";
+        }
+        return auction.get(0).toString();
+    }
 
 
-    @Path("{id}/bid")
+
+
+    @Path("/{id}/bid")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public String bid_create(String input){
+    @Produces(MediaType.APPLICATION_JSON)
+    public String bid_create(@PathParam("id") String id,String input){
+        CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
+        ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
+        for( AuctionDAO e: res) {
+            auction.add(e);
+        }
+        if (auction.size() == 0) {
+            return "There is no such auction here";
+        }
         Gson gson=new Gson();
         BidDAO bidDAO=gson.fromJson(input,BidDAO.class);
-        db.putBid(bidDAO);
-        db.close();
-        return "You have created a bid ";
+        bidDAO.setAuctionId(id);
+        if (bidDAO.getBid_value() <= auction.get(0).getMinPrice()){
+            return "This bid is too small, you need to pay more than " + auction.get(0).getMinPrice();
+        }
+        else{
+            bidDAO.setId(bidDAO.getId() + " " + bidDAO.getBid_value());
+            db.putBid(bidDAO);
+            db.delAuctionById(auction.get(0).getId());
+            auction.get(0).setMinPrice(bidDAO.getBid_value());
+            try{
+            auction.get(0).addBid(bidDAO.getId());
+                }
+            catch(Exception e){
+                auction.get(0).setListOfBids(new ArrayList<String>());
+                auction.get(0).addBid(bidDAO.getId());
+
+            }
+            db.putAuction(auction.get(0));
+            db.close();
+            return "You have created a bid";}
+
     }
-    @Path("{id}/bid")
+
+
+
+    @Path("/{id}/bid")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String list_bids(@PathParam("id") String id){
-        CosmosPagedIterable<BidDAO> resGet=db.getBids(id);
+        CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
         ArrayList<String> bids = new ArrayList<String>();
-        for( BidDAO e: resGet) {
-            bids.add(e.toString());
+        for( AuctionDAO e: resGet) {
+            bids.add(e.getListOfBids().toString());
         }
         db.close();
-        return bids.toString();
+        return bids.get(0).toString();
 
 
     }

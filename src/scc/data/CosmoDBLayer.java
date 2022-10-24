@@ -5,11 +5,7 @@
 
 package scc.data;
 
-import com.azure.cosmos.ConsistencyLevel;
-import com.azure.cosmos.CosmosClient;
-import com.azure.cosmos.CosmosClientBuilder;
-import com.azure.cosmos.CosmosContainer;
-import com.azure.cosmos.CosmosDatabase;
+import com.azure.cosmos.*;
 import com.azure.cosmos.models.CosmosItemRequestOptions;
 import com.azure.cosmos.models.CosmosItemResponse;
 import com.azure.cosmos.models.CosmosQueryRequestOptions;
@@ -17,9 +13,9 @@ import com.azure.cosmos.models.PartitionKey;
 import com.azure.cosmos.util.CosmosPagedIterable;
 
 public class CosmoDBLayer {
-    private static final String CONNECTION_URL = "https://antolomanolo.documents.azure.com:443/";
-    private static final String DB_KEY = "K2ob1pvW5vG1nAf551fIDRp5QtC0Qg3TBp24XHxwiwN5iOY596c9oWn9c2RZNUrw4EYOn3i5IajPuvmNqZEH5w==";
-    private static final String DB_NAME = "scc148287db";
+    private static final String CONNECTION_URL = "https://nazwa.documents.azure.com:443/";
+    private static final String DB_KEY = "Svs6zM8EEmGrsKiNEhH5ZC30NbcuNpleTm1JHjHaMNFiKcbhw3vgSkNeTHgc8kW4qP7xOOkcMXoqaKMU68H76Q==";
+    private static final String DB_NAME = "nazwadb";
     private static CosmoDBLayer instance;
     private CosmosClient client;
     private CosmosDatabase db;
@@ -31,7 +27,7 @@ public class CosmoDBLayer {
         if (instance != null) {
             return instance;
         } else {
-            CosmosClient client = (new CosmosClientBuilder()).endpoint("https://antolomanolo.documents.azure.com:443/").key("K2ob1pvW5vG1nAf551fIDRp5QtC0Qg3TBp24XHxwiwN5iOY596c9oWn9c2RZNUrw4EYOn3i5IajPuvmNqZEH5w==").gatewayMode().consistencyLevel(ConsistencyLevel.SESSION).connectionSharingAcrossClientsEnabled(true).contentResponseOnWriteEnabled(true).buildClient();
+            CosmosClient client = (new CosmosClientBuilder()).endpoint(CONNECTION_URL).key(DB_KEY).gatewayMode().consistencyLevel(ConsistencyLevel.SESSION).connectionSharingAcrossClientsEnabled(true).contentResponseOnWriteEnabled(true).buildClient();
             instance = new CosmoDBLayer(client);
             return instance;
         }
@@ -43,10 +39,10 @@ public class CosmoDBLayer {
 
     private synchronized void init() {
         if (this.db == null) {
-            this.db = this.client.getDatabase("scc148287db");
+            this.db = this.client.getDatabase(DB_NAME);
             this.users = this.db.getContainer("users");
             this.auctions = this.db.getContainer("auctions");
-            this.bids = this.db.getContainer("auctions");
+            this.bids = this.db.getContainer("bids");
 
         }
     }
