@@ -6,26 +6,28 @@ import java.util.ArrayList;
 public class Auction {
     private String id;
     private String title;
-    private String photo_id;
+    private String photoId;
     private String description;
-    private String ownerID;
+    private String ownerId;
     private String end_time;
     private int min_price;
     private String winner;
     private String status;
     private ArrayList<String> listOfBids;
+    private ArrayList<String> listOfQuestions;
 
-    public Auction(String id,String title, String description, String photo_id, String owner,String end_time, int min_price,String winner, String status, ArrayList<String> listOfBids) {
+    public Auction(String id, String title, String photoId, String description, String ownerId, String end_time, int min_price, String winner, String status, ArrayList<String> listOfBids, ArrayList<String> listOfQuestions) {
         this.id = id;
         this.title = title;
+        this.photoId = photoId;
         this.description = description;
-        this.photo_id = photo_id;
-        this.ownerID = owner;
+        this.ownerId = ownerId;
         this.end_time = end_time;
         this.min_price = min_price;
-        this.listOfBids = listOfBids;
-        this.status = status;
         this.winner = winner;
+        this.status = status;
+        this.listOfBids = listOfBids;
+        this.listOfQuestions = listOfQuestions;
     }
 
     @Override
@@ -33,14 +35,15 @@ public class Auction {
         return "Auction{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", photo_id='" + photo_id + '\'' +
+                ", photoId='" + photoId + '\'' +
                 ", description='" + description + '\'' +
-                ", ownerID='" + ownerID + '\'' +
+                ", ownerId='" + ownerId + '\'' +
                 ", end_time='" + end_time + '\'' +
                 ", min_price=" + min_price +
                 ", winner='" + winner + '\'' +
                 ", status='" + status + '\'' +
                 ", listOfBids=" + listOfBids +
+                ", listOfQuestions=" + listOfQuestions +
                 '}';
     }
 
@@ -60,12 +63,12 @@ public class Auction {
         this.title = title;
     }
 
-    public String getPhoto_id() {
-        return photo_id;
+    public String getPhotoId() {
+        return photoId;
     }
 
-    public void setPhoto_id(String photo_id) {
-        this.photo_id = photo_id;
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     public String getDescription() {
@@ -76,12 +79,12 @@ public class Auction {
         this.description = description;
     }
 
-    public String getOwnerID() {
-        return ownerID;
+    public String getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwnerID(String ownerID) {
-        this.ownerID = ownerID;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getEnd_time() {
@@ -122,5 +125,13 @@ public class Auction {
 
     public void setListOfBids(ArrayList<String> listOfBids) {
         this.listOfBids = listOfBids;
+    }
+
+    public ArrayList<String> getListOfQuestions() {
+        return listOfQuestions;
+    }
+
+    public void setListOfQuestions(ArrayList<String> listOfQuestions) {
+        this.listOfQuestions = listOfQuestions;
     }
 }

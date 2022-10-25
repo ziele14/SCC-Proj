@@ -95,7 +95,7 @@ public class CosmoDBLayer {
     }
     public CosmosPagedIterable<BidDAO> getBids(String id) {
         this.init();
-        return this.bids.queryItems("SELECT * FROM bids where bids.auction.id=\""+id+"\"", new CosmosQueryRequestOptions(), BidDAO.class);
+        return this.bids.queryItems("SELECT * FROM bids where bids.auctionId=\""+id+"\"", new CosmosQueryRequestOptions(), BidDAO.class);
     }
     public CosmosPagedIterable<AuctionDAO> getAuctions() {
         this.init();

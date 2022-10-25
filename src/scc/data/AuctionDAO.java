@@ -16,12 +16,13 @@ public class AuctionDAO {
     private String winner;
     private String status;
     private ArrayList<String> listOfBids;
+    private ArrayList<String> listOfQuestions;
 
     public AuctionDAO() {
     }
 
     public AuctionDAO(Auction a) {
-        this(a.getId(), a.getTitle(), a.getDescription(),a.getPhoto_id(),a.getOwnerID(),a.getEnd_time(),a.getMin_price());
+        this(a.getId(), a.getTitle(), a.getDescription(),a.getPhotoId(),a.getOwnerId(),a.getEnd_time(),a.getMin_price());
     }
     public AuctionDAO( String id,String title, String description, String photoId, String ownerId,String endTime, int minPrice) {
         this.id = id;
@@ -102,6 +103,14 @@ public class AuctionDAO {
         return listOfBids;
     }
 
+    public ArrayList<String> getListOfQuestions() {
+        return listOfQuestions;
+    }
+
+    public void setListOfQuestions(ArrayList<String> listOfQuestions) {
+        this.listOfQuestions = listOfQuestions;
+    }
+
     public void setListOfBids(ArrayList<String> listOfBids) {
         this.listOfBids = listOfBids;
     }
@@ -132,7 +141,7 @@ public class AuctionDAO {
     }
     
     public Auction toAuction(){
-        return new Auction(this.id, this.title,this.description,this.photoId,this.ownerId,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids);
+        return new Auction(this.id, this.title,this.description,this.photoId,this.ownerId,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
     }
 
     @Override
@@ -147,8 +156,10 @@ public class AuctionDAO {
                 ", ownerId='" + ownerId + '\'' +
                 ", endTime='" + endTime + '\'' +
                 ", minPrice=" + minPrice +
+                ", winner='" + winner + '\'' +
                 ", status='" + status + '\'' +
-//                ", bids= " + listOfBids.toString() + '\'' +
+                //", listOfBids=" + listOfBids +
+                //", listOfQuestions=" + listOfQuestions +
                 '}';
     }
 }

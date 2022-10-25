@@ -144,8 +144,6 @@ public class AuctionResource {
         }
         db.close();
         return bids.get(0).toString();
-
-
     }
 
 
