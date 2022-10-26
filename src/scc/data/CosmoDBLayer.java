@@ -68,6 +68,10 @@ public class CosmoDBLayer {
         this.init();
         return this.auctions.deleteItem(auction, new CosmosItemRequestOptions());
     }
+    public CosmosItemResponse<Object> delBid(BidDAO bid) {
+        this.init();
+        return this.bids.deleteItem(bid, new CosmosItemRequestOptions());
+    }
 
     public CosmosItemResponse<UserDAO> putUser(UserDAO user) {
         this.init();
@@ -90,18 +94,25 @@ public class CosmoDBLayer {
         this.init();
         return this.users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);
     }
+
+
     public CosmosPagedIterable<AuctionDAO> getAuctionById(String id) {
         this.init();
         return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
+    }
+
+    public CosmosPagedIterable<AuctionDAO> getAuctionByOwnerId(String ownerId) {
+        this.init();
+        return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.ownerId=\"" + ownerId + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
 
     public CosmosPagedIterable<UserDAO> getUsers() {
         this.init();
         return this.users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
     }
-    public CosmosPagedIterable<BidDAO> getBids(String id) {
+    public CosmosPagedIterable<BidDAO> getBidsByUserID(String id) {
         this.init();
-        return this.bids.queryItems("SELECT * FROM bids where bids.auctionId=\""+id+"\"", new CosmosQueryRequestOptions(), BidDAO.class);
+        return this.bids.queryItems("SELECT * FROM bids where bids.userId=\""+id+"\"", new CosmosQueryRequestOptions(), BidDAO.class);
     }
     public CosmosPagedIterable<AuctionDAO> getAuctions() {
         this.init();

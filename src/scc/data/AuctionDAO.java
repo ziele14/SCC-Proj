@@ -115,6 +115,8 @@ public class AuctionDAO {
         this.listOfBids = listOfBids;
     }
     public void addBid(String bidId){this.listOfBids.add(bidId);}
+    public void removeBid(String bid){this.listOfBids.remove(bid);}
+    public void addQuestion(String questionId) {this.listOfQuestions.add(questionId);}
 
     public int getMinPrice() {
         return minPrice;

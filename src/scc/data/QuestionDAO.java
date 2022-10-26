@@ -7,11 +7,13 @@ public class QuestionDAO {
     private String text;
     private String userId;
     private String id;
-    public QuestionDAO(){
 
+
+    public QuestionDAO(){
     }
+
     public QuestionDAO(Question q){
-        this();
+        this(q.getAuctionId(),q.getText(),q.getUserId(),q.getId());
     }
 
     public QuestionDAO(String auctionId, String text, String userId, String id) {
@@ -21,6 +23,13 @@ public class QuestionDAO {
         this.id = id;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     public String get_rid() {
         return _rid;
     }
@@ -60,4 +69,6 @@ public class QuestionDAO {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
+    public Question toQuestion(){return new Question(this.text,this.userId,this.id);}
 }

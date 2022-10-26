@@ -5,6 +5,9 @@ import com.azure.cosmos.util.CosmosPagedIterable;
 import com.google.gson.Gson;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.apache.commons.lang3.StringUtils;
+import scc.data.AuctionDAO;
+import scc.data.BidDAO;
 import scc.data.CosmoDBLayer;
 import scc.data.UserDAO;
 import scc.utils.Hash;
@@ -89,14 +92,28 @@ public class UserResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public String delete_user(@PathParam("id")String id){
+            CosmosPagedIterable<AuctionDAO> result = db.getAuctionByOwnerId(id);
+            for( AuctionDAO auction : result){
+                    auction.setOwnerId("Deleted user");
+                    db.delAuctionById(auction.getId());
+                    db.putAuction(auction);
+                }
+        CosmosPagedIterable<BidDAO> results = db.getBidsByUserID(id);
+            for( BidDAO bid : results){
+                db.delBid(bid);
+                bid.setUserId("Deleted user");
+                db.putBid(bid);
+            }
         try {
             db.delUserById(id);
             db.close();
-            return "User with id = " + id + " has been deleted";
         }
         catch(Exception e){
             return "There is no such user in our database";
         }
+            return "User with id = " + id + " has been deleted";
+
+
     }
 
 
