@@ -130,8 +130,6 @@ public class AuctionResource {
 
     }
 
-
-
     @Path("/{id}/bid")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
@@ -145,6 +143,39 @@ public class AuctionResource {
         db.close();
         return bids.get(0).toString();
     }
+    @Path("/{id}/question")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String question_create(@PathParam("id") String id,String input){
+        CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
+        ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
+        for( AuctionDAO e: res) {
+            auction.add(e);
+        }
+        if (auction.size() == 0) {
+            return "There is no such auction here";
+        }
+        Gson gson=new Gson();
+        QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
+        questionDAO.setAuctionId(id);
+        db.putQuestion(questionDAO);
+        db.delAuctionById(auction.get(0).getId());
+        try{
+            auction.get(0).addBid(questionDAO.getText());
+        }
+        catch(Exception e){
+            auction.get(0).setListOfQuestions(new ArrayList<String>());
+            auction.get(0).addBid(questionDAO.getText());
+
+        }
+        db.putAuction(auction.get(0));
+        db.close();
+        return "you have created a question";
+
+
+
+    }
+
 
 
 

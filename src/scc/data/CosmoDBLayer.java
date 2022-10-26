@@ -22,6 +22,7 @@ public class CosmoDBLayer {
     private CosmosContainer users;
     private CosmosContainer auctions;
     private CosmosContainer bids;
+    private CosmosContainer questions;
 
     public static synchronized CosmoDBLayer getInstance() {
         if (instance != null) {
@@ -43,6 +44,7 @@ public class CosmoDBLayer {
             this.users = this.db.getContainer("users");
             this.auctions = this.db.getContainer("auctions");
             this.bids = this.db.getContainer("bids");
+            this.questions=this.db.getContainer("questions");
 
         }
     }
@@ -70,6 +72,10 @@ public class CosmoDBLayer {
     public CosmosItemResponse<UserDAO> putUser(UserDAO user) {
         this.init();
         return this.users.createItem(user);
+    }
+    public CosmosItemResponse<QuestionDAO> putQuestion(QuestionDAO question) {
+        this.init();
+        return this.questions.createItem(question);
     }
     public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {
         this.init();
