@@ -171,10 +171,22 @@ public class AuctionResource {
         db.putAuction(auction.get(0));
         db.close();
         return "you have created a question";
-
-
+    }
+    @Path("/{id}/question")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String list_questions(@PathParam("id")String id){
+        CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
+        ArrayList<String> questions = new ArrayList<String>();
+        for( AuctionDAO e: resGet) {
+            questions.add(e.getListOfQuestions().toString());
+        }
+        db.close();
+        return questions.get(0).toString();
 
     }
+
+
 
 
 
