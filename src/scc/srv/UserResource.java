@@ -36,7 +36,9 @@ public class UserResource {
             userDAO.setPwd(Hash.of(userDAO.getPwd()));
             db.putUser(userDAO);
             db.close();
-            return "User created, name : " + userDAO.getName() + ", ID : " + userDAO.getId();
+            String nitka="User created, name : " + userDAO.getName() + ", ID : " + userDAO.getId();
+
+            return gson.toJson(userDAO);
         }
         catch(Exception e){
             return "The input user data seems to be invalid or the ID is already taken";
@@ -138,6 +140,16 @@ public class UserResource {
             return "There is no user with this ID or the data has invalid form";
         }
 
+    }
+    @Path("/")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public String delete_users(){
+        CosmosPagedIterable<UserDAO> users = db.getUsers();
+        for(UserDAO user : users){
+            db.delUser(user);
+        }
+        return "brawo głuptasie wszystko usunąłeś";
     }
 
 }

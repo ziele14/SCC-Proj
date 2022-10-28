@@ -1,5 +1,6 @@
 package scc.srv;
 
+import com.azure.core.annotation.Get;
 import com.azure.cosmos.util.CosmosPagedIterable;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.Gson;
@@ -15,7 +16,11 @@ import java.util.ArrayList;
 public class AuctionResource {
     CosmoDBLayer db = CosmoDBLayer.getInstance();
 
-
+    @Path("/about_to_close")
+    @GET
+    public String list_auctions(){
+       return "Aukcje które się zamykają";
+    }
     @Path("/")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

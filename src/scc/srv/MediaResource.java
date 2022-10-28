@@ -85,4 +85,18 @@ public class MediaResource
 			return users.toString();
 		}
 	}
+
+
+	@DELETE
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String deletePhotos(){
+		PagedIterable<BlobItem> blobs = containerClient.listBlobs();
+
+		for (BlobItem bb : blobs){
+			BlobClient blob = containerClient.getBlobClient(bb.getName());
+			blob.delete();
+		}
+		return "jejku mój blob";
+		}
 }
