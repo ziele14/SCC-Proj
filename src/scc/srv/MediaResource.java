@@ -7,11 +7,11 @@ import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
 import com.azure.storage.blob.models.BlobItem;
 import jakarta.ws.rs.*;
+import redis.clients.jedis.Jedis;
+import scc.cache.RedisCache;
 import scc.utils.Hash;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import jakarta.ws.rs.core.MediaType;
 
@@ -22,7 +22,6 @@ import jakarta.ws.rs.core.MediaType;
 @Path("/media")
 public class MediaResource
 {
-	Map<String,byte[]> map = new HashMap<String,byte[]>();
 
 	String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=nazwastorage;AccountKey=LsIrcQVWjQLBI6/whZaZbgMGlyNLynCcPnvqjrQDeIzELy+ZgxzsP7PW9I2hGSs71IaD2sXbyv8T+AStfYR2iQ==;EndpointSuffix=core.windows.net";
 
@@ -30,6 +29,8 @@ public class MediaResource
 			.connectionString(storageConnectionString)
 			.containerName("images")
 			.buildClient();
+
+	Jedis jedis = RedisCache.getCachePool().getResource();
 
 	/**
 	 * Post a new image.The id of the image is its hash.
@@ -40,9 +41,11 @@ public class MediaResource
 	@Produces(MediaType.APPLICATION_JSON)
 	public String upload(byte[] contents) {
 		String key = Hash.of(contents);
-		map.put( key, contents);
 		BlobClient blob = containerClient.getBlobClient(key);
 		blob.upload(BinaryData.fromBytes(contents));
+		/** cache tutaj wlatuje mati*/
+		jedis.set("image: " + key, Base64.getEncoder().encodeToString(contents));
+		jedis.expire(key,86400);
 		return "The image has been added with this ID : " + key;
 	}
 
@@ -55,6 +58,10 @@ public class MediaResource
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public byte[] download(@PathParam("id") String id) {
 		try {
+			if (jedis.get("image: " + id) instanceof String) {
+				byte [] arr = Base64.getDecoder().decode(jedis.get("image: " + id));
+				return arr;
+			}
 			BlobClient blob = containerClient.getBlobClient(id);
 			BinaryData data = blob.downloadContent();
 			byte[] arr = data.toBytes();
@@ -92,7 +99,6 @@ public class MediaResource
 	@Produces(MediaType.APPLICATION_JSON)
 	public String deletePhotos(){
 		PagedIterable<BlobItem> blobs = containerClient.listBlobs();
-
 		for (BlobItem bb : blobs){
 			BlobClient blob = containerClient.getBlobClient(bb.getName());
 			blob.delete();

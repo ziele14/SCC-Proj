@@ -22,6 +22,12 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: redis.clients:jedis:4.2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.32" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.11.1" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20211205" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: com.azure:azure-storage-blob:12.19.1" level="project" />
     <orderEntry type="library" name="Maven: com.azure:azure-core:1.32.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3" level="project" />
@@ -62,7 +68,6 @@
     <orderEntry type="library" name="Maven: com.azure:azure-cosmos:4.37.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-afterburner:2.13.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
     <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-core:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: io.micrometer:micrometer-core:1.9.3" level="project" />
@@ -71,7 +76,6 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:2.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.19.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.19.0" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-jackson2-provider:6.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jakarta:2.12.6" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jakarta:2.12.6" level="project" />
@@ -84,7 +88,6 @@
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.9.1" level="project" />
     <orderEntry type="library" name="Maven: jakarta.ws.rs:jakarta.ws.rs-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.4" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.13.4" level="project" />
