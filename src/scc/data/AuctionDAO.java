@@ -15,7 +15,7 @@ public class AuctionDAO {
     private int minPrice;
     private String winner;
     private String status;
-    private ArrayList<String> listOfBids;
+    private ArrayList<BidDAO> listOfBids;
     private ArrayList<String> listOfQuestions;
 
     public AuctionDAO() {
@@ -99,7 +99,7 @@ public class AuctionDAO {
         this.endTime = endTime;
     }
 
-    public ArrayList<String> getListOfBids() {
+    public ArrayList<BidDAO> getListOfBids() {
         return listOfBids;
     }
 
@@ -111,11 +111,14 @@ public class AuctionDAO {
         this.listOfQuestions = listOfQuestions;
     }
 
-    public void setListOfBids(ArrayList<String> listOfBids) {
+    public void setListOfBids(ArrayList<BidDAO> listOfBids) {
         this.listOfBids = listOfBids;
     }
-    public void addBid(String bidId){this.listOfBids.add(bidId);}
-    public void removeBid(String bid){this.listOfBids.remove(bid);}
+
+    public void addBid(BidDAO bid){this.listOfBids.add(bid);}
+
+    public void removeBid(BidDAO bid){this.listOfBids.remove(bid);}
+
     public void addQuestion(String questionId) {this.listOfQuestions.add(questionId);}
 
     public int getMinPrice() {

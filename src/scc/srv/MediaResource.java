@@ -43,7 +43,7 @@ public class MediaResource
 		String key = Hash.of(contents);
 		BlobClient blob = containerClient.getBlobClient(key);
 		blob.upload(BinaryData.fromBytes(contents));
-		/** cache tutaj wlatuje mati*/
+		/** cache tutaj wlatuje, mati*/
 		jedis.set("image: " + key, Base64.getEncoder().encodeToString(contents));
 		jedis.expire(key,86400);
 		return "The image has been added with this ID : " + key;
@@ -80,29 +80,18 @@ public class MediaResource
 	@Produces(MediaType.APPLICATION_JSON)
 	public String list() {
 		PagedIterable<BlobItem> blob = containerClient.listBlobs();
-		ArrayList<String> users = new ArrayList<String>();
+		ArrayList<String> pictures = new ArrayList<String>();
 		for (BlobItem bb: blob){
 			String BName = bb.getName();
-			users.add(BName);
+			pictures.add(BName);
 		}
-		if (users.size() == 0){
+		if (pictures.size() == 0){
 			return "The images list is unfortunately empty";
 		}
 		else {
-			return users.toString();
+			return pictures.toString();
 		}
 	}
 
 
-	@DELETE
-	@Path("/")
-	@Produces(MediaType.APPLICATION_JSON)
-	public String deletePhotos(){
-		PagedIterable<BlobItem> blobs = containerClient.listBlobs();
-		for (BlobItem bb : blobs){
-			BlobClient blob = containerClient.getBlobClient(bb.getName());
-			blob.delete();
-		}
-		return "jejku mój blob";
-		}
 }

@@ -100,7 +100,7 @@ public class UserResource {
                     db.delAuctionById(auction.getId());
                     db.putAuction(auction);
                 }
-        CosmosPagedIterable<BidDAO> results = db.getBidsByUserID(id);
+            CosmosPagedIterable<BidDAO> results = db.getBidsByUserID(id);
             for( BidDAO bid : results){
                 db.delBid(bid);
                 bid.setUserId("Deleted user");
@@ -141,15 +141,6 @@ public class UserResource {
         }
 
     }
-    @Path("/")
-    @DELETE
-    @Produces(MediaType.APPLICATION_JSON)
-    public String delete_users(){
-        CosmosPagedIterable<UserDAO> users = db.getUsers();
-        for(UserDAO user : users){
-            db.delUser(user);
-        }
-        return "brawo głuptasie wszystko usunąłeś";
-    }
+
 
 }

@@ -56,6 +56,11 @@ public class BidDAO {
         return userId;
     }
 
+    @Override
+    public String toString() {
+        return id;
+    }
+
     public void setUserId(String userId) {
         this.userId = userId;
     }

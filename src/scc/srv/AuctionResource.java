@@ -1,13 +1,10 @@
 package scc.srv;
 
-import com.azure.core.annotation.Get;
 import com.azure.cosmos.util.CosmosPagedIterable;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.google.gson.Gson;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import scc.data.*;
-import scc.utils.Hash;
 
 import java.util.ArrayList;
 
@@ -21,6 +18,7 @@ public class AuctionResource {
     public String list_auctions(){
        return "Aukcje które się zamykają";
     }
+
     @Path("/")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -91,7 +89,7 @@ public class AuctionResource {
         if (auction.size() == 0) {
             return "There is no such auction";
         }
-        return auction.get(0).toString();
+        return auction.get(0);
     }
 
 
@@ -130,21 +128,21 @@ public class AuctionResource {
         }
         else{
             /** ustawia na ID userID + wartość i potem wkłada a aukcję zamienia na taką z dobrą listą bidów*/
-            bidDAO.setId(bidDAO.getUserId() + " has pose a bid with value of :" + bidDAO.getBid_value());
+            bidDAO.setId(bidDAO.getUserId() + " : " + bidDAO.getBid_value());
             db.putBid(bidDAO);
             db.delAuctionById(auction.get(0).getId());
             auction.get(0).setMinPrice(bidDAO.getBid_value());
             try{
-            auction.get(0).addBid(bidDAO.getId());
+            auction.get(0).addBid(bidDAO);
                 }
             catch(Exception e){
-                auction.get(0).setListOfBids(new ArrayList<String>());
-                auction.get(0).addBid(bidDAO.getId());
+                auction.get(0).setListOfBids(new ArrayList<BidDAO>());
+                auction.get(0).addBid(bidDAO);
 
             }
             db.putAuction(auction.get(0));
             db.close();
-            return "You have created a bid";}
+            return "You have created a bid : " + bidDAO.getId();}
 
     }
 

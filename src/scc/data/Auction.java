@@ -13,10 +13,10 @@ public class Auction {
     private int min_price;
     private String winner;
     private String status;
-    private ArrayList<String> listOfBids;
+    private ArrayList<BidDAO> listOfBids;
     private ArrayList<String> listOfQuestions;
 
-    public Auction(String id, String title, String photoId, String description, String ownerId, String end_time, int min_price, String winner, String status, ArrayList<String> listOfBids, ArrayList<String> listOfQuestions) {
+    public Auction(String id, String title, String photoId, String description, String ownerId, String end_time, int min_price, String winner, String status, ArrayList<BidDAO> listOfBids, ArrayList<String> listOfQuestions) {
         this.id = id;
         this.title = title;
         this.photoId = photoId;
@@ -119,11 +119,11 @@ public class Auction {
         this.status = status;
     }
 
-    public ArrayList<String> getListOfBids() {
+    public ArrayList<BidDAO> getListOfBids() {
         return listOfBids;
     }
 
-    public void setListOfBids(ArrayList<String> listOfBids) {
+    public void setListOfBids(ArrayList<BidDAO> listOfBids) {
         this.listOfBids = listOfBids;
     }
 
