@@ -6,6 +6,8 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import scc.data.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -27,6 +29,11 @@ public class AuctionResource {
         Gson gson = new Gson();
        try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
+            if (auctionTime.isBefore(LocalDateTime.now())){
+                return "The date is not valid";
+            }
             db.putAuction(auctionDAO);
             db.close();
             return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle();
