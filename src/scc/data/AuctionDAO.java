@@ -32,6 +32,7 @@ public class AuctionDAO {
         this.ownerId = ownerId;
         this.endTime = endTime;
         this.minPrice = minPrice;
+        this.status = "open";
 
     }
 

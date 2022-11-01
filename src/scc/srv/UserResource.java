@@ -102,7 +102,6 @@ public class UserResource {
         catch(Exception e){
             return "There is no such user in our database";
         }
-
             CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions();
             for(AuctionDAO auction : auctions){
                 if(Objects.equals(auction.getOwnerId(),id)){

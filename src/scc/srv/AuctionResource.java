@@ -6,7 +6,10 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import scc.data.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 @Path("/auction")
@@ -27,6 +30,11 @@ public class AuctionResource {
         Gson gson = new Gson();
        try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
+            if (auctionTime.isBefore(LocalDateTime.now())){
+                return "The date is not valid";
+            }
             db.putAuction(auctionDAO);
             db.close();
             return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle();
@@ -108,6 +116,9 @@ public class AuctionResource {
         }
         if (auction.size() == 0) {
             return "There is no such auction here";
+        }
+        if (!Objects.equals(auction.get(0).getStatus(),"open") ){
+            return "The function is not open";
         }
         /** tworzy gsona, zczytuje dane, sprawdza czy ID aukcji w jsonie jest takie samo jak powinno, sprawdza czy cena się zgadza*/
         Gson gson = new Gson();
