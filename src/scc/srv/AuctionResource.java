@@ -129,7 +129,6 @@ public class AuctionResource {
         else{
             /** ustawia na ID userID + wartość i potem wkłada a aukcję zamienia na taką z dobrą listą bidów*/
             bidDAO.setId(bidDAO.getUserId() + " : " + bidDAO.getBid_value());
-            db.putBid(bidDAO);
             db.delAuctionById(auction.get(0).getId());
             auction.get(0).setMinPrice(bidDAO.getBid_value());
             try{
@@ -188,7 +187,7 @@ public class AuctionResource {
         if (users.size() == 0) {
             return "There is no such user here :/";
         }
-        db.putQuestion(questionDAO);
+//        db.putQuestion(questionDAO);
         db.delAuctionById(auction.get(0).getId());
         try{
             auction.get(0).addQuestion(questionDAO.getText() + " " + ", from user : " + questionDAO.getId());

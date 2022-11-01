@@ -13,6 +13,7 @@ import scc.data.UserDAO;
 import scc.utils.Hash;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Resource for managing users.
@@ -94,18 +95,6 @@ public class UserResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public String delete_user(@PathParam("id")String id){
-            CosmosPagedIterable<AuctionDAO> result = db.getAuctionByOwnerId(id);
-            for( AuctionDAO auction : result){
-                    auction.setOwnerId("Deleted user");
-                    db.delAuctionById(auction.getId());
-                    db.putAuction(auction);
-                }
-            CosmosPagedIterable<BidDAO> results = db.getBidsByUserID(id);
-            for( BidDAO bid : results){
-                db.delBid(bid);
-                bid.setUserId("Deleted user");
-                db.putBid(bid);
-            }
         try {
             db.delUserById(id);
             db.close();
@@ -113,7 +102,24 @@ public class UserResource {
         catch(Exception e){
             return "There is no such user in our database";
         }
-            return "User with id = " + id + " has been deleted";
+
+            CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions();
+            for(AuctionDAO auction : auctions){
+                if(Objects.equals(auction.getOwnerId(),id)){
+                    auction.setOwnerId("Deleted user");
+                    for(BidDAO bid : auction.getListOfBids()) {
+                        if(Objects.equals(bid.getUserId(),id)){
+                            auction.getListOfBids().remove(bid);
+                            bid.setUserId("Deleted user");
+                            bid.setId(bid.getUserId() + " : " + bid.getBid_value());
+                            auction.getListOfBids().add(bid);
+                        }
+                    }
+                }
+                db.delAuctionById(auction.getId());
+                db.putAuction(auction);
+            }
+        return "User with id = " + id + " has been deleted";
 
 
     }
