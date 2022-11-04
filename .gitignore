@@ -1,6 +1,5 @@
 # Compiled class file
 *.class
-pom.xml
 # Log file
 *.log
 
@@ -24,3 +23,6 @@ hs_err_pid*
 
 # target directory
 target/
+
+#azure conf
+pom.xml
