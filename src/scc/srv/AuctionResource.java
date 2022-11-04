@@ -15,12 +15,7 @@ import java.util.Objects;
 @Path("/auction")
 public class AuctionResource {
     CosmoDBLayer db = CosmoDBLayer.getInstance();
-
-    @Path("/about_to_close")
-    @GET
-    public String list_auctions(){
-       return "Aukcje które się zamykają";
-    }
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
     @Path("/")
     @POST
@@ -30,14 +25,22 @@ public class AuctionResource {
         Gson gson = new Gson();
        try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            auctionDAO.setStatus("open");
             LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
             if (auctionTime.isBefore(LocalDateTime.now())){
                 return "The date is not valid";
             }
+           CosmosPagedIterable<UserDAO> result = db.getUserById(auctionDAO.getOwnerId());
+           ArrayList<String> users = new ArrayList<String>();
+           for( UserDAO e: result) {
+               users.add(e.toUser().toString());
+           }
+           if (users.size() == 0) {
+               return "There is no such user here :/";
+           }
             db.putAuction(auctionDAO);
             db.close();
-            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle();
+            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus();
       }
       catch(Exception e){
           return "The input auction data seems to be invalid or the ID is already taken";
@@ -120,6 +123,13 @@ public class AuctionResource {
         if (!Objects.equals(auction.get(0).getStatus(),"open") ){
             return "The function is not open";
         }
+        if (LocalDateTime.parse(auction.get(0).getEndTime(), formatter).isBefore(LocalDateTime.now())){
+            auction.get(0).AuctionClose();
+            db.delAuctionById(auction.get(0).getId());
+            db.putAuction(auction.get(0));
+            return "You are too late mate";
+
+        }
         /** tworzy gsona, zczytuje dane, sprawdza czy ID aukcji w jsonie jest takie samo jak powinno, sprawdza czy cena się zgadza*/
         Gson gson = new Gson();
         BidDAO bidDAO = gson.fromJson(input,BidDAO.class);
@@ -148,7 +158,6 @@ public class AuctionResource {
             catch(Exception e){
                 auction.get(0).setListOfBids(new ArrayList<BidDAO>());
                 auction.get(0).addBid(bidDAO);
-
             }
             db.putAuction(auction.get(0));
             db.close();

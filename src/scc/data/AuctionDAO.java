@@ -23,7 +23,9 @@ public class AuctionDAO {
 
     public AuctionDAO(Auction a) {
         this(a.getId(), a.getTitle(), a.getDescription(),a.getPhotoId(),a.getOwnerId(),a.getEnd_time(),a.getMin_price());
+        this.status = a.getStatus();
     }
+
     public AuctionDAO( String id,String title, String description, String photoId, String ownerId,String endTime, int minPrice) {
         this.id = id;
         this.title = title;
@@ -148,6 +150,11 @@ public class AuctionDAO {
     
     public Auction toAuction(){
         return new Auction(this.id, this.title,this.description,this.photoId,this.ownerId,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
+    }
+
+    public void AuctionClose(){
+        this.status = "closed";
+        this.winner = listOfBids.get(listOfBids.size()-1).getId();
     }
 
     @Override
