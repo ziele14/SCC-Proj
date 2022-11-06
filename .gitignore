@@ -25,4 +25,4 @@ hs_err_pid*
 target/
 
 #azure conf
-pom.xml
+# pom.xml
