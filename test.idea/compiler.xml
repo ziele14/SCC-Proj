@@ -6,8 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="project" />
+        <module name="scc2122-lab1" />
+        <module name="Projekt" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Projekt" target="17" />
+      <module name="scc2122-lab1" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

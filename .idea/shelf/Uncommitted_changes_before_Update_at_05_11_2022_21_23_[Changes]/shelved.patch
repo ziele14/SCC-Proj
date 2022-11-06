@@ -1,0 +1,2816 @@
+Index: .idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml b/.idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.google.code.gson:gson:2.9.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.9.1/gson-2.9.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.9.1/gson-2.9.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.9.1/gson-2.9.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_2_13_4.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_2_13_4.xml b/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_2_13_4.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_2_13_4.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.13.4">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.13.4/jackson-jaxrs-json-provider-2.13.4.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.13.4/jackson-jaxrs-json-provider-2.13.4-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.13.4/jackson-jaxrs-json-provider-2.13.4-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_x86_64_2_0_53_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_x86_64_2_0_53_Final.xml b/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_x86_64_2_0_53_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_x86_64_2_0_53_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-tcnative-boringssl-static:linux-x86_64:2.0.53.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-linux-x86_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_4.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_4.xml b/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_4.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_4.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.4">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.13.4/jackson-databind-2.13.4.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.13.4/jackson-databind-2.13.4-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.13.4/jackson-databind-2.13.4-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_codec_socks_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-codec-socks:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-socks/4.1.79.Final/netty-codec-socks-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-socks/4.1.79.Final/netty-codec-socks-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-socks/4.1.79.Final/netty-codec-socks-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_jaxb_xjc_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_xjc_4_0_0.xml b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_xjc_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_xjc_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:jaxb-xjc:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-xjc/4.0.0/jaxb-xjc-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-xjc/4.0.0/jaxb-xjc-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-xjc/4.0.0/jaxb-xjc-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_3.xml b/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.3/jackson-datatype-jsr310-2.13.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.3/jackson-datatype-jsr310-2.13.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.3/jackson-datatype-jsr310-2.13.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_eclipse_angus_angus_activation_1_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_eclipse_angus_angus_activation_1_0_0.xml b/.idea/libraries/Maven__org_eclipse_angus_angus_activation_1_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_eclipse_angus_angus_activation_1_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.eclipse.angus:angus-activation:1.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/angus/angus-activation/1.0.0/angus-activation-1.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/angus/angus-activation/1.0.0/angus-activation-1.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/angus/angus-activation/1.0.0/angus-activation-1.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_2_0_53_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_2_0_53_Final.xml b/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_2_0_53_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_2_0_53_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-tcnative-boringssl-static:2.0.53.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_resteasy_resteasy_core_6_1_0_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_core_6_1_0_Final.xml b/.idea/libraries/Maven__org_jboss_resteasy_resteasy_core_6_1_0_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_core_6_1_0_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.jboss.resteasy:resteasy-core:6.1.0.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-core/6.1.0.Final/resteasy-core-6.1.0.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-core/6.1.0.Final/resteasy-core-6.1.0.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-core/6.1.0.Final/resteasy-core-6.1.0.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml b/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.slf4j:slf4j-api:1.7.32">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_2_1_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_2_1_0.xml b/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_2_1_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_2_1_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.0/jakarta.annotation-api-2.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.0/jakarta.annotation-api-2.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/2.1.0/jakarta.annotation-api-2.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/artifacts/scc2122_lab1_war.xml
+===================================================================
+diff --git a/.idea/artifacts/scc2122_lab1_war.xml b/.idea/artifacts/scc2122_lab1_war.xml
+deleted file mode 100644
+--- a/.idea/artifacts/scc2122_lab1_war.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,14 +0,0 @@
+-<component name="ArtifactManager">
+-  <artifact type="war" name="scc2122-lab1:war">
+-    <output-path>$PROJECT_DIR$/target</output-path>
+-    <properties id="maven-jee-properties">
+-      <options>
+-        <module>scc2122-lab1</module>
+-        <packaging>war</packaging>
+-      </options>
+-    </properties>
+-    <root id="archive" name="scc2122-lab1-1.0.war">
+-      <element id="artifact" artifact-name="scc2122-lab1:war exploded" />
+-    </root>
+-  </artifact>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_commons_commons_pool2_2_11_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_11_1.xml b/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_11_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_11_1.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.commons:commons-pool2:2.11.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_transport_classes_kqueue_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_transport_classes_kqueue_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_transport_classes_kqueue_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_transport_classes_kqueue_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-transport-classes-kqueue:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-classes-kqueue/4.1.79.Final/netty-transport-classes-kqueue-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-classes-kqueue/4.1.79.Final/netty-transport-classes-kqueue-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-classes-kqueue/4.1.79.Final/netty-transport-classes-kqueue-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_transport_classes_epoll_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_transport_classes_epoll_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_transport_classes_epoll_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_transport_classes_epoll_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-transport-classes-epoll:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-classes-epoll/4.1.79.Final/netty-transport-classes-epoll-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-classes-epoll/4.1.79.Final/netty-transport-classes-epoll-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-classes-epoll/4.1.79.Final/netty-transport-classes-epoll-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_4_0_0.xml b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:jaxb-runtime:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/4.0.0/jaxb-runtime-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/4.0.0/jaxb-runtime-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/4.0.0/jaxb-runtime-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_json_json_20211205.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_json_json_20211205.xml b/.idea/libraries/Maven__org_json_json_20211205.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_json_json_20211205.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.json:json:20211205">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20211205/json-20211205.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20211205/json-20211205-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20211205/json-20211205-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_4.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_4.xml b/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_4.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_4.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_micrometer_micrometer_core_1_9_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_micrometer_micrometer_core_1_9_3.xml b/.idea/libraries/Maven__io_micrometer_micrometer_core_1_9_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_micrometer_micrometer_core_1_9_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.micrometer:micrometer-core:1.9.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/micrometer/micrometer-core/1.9.3/micrometer-core-1.9.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/micrometer/micrometer-core/1.9.3/micrometer-core-1.9.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/micrometer/micrometer-core/1.9.3/micrometer-core-1.9.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_projectreactor_reactor_core_3_4_22.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_22.xml b/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_22.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_22.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.projectreactor:reactor-core:3.4.22">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.4.22/reactor-core-3.4.22.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.4.22/reactor-core-3.4.22-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/reactor-core/3.4.22/reactor-core-3.4.22-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__jakarta_activation_jakarta_activation_api_2_1_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_2_1_0.xml b/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_2_1_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_2_1_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: jakarta.activation:jakarta.activation-api:2.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_jaxb_core_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_core_4_0_0.xml b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_core_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_core_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:jaxb-core:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-core/4.0.0/jaxb-core-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-core/4.0.0/jaxb-core-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-core/4.0.0/jaxb-core-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_afterburner_2_13_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_afterburner_2_13_3.xml b/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_afterburner_2_13_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_afterburner_2_13_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.module:jackson-module-afterburner:2.13.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-afterburner/2.13.3/jackson-module-afterburner-2.13.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-afterburner/2.13.3/jackson-module-afterburner-2.13.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-afterburner/2.13.3/jackson-module-afterburner-2.13.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_1_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_1_1.xml b/.idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_1_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__javax_ws_rs_javax_ws_rs_api_2_1_1.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: javax.ws.rs:javax.ws.rs-api:2.1.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_handler_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_handler_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_handler_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_handler_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-handler:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-handler/4.1.79.Final/netty-handler-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-handler/4.1.79.Final/netty-handler-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-handler/4.1.79.Final/netty-handler-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-handler-proxy:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-handler-proxy/4.1.79.Final/netty-handler-proxy-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-handler-proxy/4.1.79.Final/netty-handler-proxy-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-handler-proxy/4.1.79.Final/netty-handler-proxy-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_sun_istack_istack_commons_runtime_4_1_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_4_1_0.xml b/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_4_1_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_4_1_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.sun.istack:istack-commons-runtime:4.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/4.1.0/istack-commons-runtime-4.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/4.1.0/istack-commons-runtime-4.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/4.1.0/istack-commons-runtime-4.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_azure_azure_storage_internal_avro_12_4_2.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_azure_azure_storage_internal_avro_12_4_2.xml b/.idea/libraries/Maven__com_azure_azure_storage_internal_avro_12_4_2.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_azure_azure_storage_internal_avro_12_4_2.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.azure:azure-storage-internal-avro:12.4.2">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-internal-avro/12.4.2/azure-storage-internal-avro-12.4.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-internal-avro/12.4.2/azure-storage-internal-avro-12.4.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-internal-avro/12.4.2/azure-storage-internal-avro-12.4.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_codec_http2_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-codec-http2:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-http2/4.1.79.Final/netty-codec-http2-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-http2/4.1.79.Final/netty-codec-http2-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-http2/4.1.79.Final/netty-codec-http2-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_dropwizard_metrics_metrics_core_4_1_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_dropwizard_metrics_metrics_core_4_1_0.xml b/.idea/libraries/Maven__io_dropwizard_metrics_metrics_core_4_1_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_dropwizard_metrics_metrics_core_4_1_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.dropwizard.metrics:metrics-core:4.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/dropwizard/metrics/metrics-core/4.1.0/metrics-core-4.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/dropwizard/metrics/metrics-core/4.1.0/metrics-core-4.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/dropwizard/metrics/metrics-core/4.1.0/metrics-core-4.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_jaxb_jxc_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_jxc_4_0_0.xml b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_jxc_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_jxc_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:jaxb-jxc:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-jxc/4.0.0/jaxb-jxc-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-jxc/4.0.0/jaxb-jxc-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-jxc/4.0.0/jaxb-jxc-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_resteasy_resteasy_jaxb_provider_6_1_0_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_jaxb_provider_6_1_0_Final.xml b/.idea/libraries/Maven__org_jboss_resteasy_resteasy_jaxb_provider_6_1_0_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_jaxb_provider_6_1_0_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.jboss.resteasy:resteasy-jaxb-provider:6.1.0.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxb-provider/6.1.0.Final/resteasy-jaxb-provider-6.1.0.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxb-provider/6.1.0.Final/resteasy-jaxb-provider-6.1.0.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jaxb-provider/6.1.0.Final/resteasy-jaxb-provider-6.1.0.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml b/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.reactivestreams:reactive-streams:1.0.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/artifacts/Projekt_war.xml
+===================================================================
+diff --git a/.idea/artifacts/Projekt_war.xml b/.idea/artifacts/Projekt_war.xml
+deleted file mode 100644
+--- a/.idea/artifacts/Projekt_war.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,16 +0,0 @@
+-<component name="ArtifactManager">
+-  <artifact type="war" name="Projekt:war">
+-    <output-path>$PROJECT_DIR$/target</output-path>
+-    <properties id="maven-jee-properties">
+-      <options>
+-        <exploded>false</exploded>
+-        <module>Projekt</module>
+-        <packaging>war</packaging>
+-        <unpackNestedArchives>false</unpackNestedArchives>
+-      </options>
+-    </properties>
+-    <root id="archive" name="project-1.0.war">
+-      <element id="artifact" artifact-name="Projekt:war exploded" />
+-    </root>
+-  </artifact>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_x86_64_2_0_53_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_x86_64_2_0_53_Final.xml b/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_x86_64_2_0_53_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_x86_64_2_0_53_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-tcnative-boringssl-static:osx-x86_64:2.0.53.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-osx-x86_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_ibm_async_asyncutil_0_1_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_ibm_async_asyncutil_0_1_0.xml b/.idea/libraries/Maven__com_ibm_async_asyncutil_0_1_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_ibm_async_asyncutil_0_1_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.ibm.async:asyncutil:0.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/ibm/async/asyncutil/0.1.0/asyncutil-0.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/ibm/async/asyncutil/0.1.0/asyncutil-0.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/ibm/async/asyncutil/0.1.0/asyncutil-0.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_jakarta_2_12_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_jakarta_2_12_6.xml b/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_jakarta_2_12_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_jakarta_2_12_6.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jakarta:2.12.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.12.6/jackson-jaxrs-base-2.12.6-jakarta.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.12.6/jackson-jaxrs-base-2.12.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.12.6/jackson-jaxrs-base-2.12.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/artifacts/Projekt_war_exploded.xml
+===================================================================
+diff --git a/.idea/artifacts/Projekt_war_exploded.xml b/.idea/artifacts/Projekt_war_exploded.xml
+deleted file mode 100644
+--- a/.idea/artifacts/Projekt_war_exploded.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,119 +0,0 @@
+-<component name="ArtifactManager">
+-  <artifact type="exploded-war" name="Projekt:war exploded">
+-    <output-path>$PROJECT_DIR$/target/project-1.0</output-path>
+-    <properties id="maven-jee-properties">
+-      <options>
+-        <exploded>true</exploded>
+-        <module>Projekt</module>
+-        <packaging>war</packaging>
+-        <unpackNestedArchives>false</unpackNestedArchives>
+-      </options>
+-    </properties>
+-    <root id="root">
+-      <element id="directory" name="WEB-INF">
+-        <element id="directory" name="classes">
+-          <element id="module-output" name="Projekt" />
+-        </element>
+-        <element id="directory" name="lib">
+-          <element id="library" level="project" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1.1" />
+-          <element id="library" level="project" name="Maven: redis.clients:jedis:4.2.3" />
+-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.32" />
+-          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.11.1" />
+-          <element id="library" level="project" name="Maven: org.json:json:20211205" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-storage-blob:12.19.1" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-core:1.32.0" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3" />
+-          <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:4.2.1" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.woodstox:woodstox-core:6.2.7" />
+-          <element id="library" level="project" name="Maven: io.projectreactor:reactor-core:3.4.22" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-core-http-netty:1.12.5" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-common:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-handler-proxy:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-socks:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-buffer:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-http:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-http2:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-unix-common:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-classes-epoll:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-classes-kqueue:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-classes:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:linux-x86_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:linux-aarch_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:osx-x86_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:osx-aarch_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:windows-x86_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.projectreactor.netty:reactor-netty-http:1.0.22" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver-dns:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-dns:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver-dns-native-macos:osx-x86_64:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver-dns-classes-macos:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.projectreactor.netty:reactor-netty-core:1.0.22" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-storage-common:12.18.1" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-storage-internal-avro:12.4.2" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-cosmos:4.37.0" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-afterburner:2.13.3" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3" />
+-          <element id="library" level="project" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" />
+-          <element id="library" level="project" name="Maven: io.dropwizard.metrics:metrics-core:4.1.0" />
+-          <element id="library" level="project" name="Maven: io.micrometer:micrometer-core:1.9.3" />
+-          <element id="library" level="project" name="Maven: org.latencyutils:LatencyUtils:2.0.3" />
+-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.12.0" />
+-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:2.0.3" />
+-          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.19.0" />
+-          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.19.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-jackson2-provider:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jakarta:2.12.6" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jakarta:2.12.6" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jakarta:2.12.6" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:json-patch:1.13" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:msg-simple:1.2" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:btf:1.3" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:jackson-coreutils:2.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" />
+-          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.9.1" />
+-          <element id="library" level="project" name="Maven: jakarta.ws.rs:jakarta.ws.rs-api:3.1.0" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.13.4" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-core:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.0" />
+-          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.1" />
+-          <element id="library" level="project" name="Maven: org.jboss:jandex:2.4.2.Final" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-core-spi:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: org.reactivestreams:reactive-streams:1.0.3" />
+-          <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:2.1.0" />
+-          <element id="library" level="project" name="Maven: org.eclipse.angus:angus-activation:1.0.0" />
+-          <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:3.0.0" />
+-          <element id="library" level="project" name="Maven: com.ibm.async:asyncutil:0.1.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-jaxb-provider:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:codemodel:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-core:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-jxc:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-xjc:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:xsom:4.0.0" />
+-          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:4.1.0" />
+-          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-tools:4.1.0" />
+-          <element id="library" level="project" name="Maven: com.sun.xml.bind.external:relaxng-datatype:4.0.0" />
+-          <element id="library" level="project" name="Maven: com.sun.xml.bind.external:rngom:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-servlet-initializer:6.1.0.Final" />
+-        </element>
+-      </element>
+-      <element id="directory" name="META-INF">
+-        <element id="file-copy" path="$PROJECT_DIR$/target/project-1.0/META-INF/MANIFEST.MF" />
+-      </element>
+-      <element id="javaee-facet-resources" facet="Projekt/web/Web" />
+-    </root>
+-  </artifact>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_java_json_tools_msg_simple_1_2.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_java_json_tools_msg_simple_1_2.xml b/.idea/libraries/Maven__com_github_java_json_tools_msg_simple_1_2.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_java_json_tools_msg_simple_1_2.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.java-json-tools:msg-simple:1.2">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/msg-simple/1.2/msg-simple-1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/msg-simple/1.2/msg-simple-1.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/msg-simple/1.2/msg-simple-1.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/codeStyles/codeStyleConfig.xml
+===================================================================
+diff --git a/.idea/codeStyles/codeStyleConfig.xml b/.idea/codeStyles/codeStyleConfig.xml
+deleted file mode 100644
+--- a/.idea/codeStyles/codeStyleConfig.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,5 +0,0 @@
+-<component name="ProjectCodeStyleConfiguration">
+-  <state>
+-    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
+-  </state>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_common_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_common_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_common_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_common_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-common:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-common/4.1.79.Final/netty-common-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-common/4.1.79.Final/netty-common-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-common/4.1.79.Final/netty-common-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml b/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,2 +0,0 @@
+-# Default ignored files
+-/workspace.xml
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_azure_azure_storage_blob_12_19_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_azure_azure_storage_blob_12_19_1.xml b/.idea/libraries/Maven__com_azure_azure_storage_blob_12_19_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_azure_azure_storage_blob_12_19_1.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.azure:azure-storage-blob:12.19.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-blob/12.19.1/azure-storage-blob-12.19.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-blob/12.19.1/azure-storage-blob-12.19.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-blob/12.19.1/azure-storage-blob-12.19.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_buffer_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_buffer_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_buffer_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_buffer_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-buffer:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-buffer/4.1.79.Final/netty-buffer-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-buffer/4.1.79.Final/netty-buffer-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-buffer/4.1.79.Final/netty-buffer-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_azure_azure_cosmos_4_37_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_azure_azure_cosmos_4_37_0.xml b/.idea/libraries/Maven__com_azure_azure_cosmos_4_37_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_azure_azure_cosmos_4_37_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.azure:azure-cosmos:4.37.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-cosmos/4.37.0/azure-cosmos-4.37.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-cosmos/4.37.0/azure-cosmos-4.37.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-cosmos/4.37.0/azure-cosmos-4.37.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_13_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_13_3.xml b/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_13_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_13_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.3/jackson-dataformat-xml-2.13.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.3/jackson-dataformat-xml-2.13.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.3/jackson-dataformat-xml-2.13.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_codec_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_codec_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_codec_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_codec_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-codec:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.79.Final/netty-codec-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.79.Final/netty-codec-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.79.Final/netty-codec-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_codec_dns_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-codec-dns:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-dns/4.1.79.Final/netty-codec-dns-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-dns/4.1.79.Final/netty-codec-dns-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-dns/4.1.79.Final/netty-codec-dns-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_tcnative_classes_2_0_53_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_tcnative_classes_2_0_53_Final.xml b/.idea/libraries/Maven__io_netty_netty_tcnative_classes_2_0_53_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_tcnative_classes_2_0_53_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-tcnative-classes:2.0.53.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-classes/2.0.53.Final/netty-tcnative-classes-2.0.53.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-classes/2.0.53.Final/netty-tcnative-classes-2.0.53.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-classes/2.0.53.Final/netty-tcnative-classes-2.0.53.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_resolver_dns_classes_macos_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_resolver_dns_classes_macos_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_resolver_dns_classes_macos_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_resolver_dns_classes_macos_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-resolver-dns-classes-macos:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns-classes-macos/4.1.79.Final/netty-resolver-dns-classes-macos-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns-classes-macos/4.1.79.Final/netty-resolver-dns-classes-macos-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns-classes-macos/4.1.79.Final/netty-resolver-dns-classes-macos-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_resteasy_resteasy_jackson2_provider_6_1_0_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_jackson2_provider_6_1_0_Final.xml b/.idea/libraries/Maven__org_jboss_resteasy_resteasy_jackson2_provider_6_1_0_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_jackson2_provider_6_1_0_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.jboss.resteasy:resteasy-jackson2-provider:6.1.0.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jackson2-provider/6.1.0.Final/resteasy-jackson2-provider-6.1.0.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jackson2-provider/6.1.0.Final/resteasy-jackson2-provider-6.1.0.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jackson2-provider/6.1.0.Final/resteasy-jackson2-provider-6.1.0.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-epoll/4.1.79.Final/netty-transport-native-epoll-4.1.79.Final-linux-x86_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-epoll/4.1.79.Final/netty-transport-native-epoll-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-epoll/4.1.79.Final/netty-transport-native-epoll-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_xsom_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_xsom_4_0_0.xml b/.idea/libraries/Maven__org_glassfish_jaxb_xsom_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_xsom_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:xsom:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/xsom/4.0.0/xsom-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/xsom/4.0.0/xsom-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/xsom/4.0.0/xsom-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_resolver_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_resolver_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_resolver_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_resolver_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-resolver:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver/4.1.79.Final/netty-resolver-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver/4.1.79.Final/netty-resolver-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver/4.1.79.Final/netty-resolver-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/artifacts/scc2122_lab1_war_exploded.xml
+===================================================================
+diff --git a/.idea/artifacts/scc2122_lab1_war_exploded.xml b/.idea/artifacts/scc2122_lab1_war_exploded.xml
+deleted file mode 100644
+--- a/.idea/artifacts/scc2122_lab1_war_exploded.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,74 +0,0 @@
+-<component name="ArtifactManager">
+-  <artifact type="exploded-war" name="scc2122-lab1:war exploded">
+-    <output-path>$PROJECT_DIR$/target/scc2122-lab1-1.0</output-path>
+-    <properties id="maven-jee-properties">
+-      <options>
+-        <exploded>true</exploded>
+-        <module>scc2122-lab1</module>
+-        <packaging>war</packaging>
+-      </options>
+-    </properties>
+-    <root id="root">
+-      <element id="directory" name="WEB-INF">
+-        <element id="directory" name="classes">
+-          <element id="module-output" name="scc2122-lab1" />
+-        </element>
+-        <element id="directory" name="lib">
+-          <element id="library" level="project" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1.1" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.12.5" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.12.5" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.12.5" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.12.5" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.12.5" />
+-          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:2.3.2" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.5" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-core:4.7.2.Final" />
+-          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" />
+-          <element id="library" level="project" name="Maven: org.jboss.spec.javax.annotation:jboss-annotations-api_1.3_spec:2.0.1.Final" />
+-          <element id="library" level="project" name="Maven: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:2.0.1.Final" />
+-          <element id="library" level="project" name="Maven: org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec:2.0.0.Final" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-core-spi:4.7.2.Final" />
+-          <element id="library" level="project" name="Maven: org.reactivestreams:reactive-streams:1.0.3" />
+-          <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:1.2.1" />
+-          <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" />
+-          <element id="library" level="project" name="Maven: com.ibm.async:asyncutil:0.1.0" />
+-          <element id="library" level="project" name="Maven: io.smallrye.config:smallrye-config:2.3.0" />
+-          <element id="library" level="project" name="Maven: io.smallrye.config:smallrye-config-core:2.3.0" />
+-          <element id="library" level="project" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:2.0" />
+-          <element id="library" level="project" name="Maven: io.smallrye.common:smallrye-common-annotation:1.6.0" />
+-          <element id="library" level="project" name="Maven: io.smallrye.common:smallrye-common-expression:1.6.0" />
+-          <element id="library" level="project" name="Maven: io.smallrye.common:smallrye-common-function:1.6.0" />
+-          <element id="library" level="project" name="Maven: io.smallrye.common:smallrye-common-constraint:1.6.0" />
+-          <element id="library" level="project" name="Maven: io.smallrye.common:smallrye-common-classloader:1.6.0" />
+-          <element id="library" level="project" name="Maven: org.ow2.asm:asm:9.1" />
+-          <element id="library" level="project" name="Maven: io.smallrye.config:smallrye-config-common:2.3.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-jaxb-provider:4.7.2.Final" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.3-b02" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:2.3.3-b02" />
+-          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.10" />
+-          <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:1.2.1" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-jackson2-provider:4.7.2.Final" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:json-patch:1.13" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:msg-simple:1.2" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:btf:1.3" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:jackson-coreutils:2.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-servlet-initializer:4.7.2.Final" />
+-          <element id="library" level="project" name="Maven: com.microsoft.azure:azure-storage:8.6.6" />
+-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.12" />
+-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
+-          <element id="library" level="project" name="Maven: com.microsoft.azure:azure-keyvault-core:1.2.4" />
+-          <element id="library" level="project" name="Maven: com.google.guava:guava:24.1.1-jre" />
+-          <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:1.3.9" />
+-          <element id="library" level="project" name="Maven: org.checkerframework:checker-compat-qual:2.0.0" />
+-          <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.1.3" />
+-          <element id="library" level="project" name="Maven: com.google.j2objc:j2objc-annotations:1.1" />
+-          <element id="library" level="project" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" />
+-        </element>
+-      </element>
+-      <element id="directory" name="META-INF">
+-        <element id="file-copy" path="$PROJECT_DIR$/target/scc2122-lab1-1.0/META-INF/MANIFEST.MF" />
+-      </element>
+-      <element id="javaee-facet-resources" facet="scc2122-lab1/web/Web" />
+-    </root>
+-  </artifact>
+-</component>
+\ No newline at end of file
+Index: .idea/azure/azureSettings.xml
+===================================================================
+diff --git a/.idea/azure/azureSettings.xml b/.idea/azure/azureSettings.xml
+deleted file mode 100644
+--- a/.idea/azure/azureSettings.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AzureSettings">
+-    <option name="appInsights" value="rO0ABXVyAEtbTGNvbS5taWNyb3NvZnQuYXBwbGljYXRpb25pbnNpZ2h0cy5wcmVmZXJlbmNlLkFwcGxpY2F0aW9uSW5zaWdodHNSZXNvdXJjZTvCzxEP0C2HbAIAAHhwAAAAAA==" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/artifacts/scc2223_lab1_war_exploded.xml
+===================================================================
+diff --git a/.idea/artifacts/scc2223_lab1_war_exploded.xml b/.idea/artifacts/scc2223_lab1_war_exploded.xml
+deleted file mode 100644
+--- a/.idea/artifacts/scc2223_lab1_war_exploded.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,113 +0,0 @@
+-<component name="ArtifactManager">
+-  <artifact type="exploded-war" name="scc2223-lab1:war exploded">
+-    <output-path>$PROJECT_DIR$/target/scc2223-lab1-1.0</output-path>
+-    <properties id="maven-jee-properties">
+-      <options>
+-        <exploded>true</exploded>
+-        <module>scc2223-lab1</module>
+-        <packaging>war</packaging>
+-        <unpackNestedArchives>false</unpackNestedArchives>
+-      </options>
+-    </properties>
+-    <root id="root">
+-      <element id="directory" name="WEB-INF">
+-        <element id="directory" name="classes">
+-          <element id="module-output" name="Projekt" />
+-        </element>
+-        <element id="directory" name="lib">
+-          <element id="library" level="project" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1.1" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-cosmos:4.37.0" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-core:1.32.0" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.3" />
+-          <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:4.2.1" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.woodstox:woodstox-core:6.2.7" />
+-          <element id="library" level="project" name="Maven: io.projectreactor:reactor-core:3.4.22" />
+-          <element id="library" level="project" name="Maven: com.azure:azure-core-http-netty:1.12.5" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-common:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-handler-proxy:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-socks:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-buffer:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-http:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-http2:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-unix-common:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-classes-epoll:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-transport-classes-kqueue:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-classes:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:linux-x86_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:linux-aarch_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:osx-x86_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:osx-aarch_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-tcnative-boringssl-static:windows-x86_64:2.0.53.Final" />
+-          <element id="library" level="project" name="Maven: io.projectreactor.netty:reactor-netty-http:1.0.22" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver-dns:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-codec-dns:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver-dns-native-macos:osx-x86_64:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.netty:netty-resolver-dns-classes-macos:4.1.79.Final" />
+-          <element id="library" level="project" name="Maven: io.projectreactor.netty:reactor-netty-core:1.0.22" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-afterburner:2.13.3" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3" />
+-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.36" />
+-          <element id="library" level="project" name="Maven: org.hdrhistogram:HdrHistogram:2.1.12" />
+-          <element id="library" level="project" name="Maven: io.dropwizard.metrics:metrics-core:4.1.0" />
+-          <element id="library" level="project" name="Maven: io.micrometer:micrometer-core:1.9.3" />
+-          <element id="library" level="project" name="Maven: org.latencyutils:LatencyUtils:2.0.3" />
+-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.12.0" />
+-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:2.0.3" />
+-          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.19.0" />
+-          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.19.0" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-jackson2-provider:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jakarta:2.12.6" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jakarta:2.12.6" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jakarta:2.12.6" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:json-patch:1.13" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:msg-simple:1.2" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:btf:1.3" />
+-          <element id="library" level="project" name="Maven: com.github.java-json-tools:jackson-coreutils:2.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" />
+-          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.9.1" />
+-          <element id="library" level="project" name="Maven: jakarta.ws.rs:jakarta.ws.rs-api:3.1.0" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.13.4" />
+-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.13.4" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-core:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.0" />
+-          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.1" />
+-          <element id="library" level="project" name="Maven: org.jboss:jandex:2.4.2.Final" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-core-spi:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: org.reactivestreams:reactive-streams:1.0.3" />
+-          <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:2.1.0" />
+-          <element id="library" level="project" name="Maven: org.eclipse.angus:angus-activation:1.0.0" />
+-          <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:3.0.0" />
+-          <element id="library" level="project" name="Maven: com.ibm.async:asyncutil:0.1.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-jaxb-provider:6.1.0.Final" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:codemodel:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-core:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-jxc:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-xjc:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.glassfish.jaxb:xsom:4.0.0" />
+-          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:4.1.0" />
+-          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-tools:4.1.0" />
+-          <element id="library" level="project" name="Maven: com.sun.xml.bind.external:relaxng-datatype:4.0.0" />
+-          <element id="library" level="project" name="Maven: com.sun.xml.bind.external:rngom:4.0.0" />
+-          <element id="library" level="project" name="Maven: org.jboss.resteasy:resteasy-servlet-initializer:6.1.0.Final" />
+-        </element>
+-      </element>
+-      <element id="directory" name="META-INF">
+-        <element id="file-copy" path="$PROJECT_DIR$/target/scc2223-lab1-1.0/META-INF/MANIFEST.MF" />
+-      </element>
+-      <element id="javaee-facet-resources" facet="scc2223-lab1/web/Web" />
+-    </root>
+-  </artifact>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_2_13_4.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_2_13_4.xml b/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_2_13_4.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_2_13_4.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.13.4">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.13.4/jackson-jaxrs-base-2.13.4.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.13.4/jackson-jaxrs-base-2.13.4-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.13.4/jackson-jaxrs-base-2.13.4-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_22.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_22.xml b/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_22.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_22.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.projectreactor.netty:reactor-netty-http:1.0.22">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/netty/reactor-netty-http/1.0.22/reactor-netty-http-1.0.22.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/netty/reactor-netty-http/1.0.22/reactor-netty-http-1.0.22-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/netty/reactor-netty-http/1.0.22/reactor-netty-http-1.0.22-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_12.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_12.xml b/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_12.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_12.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.hdrhistogram:HdrHistogram:2.1.12">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml b/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.latencyutils:LatencyUtils:2.0.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_resteasy_resteasy_core_spi_6_1_0_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_core_spi_6_1_0_Final.xml b/.idea/libraries/Maven__org_jboss_resteasy_resteasy_core_spi_6_1_0_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_core_spi_6_1_0_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.jboss.resteasy:resteasy-core-spi:6.1.0.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-core-spi/6.1.0.Final/resteasy-core-spi-6.1.0.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-core-spi/6.1.0.Final/resteasy-core-spi-6.1.0.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-core-spi/6.1.0.Final/resteasy-core-spi-6.1.0.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-resolver-dns:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns/4.1.79.Final/netty-resolver-dns-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns/4.1.79.Final/netty-resolver-dns-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns/4.1.79.Final/netty-resolver-dns-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_codemodel_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_codemodel_4_0_0.xml b/.idea/libraries/Maven__org_glassfish_jaxb_codemodel_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_codemodel_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:codemodel:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/codemodel/4.0.0/codemodel-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/codemodel/4.0.0/codemodel-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/codemodel/4.0.0/codemodel-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-resolver-dns-native-macos:osx-x86_64:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns-native-macos/4.1.79.Final/netty-resolver-dns-native-macos-4.1.79.Final-osx-x86_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns-native-macos/4.1.79.Final/netty-resolver-dns-native-macos-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns-native-macos/4.1.79.Final/netty-resolver-dns-native-macos-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_transport_native_kqueue_osx_x86_64_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_transport_native_kqueue_osx_x86_64_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_transport_native_kqueue_osx_x86_64_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_transport_native_kqueue_osx_x86_64_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-kqueue/4.1.79.Final/netty-transport-native-kqueue-4.1.79.Final-osx-x86_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-kqueue/4.1.79.Final/netty-transport-native-kqueue-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-kqueue/4.1.79.Final/netty-transport-native-kqueue-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__jakarta_ws_rs_jakarta_ws_rs_api_3_1_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__jakarta_ws_rs_jakarta_ws_rs_api_3_1_0.xml b/.idea/libraries/Maven__jakarta_ws_rs_jakarta_ws_rs_api_3_1_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__jakarta_ws_rs_jakarta_ws_rs_api_3_1_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: jakarta.ws.rs:jakarta.ws.rs-api:3.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/ws/rs/jakarta.ws.rs-api/3.1.0/jakarta.ws.rs-api-3.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/ws/rs/jakarta.ws.rs-api/3.1.0/jakarta.ws.rs-api-3.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/ws/rs/jakarta.ws.rs-api/3.1.0/jakarta.ws.rs-api-3.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_java_json_tools_jackson_coreutils_2_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_java_json_tools_jackson_coreutils_2_0.xml b/.idea/libraries/Maven__com_github_java_json_tools_jackson_coreutils_2_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_java_json_tools_jackson_coreutils_2_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.java-json-tools:jackson-coreutils:2.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/jackson-coreutils/2.0/jackson-coreutils-2.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/jackson-coreutils/2.0/jackson-coreutils-2.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/jackson-coreutils/2.0/jackson-coreutils-2.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml b/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.jboss:jandex:2.4.2.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_aarch_64_2_0_53_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_aarch_64_2_0_53_Final.xml b/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_aarch_64_2_0_53_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_linux_aarch_64_2_0_53_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-tcnative-boringssl-static:linux-aarch_64:2.0.53.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-linux-aarch_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_19_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_19_0.xml b/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_19_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_19_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.logging.log4j:log4j-core:2.19.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.19.0/log4j-core-2.19.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.19.0/log4j-core-2.19.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.19.0/log4j-core-2.19.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/azureSettings.xml
+===================================================================
+diff --git a/.idea/azureSettings.xml b/.idea/azureSettings.xml
+deleted file mode 100644
+--- a/.idea/azureSettings.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AzureSettings">
+-    <option name="appInsights" value="rO0ABXVyAEtbTGNvbS5taWNyb3NvZnQuYXBwbGljYXRpb25pbnNpZ2h0cy5wcmVmZXJlbmNlLkFwcGxpY2F0aW9uSW5zaWdodHNSZXNvdXJjZTvCzxEP0C2HbAIAAHhwAAAAAA==" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_aarch_64_2_0_53_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_aarch_64_2_0_53_Final.xml b/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_aarch_64_2_0_53_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_osx_aarch_64_2_0_53_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-tcnative-boringssl-static:osx-aarch_64:2.0.53.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-osx-aarch_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_7.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_7.xml b/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_7.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_2_7.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.woodstox:woodstox-core:6.2.7">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_azure_azure_core_http_netty_1_12_5.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_azure_azure_core_http_netty_1_12_5.xml b/.idea/libraries/Maven__com_azure_azure_core_http_netty_1_12_5.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_azure_azure_core_http_netty_1_12_5.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.azure:azure-core-http-netty:1.12.5">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-core-http-netty/1.12.5/azure-core-http-netty-1.12.5.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-core-http-netty/1.12.5/azure-core-http-netty-1.12.5-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-core-http-netty/1.12.5/azure-core-http-netty-1.12.5-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_resteasy_resteasy_servlet_initializer_6_1_0_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_servlet_initializer_6_1_0_Final.xml b/.idea/libraries/Maven__org_jboss_resteasy_resteasy_servlet_initializer_6_1_0_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_jboss_resteasy_resteasy_servlet_initializer_6_1_0_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.jboss.resteasy:resteasy-servlet-initializer:6.1.0.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-servlet-initializer/6.1.0.Final/resteasy-servlet-initializer-6.1.0.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-servlet-initializer/6.1.0.Final/resteasy-servlet-initializer-6.1.0.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-servlet-initializer/6.1.0.Final/resteasy-servlet-initializer-6.1.0.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_jakarta_2_12_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_jakarta_2_12_6.xml b/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_jakarta_2_12_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_jakarta_2_12_6.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jakarta:2.12.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.12.6/jackson-jaxrs-json-provider-2.12.6-jakarta.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.12.6/jackson-jaxrs-json-provider-2.12.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.12.6/jackson-jaxrs-json-provider-2.12.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_0.xml b/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: jakarta.validation:jakarta.validation-api:3.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/validation/jakarta.validation-api/3.0.0/jakarta.validation-api-3.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/validation/jakarta.validation-api/3.0.0/jakarta.validation-api-3.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/validation/jakarta.validation-api/3.0.0/jakarta.validation-api-3.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_java_json_tools_json_patch_1_13.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_java_json_tools_json_patch_1_13.xml b/.idea/libraries/Maven__com_github_java_json_tools_json_patch_1_13.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_java_json_tools_json_patch_1_13.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.java-json-tools:json-patch:1.13">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/json-patch/1.13/json-patch-1.13.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/json-patch/1.13/json-patch-1.13-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/json-patch/1.13/json-patch-1.13-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_azure_azure_storage_common_12_18_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_azure_azure_storage_common_12_18_1.xml b/.idea/libraries/Maven__com_azure_azure_storage_common_12_18_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_azure_azure_storage_common_12_18_1.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.azure:azure-storage-common:12.18.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-common/12.18.1/azure-storage-common-12.18.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-common/12.18.1/azure-storage-common-12.18.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-storage-common/12.18.1/azure-storage-common-12.18.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_sun_xml_bind_external_relaxng_datatype_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_sun_xml_bind_external_relaxng_datatype_4_0_0.xml b/.idea/libraries/Maven__com_sun_xml_bind_external_relaxng_datatype_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_sun_xml_bind_external_relaxng_datatype_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.sun.xml.bind.external:relaxng-datatype:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/external/relaxng-datatype/4.0.0/relaxng-datatype-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/external/relaxng-datatype/4.0.0/relaxng-datatype-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/external/relaxng-datatype/4.0.0/relaxng-datatype-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_codec_http_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-codec-http:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-http/4.1.79.Final/netty-codec-http-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-http/4.1.79.Final/netty-codec-http-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-codec-http/4.1.79.Final/netty-codec-http-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml b/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.commons:commons-lang3:3.12.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_sun_xml_bind_external_rngom_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_sun_xml_bind_external_rngom_4_0_0.xml b/.idea/libraries/Maven__com_sun_xml_bind_external_rngom_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_sun_xml_bind_external_rngom_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.sun.xml.bind.external:rngom:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/external/rngom/4.0.0/rngom-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/external/rngom/4.0.0/rngom-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/external/rngom/4.0.0/rngom-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-transport-native-unix-common:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-unix-common/4.1.79.Final/netty-transport-native-unix-common-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-unix-common/4.1.79.Final/netty-transport-native-unix-common-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport-native-unix-common/4.1.79.Final/netty-transport-native-unix-common-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/emacs.xml
+===================================================================
+diff --git a/.idea/emacs.xml b/.idea/emacs.xml
+deleted file mode 100644
+--- a/.idea/emacs.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="EmacsSettings">
+-    <option name="emacsPath" value="/usr/bin/emacs" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/artifacts/scc2223_lab1_war.xml
+===================================================================
+diff --git a/.idea/artifacts/scc2223_lab1_war.xml b/.idea/artifacts/scc2223_lab1_war.xml
+deleted file mode 100644
+--- a/.idea/artifacts/scc2223_lab1_war.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,16 +0,0 @@
+-<component name="ArtifactManager">
+-  <artifact type="war" name="scc2223-lab1:war">
+-    <output-path>$PROJECT_DIR$/target</output-path>
+-    <properties id="maven-jee-properties">
+-      <options>
+-        <exploded>false</exploded>
+-        <module>scc2223-lab1</module>
+-        <packaging>war</packaging>
+-        <unpackNestedArchives>false</unpackNestedArchives>
+-      </options>
+-    </properties>
+-    <root id="archive" name="scc2223-lab1-1.0.war">
+-      <element id="artifact" artifact-name="scc2223-lab1:war exploded" />
+-    </root>
+-  </artifact>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_sun_istack_istack_commons_tools_4_1_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_sun_istack_istack_commons_tools_4_1_0.xml b/.idea/libraries/Maven__com_sun_istack_istack_commons_tools_4_1_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_sun_istack_istack_commons_tools_4_1_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.sun.istack:istack-commons-tools:4.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-tools/4.1.0/istack-commons-tools-4.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-tools/4.1.0/istack-commons-tools-4.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-tools/4.1.0/istack-commons-tools-4.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_windows_x86_64_2_0_53_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_windows_x86_64_2_0_53_Final.xml b/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_windows_x86_64_2_0_53_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_tcnative_boringssl_static_windows_x86_64_2_0_53_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-tcnative-boringssl-static:windows-x86_64:2.0.53.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-windows-x86_64.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative-boringssl-static/2.0.53.Final/netty-tcnative-boringssl-static-2.0.53.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_1.xml b/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_1.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/xml/bind/jakarta.xml.bind-api/3.0.1/jakarta.xml.bind-api-3.0.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/xml/bind/jakarta.xml.bind-api/3.0.1/jakarta.xml.bind-api-3.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/xml/bind/jakarta.xml.bind-api/3.0.1/jakarta.xml.bind-api-3.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_txw2_4_0_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_txw2_4_0_0.xml b/.idea/libraries/Maven__org_glassfish_jaxb_txw2_4_0_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_txw2_4_0_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:txw2:4.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/4.0.0/txw2-4.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/4.0.0/txw2-4.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/4.0.0/txw2-4.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_4.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_4.xml b/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_4.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_4.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.4">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.13.4/jackson-annotations-2.13.4.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.13.4/jackson-annotations-2.13.4-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.13.4/jackson-annotations-2.13.4-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_22.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_22.xml b/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_22.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_22.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.projectreactor.netty:reactor-netty-core:1.0.22">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/netty/reactor-netty-core/1.0.22/reactor-netty-core-1.0.22.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/netty/reactor-netty-core/1.0.22/reactor-netty-core-1.0.22-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/projectreactor/netty/reactor-netty-core/1.0.22/reactor-netty-core-1.0.22-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_slf4j_slf4j_simple_2_0_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_slf4j_slf4j_simple_2_0_3.xml b/.idea/libraries/Maven__org_slf4j_slf4j_simple_2_0_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_slf4j_slf4j_simple_2_0_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.slf4j:slf4j-simple:2.0.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/2.0.3/slf4j-simple-2.0.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/2.0.3/slf4j-simple-2.0.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/2.0.3/slf4j-simple-2.0.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,9 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/Projekt.iml" filepath="$PROJECT_DIR$/Projekt.iml" />
+-      <module fileurl="file://$PROJECT_DIR$/scc2122-lab1.iml" filepath="$PROJECT_DIR$/scc2122-lab1.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_codehaus_woodstox_stax2_api_4_2_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_codehaus_woodstox_stax2_api_4_2_1.xml b/.idea/libraries/Maven__org_codehaus_woodstox_stax2_api_4_2_1.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_codehaus_woodstox_stax2_api_4_2_1.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.codehaus.woodstox:stax2-api:4.2.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_19_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_19_0.xml b/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_19_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_19_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.logging.log4j:log4j-api:2.19.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_13_4.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_13_4.xml b/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_13_4.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_13_4.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.13.4">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.13.4/jackson-module-jaxb-annotations-2.13.4.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.13.4/jackson-module-jaxb-annotations-2.13.4-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.13.4/jackson-module-jaxb-annotations-2.13.4-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_netty_netty_transport_4_1_79_Final.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__io_netty_netty_transport_4_1_79_Final.xml b/.idea/libraries/Maven__io_netty_netty_transport_4_1_79_Final.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__io_netty_netty_transport_4_1_79_Final.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.netty:netty-transport:4.1.79.Final">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.79.Final/netty-transport-4.1.79.Final.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.79.Final/netty-transport-4.1.79.Final-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.79.Final/netty-transport-4.1.79.Final-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_jakarta_2_12_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_jakarta_2_12_6.xml b/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_jakarta_2_12_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_jakarta_2_12_6.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jakarta:2.12.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.12.6/jackson-module-jaxb-annotations-2.12.6-jakarta.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.12.6/jackson-module-jaxb-annotations-2.12.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.12.6/jackson-module-jaxb-annotations-2.12.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__redis_clients_jedis_4_2_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__redis_clients_jedis_4_2_3.xml b/.idea/libraries/Maven__redis_clients_jedis_4_2_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__redis_clients_jedis_4_2_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: redis.clients:jedis:4.2.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/4.2.3/jedis-4.2.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/4.2.3/jedis-4.2.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/4.2.3/jedis-4.2.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_java_json_tools_btf_1_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_github_java_json_tools_btf_1_3.xml b/.idea/libraries/Maven__com_github_java_json_tools_btf_1_3.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_github_java_json_tools_btf_1_3.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.java-json-tools:btf:1.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/btf/1.3/btf-1.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/btf/1.3/btf-1.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/java-json-tools/btf/1.3/btf-1.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_azure_azure_core_1_32_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__com_azure_azure_core_1_32_0.xml b/.idea/libraries/Maven__com_azure_azure_core_1_32_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__com_azure_azure_core_1_32_0.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ /dev/null	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.azure:azure-core:1.32.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-core/1.32.0/azure-core-1.32.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-core/1.32.0/azure-core-1.32.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/azure/azure-core/1.32.0/azure-core-1.32.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"scc2122-lab1\" />\r\n        <module name=\"Projekt\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n    <bytecodeTargetLevel>\r\n      <module name=\"Projekt\" target=\"17\" />\r\n      <module name=\"scc2122-lab1\" target=\"11\" />\r\n    </bytecodeTargetLevel>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ b/.idea/compiler.xml	(date 1667673432660)
+@@ -6,13 +6,8 @@
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+-        <module name="scc2122-lab1" />
+-        <module name="Projekt" />
++        <module name="project" />
+       </profile>
+     </annotationProcessing>
+-    <bytecodeTargetLevel>
+-      <module name="Projekt" target="17" />
+-      <module name="scc2122-lab1" target="11" />
+-    </bytecodeTargetLevel>
+   </component>
+ </project>
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">  \r\n  <modelVersion>4.0.0</modelVersion>  \r\n  <groupId>pt.unl.fct.di.scc</groupId>  \r\n  <artifactId>project</artifactId>\r\n  <version>1.0</version>  \r\n  <packaging>war</packaging>  \r\n  <properties> \r\n    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  \r\n    <authors>XXXXX-YYYYY-ZZZZZ</authors> \r\n  </properties>  \r\n  <dependencies> \r\n    <dependency> \r\n      <groupId>javax.ws.rs</groupId>  \r\n      <artifactId>javax.ws.rs-api</artifactId>  \r\n      <version>2.1.1</version> \r\n    </dependency>\r\n    <dependency>\r\n      <groupId>redis.clients</groupId>\r\n      <artifactId>jedis</artifactId>\r\n      <version>4.2.3</version>\r\n    </dependency>\r\n    <dependency>\r\n      <groupId>com.fasterxml.jackson.core</groupId>\r\n      <artifactId>jackson-core</artifactId>\r\n      <version>2.13.4</version>\r\n    </dependency>\r\n    <dependency>\r\n      <groupId>com.fasterxml.jackson.core</groupId>\r\n      <artifactId>jackson-databind</artifactId>\r\n      <version>2.13.4</version>\r\n    </dependency>\r\n\r\n    <dependency>\r\n      <groupId>com.azure</groupId>\r\n      <artifactId>azure-storage-blob</artifactId>\r\n      <version>12.19.1</version>\r\n    </dependency>\r\n    <dependency> \r\n      <groupId>com.azure</groupId>  \r\n      <artifactId>azure-cosmos</artifactId>  \r\n      <version>4.37.0</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.apache.commons</groupId>  \r\n      <artifactId>commons-lang3</artifactId>  \r\n      <version>3.12.0</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.slf4j</groupId>  \r\n      <artifactId>slf4j-simple</artifactId>  \r\n      <version>2.0.3</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.apache.logging.log4j</groupId>  \r\n      <artifactId>log4j-core</artifactId>  \r\n      <version>2.19.0</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>com.fasterxml.jackson.core</groupId>  \r\n      <artifactId>jackson-core</artifactId>  \r\n      <version>2.13.4</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.jboss.resteasy</groupId>  \r\n      <artifactId>resteasy-jackson2-provider</artifactId>  \r\n      <version>6.2.0.Final</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>com.google.code.gson</groupId>  \r\n      <artifactId>gson</artifactId>  \r\n      <version>2.9.1</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>jakarta.ws.rs</groupId>  \r\n      <artifactId>jakarta.ws.rs-api</artifactId>  \r\n      <version>3.1.0</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>com.fasterxml.jackson.core</groupId>  \r\n      <artifactId>jackson-annotations</artifactId>  \r\n      <version>2.13.4</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>com.fasterxml.jackson.core</groupId>  \r\n      <artifactId>jackson-databind</artifactId>  \r\n      <version>2.13.4</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>com.fasterxml.jackson.jaxrs</groupId>  \r\n      <artifactId>jackson-jaxrs-json-provider</artifactId>  \r\n      <version>2.13.4</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>com.fasterxml.jackson.core</groupId>  \r\n      <artifactId>jackson-core</artifactId>  \r\n      <version>2.13.4</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.jboss.resteasy</groupId>  \r\n      <artifactId>resteasy-core</artifactId>  \r\n      <version>6.1.0.Final</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.jboss.resteasy</groupId>  \r\n      <artifactId>resteasy-jaxb-provider</artifactId>  \r\n      <version>6.1.0.Final</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.jboss.resteasy</groupId>  \r\n      <artifactId>resteasy-jackson2-provider</artifactId>  \r\n      <version>6.1.0.Final</version> \r\n    </dependency>  \r\n    <dependency> \r\n      <groupId>org.jboss.resteasy</groupId>  \r\n      <artifactId>resteasy-servlet-initializer</artifactId>  \r\n      <version>6.1.0.Final</version> \r\n    </dependency> \r\n  </dependencies>  \r\n  <build> \r\n    <sourceDirectory>src</sourceDirectory>  \r\n    <plugins> \r\n      <plugin> \r\n        <artifactId>maven-compiler-plugin</artifactId>  \r\n        <version>3.10.1</version>  \r\n        <configuration> \r\n          <source>17</source>  \r\n          <target>17</target> \r\n        </configuration> \r\n      </plugin>  \r\n      <plugin> \r\n        <artifactId>maven-war-plugin</artifactId>  \r\n        <version>3.3.2</version>  \r\n        <configuration> \r\n          <warSourceDirectory>WebContent</warSourceDirectory> \r\n        </configuration> \r\n      </plugin>  \r\n      <plugin> \r\n        <groupId>com.microsoft.azure</groupId>  \r\n        <artifactId>azure-webapp-maven-plugin</artifactId>  \r\n        <version>2.6.1</version>  \r\n        <configuration> \r\n          <schemaVersion>V2</schemaVersion>  \r\n          <pricingTier>F1</pricingTier>  \r\n          <region>westeurope</region>  \r\n          <runtime> \r\n            <os>linux</os>  \r\n            <javaVersion>Java 17</javaVersion>  \r\n            <webContainer>Tomcat 10.0</webContainer> \r\n          </runtime>  \r\n          <deployment> \r\n            <resources> \r\n              <resource> \r\n                <directory>${project.basedir}/target</directory>  \r\n                <includes> \r\n                  <include>*.war</include> \r\n                </includes> \r\n              </resource> \r\n            </resources> \r\n          </deployment>  \r\n          <resourceGroup>scc-backend-rg-4204</resourceGroup>  \r\n          <appName>scc-backend-4204</appName>\r\n        </configuration> \r\n      </plugin> \r\n    </plugins> \r\n  </build> \r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ b/pom.xml	(date 1667674130011)
+@@ -7,8 +7,12 @@
+   <version>1.0</version>  
+   <packaging>war</packaging>  
+   <properties> 
+-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+-    <authors>XXXXX-YYYYY-ZZZZZ</authors> 
++    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
++    <functionAppName>sccfunwesteurope4204</functionAppName>
++    <functionAppRegion>westeurope</functionAppRegion>
++    <functionPricingTier>B1</functionPricingTier>
++    <functionResourceGroup>scc-backend-rg-148265</functionResourceGroup>
++    <authors>XXXXX-YYYYY-ZZZZZ</authors>
+   </properties>  
+   <dependencies> 
+     <dependency> 
+@@ -41,7 +45,12 @@
+       <groupId>com.azure</groupId>  
+       <artifactId>azure-cosmos</artifactId>  
+       <version>4.37.0</version> 
+-    </dependency>  
++    </dependency>
++    <dependency>
++      <groupId>com.microsoft.azure.functions</groupId>
++      <artifactId>azure-functions-java-library</artifactId>
++      <version>2.1.0</version>
++    </dependency>
+     <dependency> 
+       <groupId>org.apache.commons</groupId>  
+       <artifactId>commons-lang3</artifactId>  
+@@ -120,7 +129,56 @@
+   </dependencies>  
+   <build> 
+     <sourceDirectory>src</sourceDirectory>  
+-    <plugins> 
++    <plugins>
++      <plugin>
++        <groupId>com.microsoft.azure</groupId>
++        <artifactId>azure-functions-maven-plugin</artifactId>
++        <version>1.21.0</version>
++        <configuration>
++          <appName>${functionAppName}</appName>
++          <resourceGroup>${functionResourceGroup}</resourceGroup>
++          <region>${functionAppRegion}</region>
++          <pricingTier>${functionPricingTier}</pricingTier>
++          <disableAppInsights></disableAppInsights>
++          <runtime>
++            <!-- runtime os, could be windows, linux or docker-->
++            <os>linux</os>
++            <javaVersion>11</javaVersion>
++          </runtime>
++          <appSettings>
++            <property>
++              <name>FUNCTIONS_EXTENSION_VERSION</name>
++              <value>~4</value>
++            </property>
++            <property>
++              <name>WEBSITE_RUN_FROM_PACKAGE</name>
++              <value>1</value>
++            </property>
++          </appSettings>
++        </configuration>
++        <executions>
++          <execution>
++            <id>package-functions</id>
++            <goals>
++              <goal>package</goal>
++            </goals>
++          </execution>
++        </executions>
++      </plugin>
++
++
++      <plugin>
++        <artifactId>maven-clean-plugin</artifactId>
++        <version>3.2.0</version>
++        <configuration>
++          <filesets>
++            <fileset>
++              <directory>obj</directory>
++            </fileset>
++          </filesets>
++        </configuration>
++      </plugin>
++
+       <plugin> 
+         <artifactId>maven-compiler-plugin</artifactId>  
+         <version>3.10.1</version>  
+@@ -159,8 +217,8 @@
+               </resource> 
+             </resources> 
+           </deployment>  
+-          <resourceGroup>scc-backend-rg-4204</resourceGroup>  
+-          <appName>scc-backend-4204</appName>
++          <resourceGroup>scc-backend-rg-148265</resourceGroup>
++          <appName>scc-backend-148265</appName>
+         </configuration> 
+       </plugin> 
+     </plugins> 
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Palette2\">\r\n    <group name=\"Swing\">\r\n      <item class=\"com.intellij.uiDesigner.HSpacer\" tooltip-text=\"Horizontal Spacer\" icon=\"/com/intellij/uiDesigner/icons/hspacer.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"1\" hsize-policy=\"6\" anchor=\"0\" fill=\"1\" />\r\n      </item>\r\n      <item class=\"com.intellij.uiDesigner.VSpacer\" tooltip-text=\"Vertical Spacer\" icon=\"/com/intellij/uiDesigner/icons/vspacer.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"1\" anchor=\"0\" fill=\"2\" />\r\n      </item>\r\n      <item class=\"javax.swing.JPanel\" icon=\"/com/intellij/uiDesigner/icons/panel.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"3\" hsize-policy=\"3\" anchor=\"0\" fill=\"3\" />\r\n      </item>\r\n      <item class=\"javax.swing.JScrollPane\" icon=\"/com/intellij/uiDesigner/icons/scrollPane.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"7\" hsize-policy=\"7\" anchor=\"0\" fill=\"3\" />\r\n      </item>\r\n      <item class=\"javax.swing.JButton\" icon=\"/com/intellij/uiDesigner/icons/button.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"3\" anchor=\"0\" fill=\"1\" />\r\n        <initial-values>\r\n          <property name=\"text\" value=\"Button\" />\r\n        </initial-values>\r\n      </item>\r\n      <item class=\"javax.swing.JRadioButton\" icon=\"/com/intellij/uiDesigner/icons/radioButton.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"3\" anchor=\"8\" fill=\"0\" />\r\n        <initial-values>\r\n          <property name=\"text\" value=\"RadioButton\" />\r\n        </initial-values>\r\n      </item>\r\n      <item class=\"javax.swing.JCheckBox\" icon=\"/com/intellij/uiDesigner/icons/checkBox.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"3\" anchor=\"8\" fill=\"0\" />\r\n        <initial-values>\r\n          <property name=\"text\" value=\"CheckBox\" />\r\n        </initial-values>\r\n      </item>\r\n      <item class=\"javax.swing.JLabel\" icon=\"/com/intellij/uiDesigner/icons/label.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"8\" fill=\"0\" />\r\n        <initial-values>\r\n          <property name=\"text\" value=\"Label\" />\r\n        </initial-values>\r\n      </item>\r\n      <item class=\"javax.swing.JTextField\" icon=\"/com/intellij/uiDesigner/icons/textField.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\">\r\n          <preferred-size width=\"150\" height=\"-1\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JPasswordField\" icon=\"/com/intellij/uiDesigner/icons/passwordField.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\">\r\n          <preferred-size width=\"150\" height=\"-1\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JFormattedTextField\" icon=\"/com/intellij/uiDesigner/icons/formattedTextField.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\">\r\n          <preferred-size width=\"150\" height=\"-1\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JTextArea\" icon=\"/com/intellij/uiDesigner/icons/textArea.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"6\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"150\" height=\"50\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JTextPane\" icon=\"/com/intellij/uiDesigner/icons/textPane.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"6\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"150\" height=\"50\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JEditorPane\" icon=\"/com/intellij/uiDesigner/icons/editorPane.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"6\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"150\" height=\"50\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JComboBox\" icon=\"/com/intellij/uiDesigner/icons/comboBox.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"2\" anchor=\"8\" fill=\"1\" />\r\n      </item>\r\n      <item class=\"javax.swing.JTable\" icon=\"/com/intellij/uiDesigner/icons/table.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"6\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"150\" height=\"50\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JList\" icon=\"/com/intellij/uiDesigner/icons/list.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"2\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"150\" height=\"50\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JTree\" icon=\"/com/intellij/uiDesigner/icons/tree.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"6\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"150\" height=\"50\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JTabbedPane\" icon=\"/com/intellij/uiDesigner/icons/tabbedPane.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"3\" hsize-policy=\"3\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"200\" height=\"200\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JSplitPane\" icon=\"/com/intellij/uiDesigner/icons/splitPane.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"3\" hsize-policy=\"3\" anchor=\"0\" fill=\"3\">\r\n          <preferred-size width=\"200\" height=\"200\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JSpinner\" icon=\"/com/intellij/uiDesigner/icons/spinner.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"true\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\" />\r\n      </item>\r\n      <item class=\"javax.swing.JSlider\" icon=\"/com/intellij/uiDesigner/icons/slider.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"8\" fill=\"1\" />\r\n      </item>\r\n      <item class=\"javax.swing.JSeparator\" icon=\"/com/intellij/uiDesigner/icons/separator.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"6\" anchor=\"0\" fill=\"3\" />\r\n      </item>\r\n      <item class=\"javax.swing.JProgressBar\" icon=\"/com/intellij/uiDesigner/icons/progressbar.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"0\" fill=\"1\" />\r\n      </item>\r\n      <item class=\"javax.swing.JToolBar\" icon=\"/com/intellij/uiDesigner/icons/toolbar.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"6\" anchor=\"0\" fill=\"1\">\r\n          <preferred-size width=\"-1\" height=\"20\" />\r\n        </default-constraints>\r\n      </item>\r\n      <item class=\"javax.swing.JToolBar$Separator\" icon=\"/com/intellij/uiDesigner/icons/toolbarSeparator.png\" removable=\"false\" auto-create-binding=\"false\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"0\" fill=\"1\" />\r\n      </item>\r\n      <item class=\"javax.swing.JScrollBar\" icon=\"/com/intellij/uiDesigner/icons/scrollbar.png\" removable=\"false\" auto-create-binding=\"true\" can-attach-label=\"false\">\r\n        <default-constraints vsize-policy=\"6\" hsize-policy=\"0\" anchor=\"0\" fill=\"2\" />\r\n      </item>\r\n    </group>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+--- a/.idea/uiDesigner.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ b/.idea/uiDesigner.xml	(date 1667681122805)
+@@ -2,121 +2,121 @@
+ <project version="4">
+   <component name="Palette2">
+     <group name="Swing">
+-      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
+       </item>
+-      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
+       </item>
+-      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
+       </item>
+-      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.png" removable="false" auto-create-binding="false" can-attach-label="true">
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
+         <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
+       </item>
+-      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
+         <initial-values>
+           <property name="text" value="Button" />
+         </initial-values>
+       </item>
+-      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+         <initial-values>
+           <property name="text" value="RadioButton" />
+         </initial-values>
+       </item>
+-      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
+         <initial-values>
+           <property name="text" value="CheckBox" />
+         </initial-values>
+       </item>
+-      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
+         <initial-values>
+           <property name="text" value="Label" />
+         </initial-values>
+       </item>
+-      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+           <preferred-size width="150" height="-1" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+           <preferred-size width="150" height="-1" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
+           <preferred-size width="150" height="-1" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+           <preferred-size width="150" height="50" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+           <preferred-size width="150" height="50" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+           <preferred-size width="150" height="50" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
+       </item>
+-      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+           <preferred-size width="150" height="50" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
+           <preferred-size width="150" height="50" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
+           <preferred-size width="150" height="50" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+           <preferred-size width="200" height="200" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
+           <preferred-size width="200" height="200" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.png" removable="false" auto-create-binding="true" can-attach-label="true">
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
+         <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+       </item>
+-      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
+       </item>
+-      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
+       </item>
+-      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
+       </item>
+-      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
+           <preferred-size width="-1" height="20" />
+         </default-constraints>
+       </item>
+-      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
+         <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
+       </item>
+-      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
+         <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
+       </item>
+     </group>
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Encoding\">\r\n    <file url=\"file://$PROJECT_DIR$/src\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/src/main/resources\" charset=\"UTF-8\" />\r\n    <file url=\"PROJECT\" charset=\"UTF-8\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+--- a/.idea/encodings.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ b/.idea/encodings.xml	(date 1667673317954)
+@@ -3,6 +3,5 @@
+   <component name="Encoding">
+     <file url="file://$PROJECT_DIR$/src" charset="UTF-8" />
+     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+-    <file url="PROJECT" charset="UTF-8" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"FrameworkDetectionExcludesConfiguration\">\r\n    <file type=\"web\" url=\"file://$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_6\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\" />\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"jpab\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 49ab101492e056488ca7661180e49d45d64f4d86)
++++ b/.idea/misc.xml	(date 1667673317938)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="FrameworkDetectionExcludesConfiguration">
+     <file type="web" url="file://$PROJECT_DIR$" />
+   </component>
+@@ -10,7 +11,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" project-jdk-name="11" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+   <component name="ProjectType">
+     <option name="id" value="jpab" />
+   </component>
+Index: src/scc/serverless/CloseAuctions.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/scc/serverless/CloseAuctions.java b/src/scc/serverless/CloseAuctions.java
+new file mode 100644
+--- /dev/null	(date 1667682902108)
++++ b/src/scc/serverless/CloseAuctions.java	(date 1667682902108)
+@@ -0,0 +1,34 @@
++package scc.serverless;
++
++import java.time.*;
++import java.time.format.DateTimeFormatter;
++
++import com.azure.cosmos.util.CosmosPagedIterable;
++import com.microsoft.azure.functions.annotation.*;
++import com.microsoft.azure.functions.*;
++import scc.data.AuctionDAO;
++import scc.data.CosmoDBLayer;
++
++/**
++ * Azure Functions with Timer trigger.
++ */
++public class CloseAuctions {
++    /**
++     * This function will be invoked periodically according to the specified schedule.
++     */
++    @FunctionName("findAboutToClose")
++    public void run(
++        @TimerTrigger(name = "timerInfo", schedule = "* */1****") String timerInfo,
++        final ExecutionContext context
++    ) {
++        CosmosPagedIterable<AuctionDAO> auctions = CosmoDBLayer.getInstance().getAuctions();
++        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
++        for (AuctionDAO auction: auctions){
++            LocalDateTime auctionTime = LocalDateTime.parse(auction.getEndTime(), formatter);
++            if (auctionTime.isBefore(LocalDateTime.now())){
++                auction.c
++            }
++        }
++        context.getLogger().info("Java Timer trigger function executed at: " + LocalDateTime.now());
++    }
++}

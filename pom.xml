@@ -7,8 +7,12 @@
   <version>1.0</version>  
   <packaging>war</packaging>  
   <properties> 
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
-    <authors>XXXXX-YYYYY-ZZZZZ</authors> 
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <functionAppName>azurfunc148265</functionAppName>
+    <functionAppRegion>westeurope</functionAppRegion>
+    <functionPricingTier>B1</functionPricingTier>
+    <functionResourceGroup>scc-backend-rg-148265</functionResourceGroup>
+    <authors>XXXXX-YYYYY-ZZZZZ</authors>
   </properties>  
   <dependencies> 
     <dependency> 
@@ -41,7 +45,12 @@
       <groupId>com.azure</groupId>  
       <artifactId>azure-cosmos</artifactId>  
       <version>4.37.0</version> 
-    </dependency>  
+    </dependency>
+    <dependency>
+      <groupId>com.microsoft.azure.functions</groupId>
+      <artifactId>azure-functions-java-library</artifactId>
+      <version>2.1.0</version>
+    </dependency>
     <dependency> 
       <groupId>org.apache.commons</groupId>  
       <artifactId>commons-lang3</artifactId>  
@@ -120,7 +129,56 @@
   </dependencies>  
   <build> 
     <sourceDirectory>src</sourceDirectory>  
-    <plugins> 
+    <plugins>
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-functions-maven-plugin</artifactId>
+        <version>1.21.0</version>
+        <configuration>
+          <appName>${functionAppName}</appName>
+          <resourceGroup>${functionResourceGroup}</resourceGroup>
+          <region>${functionAppRegion}</region>
+          <pricingTier>${functionPricingTier}</pricingTier>
+          <disableAppInsights></disableAppInsights>
+          <runtime>
+            <!-- runtime os, could be windows, linux or docker-->
+            <os>linux</os>
+            <javaVersion>17</javaVersion>
+          </runtime>
+          <appSettings>
+            <property>
+              <name>FUNCTIONS_EXTENSION_VERSION</name>
+              <value>~4</value>
+            </property>
+            <property>
+              <name>WEBSITE_RUN_FROM_PACKAGE</name>
+              <value>1</value>
+            </property>
+          </appSettings>
+        </configuration>
+        <executions>
+          <execution>
+            <id>package-functions</id>
+            <goals>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>obj</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+
       <plugin> 
         <artifactId>maven-compiler-plugin</artifactId>  
         <version>3.10.1</version>  
@@ -159,8 +217,8 @@
               </resource> 
             </resources> 
           </deployment>  
-          <resourceGroup>scc-backend-rg-4204</resourceGroup>  
-          <appName>scc-backend-4204</appName>
+          <resourceGroup>scc-backend-rg-148265</resourceGroup>
+          <appName>scc-backend-148265</appName>
         </configuration> 
       </plugin> 
     </plugins> 
