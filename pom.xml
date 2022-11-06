@@ -5,14 +5,14 @@
   <groupId>pt.unl.fct.di.scc</groupId>  
   <artifactId>project</artifactId>
   <version>1.0</version>  
-  <packaging>war</packaging>  
+  <packaging>jar</packaging>
   <properties> 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <functionAppName>azurfunc148265</functionAppName>
     <functionAppRegion>westeurope</functionAppRegion>
     <functionPricingTier>B1</functionPricingTier>
     <functionResourceGroup>scc-backend-rg-148265</functionResourceGroup>
-    <authors>XXXXX-YYYYY-ZZZZZ</authors>
+    <authors>65355-65343-65324</authors>
   </properties>  
   <dependencies> 
     <dependency> 
