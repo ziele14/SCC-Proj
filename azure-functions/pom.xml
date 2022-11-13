@@ -12,10 +12,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
-         <functionAppName>functionProj148265</functionAppName>
+         <functionAppName>functionProj148261</functionAppName>
         <functionAppRegion>westeurope</functionAppRegion>
         <functionPricingTier>B1</functionPricingTier>
-        <functionResourceGroup>scc-backend-rg-148265</functionResourceGroup>
+        <functionResourceGroup>scc-backend-rg-4204</functionResourceGroup>
      </properties>
 
     <dependencies>

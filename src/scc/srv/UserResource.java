@@ -6,10 +6,7 @@ import com.google.gson.Gson;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.apache.commons.lang3.StringUtils;
-import scc.data.AuctionDAO;
-import scc.data.BidDAO;
-import scc.data.CosmoDBLayer;
-import scc.data.UserDAO;
+import scc.data.*;
 import scc.utils.Hash;
 
 import java.util.ArrayList;
@@ -30,7 +27,7 @@ public class UserResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String object_create(String inpucik){
+    public String userCreate(String inpucik){
         Gson gson = new Gson();
         try {
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
@@ -52,7 +49,7 @@ public class UserResource {
     @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String object_get(){
+    public String getAllUsers(){
         CosmosPagedIterable<UserDAO> resGet = db.getUsers();
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: resGet) {
@@ -74,7 +71,7 @@ public class UserResource {
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String object_get_id(@PathParam("id") String id){
+    public String userGetById(@PathParam("id") String id){
         CosmosPagedIterable<UserDAO> res = db.getUserById(id);
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: res) {
@@ -94,7 +91,7 @@ public class UserResource {
     @Path("/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    public String delete_user(@PathParam("id")String id){
+    public String deleteUser(@PathParam("id")String id){
         try {
             db.delUserById(id);
             db.close();
@@ -131,7 +128,7 @@ public class UserResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String update_user(@PathParam("id")String id, String inpucik){
+    public String updateUser(@PathParam("id")String id, String inpucik){
         Gson gson = new Gson();
         try {
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
@@ -147,5 +144,20 @@ public class UserResource {
 
     }
 
+    @Path("/{id}/auctions")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getUsersAuctions(@PathParam("id")String id){
+        CosmosPagedIterable<AuctionDAO> result = db.getAuctions();
+        ArrayList<Auction> auctions = new ArrayList<Auction>();
+        for( AuctionDAO e: result) {
+            if (Objects.equals(e.getOwnerId(),id)){
+                auctions.add(e.toAuction());
+            }
+        }
+        db.close();
+        return auctions.toString();
+
+    }
 
 }

@@ -17,15 +17,17 @@ public class AuctionResource {
     CosmoDBLayer db = CosmoDBLayer.getInstance();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
+
     @Path("/")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String auction_create(String input){
+    public String auctionCreate(String input){
         Gson gson = new Gson();
        try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
             auctionDAO.setStatus("open");
+            auctionDAO.setListOfBids(new ArrayList<BidDAO>());
             LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
             if (auctionTime.isBefore(LocalDateTime.now())){
                 return "The date is not valid";
@@ -40,7 +42,7 @@ public class AuctionResource {
            }
             db.putAuction(auctionDAO);
             db.close();
-            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus();
+            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus()+ ", owner : " + auctionDAO.getOwnerId();
       }
       catch(Exception e){
           return "The input auction data seems to be invalid or the ID is already taken";
@@ -52,10 +54,10 @@ public class AuctionResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String update_auction(@PathParam("id")String id, String inpucik){
+    public String updateAuction(@PathParam("id")String id, String input){
         Gson gson = new Gson();
         try {
-            AuctionDAO auctionDAO = gson.fromJson(inpucik, AuctionDAO.class);
+            AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
             db.delAuctionById(id);
             db.putAuction(auctionDAO);
             db.close();
@@ -71,7 +73,7 @@ public class AuctionResource {
     @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String auction_get(){
+    public String auctionGetAll(){
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctions();
         ArrayList<String> auctions = new ArrayList<String>();
         for( AuctionDAO e: resGet) {
@@ -79,7 +81,7 @@ public class AuctionResource {
         }
         db.close();
         if(auctions.size() == 0){
-            return "It seems there are no auctions in the database";
+            return "It seems as if the auctions have disappeared :o";
         }
         else {
             return auctions.toString();
@@ -90,7 +92,7 @@ public class AuctionResource {
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String object_get_id(@PathParam("id") String id){
+    public String auctionGetBtId(@PathParam("id") String id){
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         ArrayList<String> auction = new ArrayList<String>();
         for( AuctionDAO e: res) {
@@ -98,7 +100,7 @@ public class AuctionResource {
         }
         db.close();
         if (auction.size() == 0) {
-            return "There is no such auction";
+            return "The auction with this Id simply doesn't exist";
         }
         return auction.get(0);
     }
@@ -110,7 +112,7 @@ public class AuctionResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String bid_create(@PathParam("id") String id,String input){
+    public String bidCreate(@PathParam("id") String id,String input){
         /**bierze ID aukcji, sprawdza czy taka istnieja*/
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
@@ -121,7 +123,7 @@ public class AuctionResource {
             return "There is no such auction here";
         }
         if (!Objects.equals(auction.get(0).getStatus(),"open") ){
-            return "The function is not open";
+            return "The auction is not open";
         }
         if (LocalDateTime.parse(auction.get(0).getEndTime(), formatter).isBefore(LocalDateTime.now())){
             auction.get(0).AuctionClose();
@@ -169,12 +171,12 @@ public class AuctionResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String list_bids(@PathParam("id") String id){
+    public String listBids(@PathParam("id") String id){
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
         ArrayList<String> bids = new ArrayList<String>();
         for( AuctionDAO e: resGet) {
-            if (e.getListOfBids() == null){
-                return "There are currently no bids";
+            if (e.getListOfBids() == null || Objects.equals(e.getListOfBids().size(), 0)){
+                return "There are currently no bids lad, go ahead then";
             }
             bids.add(e.getListOfBids().toString());
         }
@@ -187,7 +189,7 @@ public class AuctionResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String question_create(@PathParam("id") String id,String input){
+    public String questionCreate(@PathParam("id") String id,String input){
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
         for( AuctionDAO e: res) {
@@ -207,7 +209,6 @@ public class AuctionResource {
         if (users.size() == 0) {
             return "There is no such user here :/";
         }
-//        db.putQuestion(questionDAO);
         db.delAuctionById(auction.get(0).getId());
         try{
             auction.get(0).addQuestion(questionDAO.getText() + " " + ", from user : " + questionDAO.getId());
@@ -225,7 +226,7 @@ public class AuctionResource {
     @Path("/{id}/question")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String list_questions(@PathParam("id")String id){
+    public String listQuestions(@PathParam("id")String id){
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
         ArrayList<String> questions = new ArrayList<String>();
         for( AuctionDAO e: resGet) {

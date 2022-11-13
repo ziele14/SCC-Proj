@@ -42,7 +42,6 @@ public class CosmoDBLayer {
             this.db = this.client.getDatabase(DB_NAME);
             this.users = this.db.getContainer("users");
             this.auctions = this.db.getContainer("auctions");
-//            this.questions=this.db.getContainer("questions");
 
         }
     }
@@ -106,6 +105,7 @@ public class CosmoDBLayer {
         this.init();
         return this.auctions.queryItems("SELECT * FROM auctions ", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
+
 
     public void close() {
         this.client.close();

@@ -32,7 +32,7 @@ public class Auction {
 
     @Override
     public String toString() {
-        return "Auction{" +
+        return "Auction = (" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", photoId='" + photoId + '\'' +
@@ -44,7 +44,7 @@ public class Auction {
                 ", status='" + status + '\'' +
                 ", listOfBids=" + listOfBids +
                 ", listOfQuestions=" + listOfQuestions +
-                '}';
+                ')';
     }
 
     public String getId() {
