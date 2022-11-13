@@ -6,6 +6,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import scc.data.*;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -238,6 +239,26 @@ public class AuctionResource {
         db.close();
         return questions.get(0);
 
+    }
+
+    @Path("/closing")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listAuctionsAboutToClose(){
+        CosmosPagedIterable<AuctionDAO> result = db.getAuctions();
+        ArrayList<Auction> closingAuctions = new ArrayList<Auction>();
+        for( AuctionDAO a: result){
+            if (Objects.equals(a.getStatus(),"open")){
+                LocalDateTime auctionTime = LocalDateTime.parse(a.getEndTime(), formatter);
+                Duration diff = Duration.between(auctionTime, LocalDateTime.now());
+                if (Math.abs(diff.toDays()) <= 7){
+                    closingAuctions.add(a.toAuction());
+                }
+
+            }
+
+        }
+        return closingAuctions.toString();
     }
 
 
