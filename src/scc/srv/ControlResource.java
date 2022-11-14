@@ -11,6 +11,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import scc.data.AuctionDAO;
 import scc.data.CosmoDBLayer;
 import scc.data.UserDAO;
 
@@ -56,6 +57,11 @@ public class ControlResource
 		for (BlobItem bb : blobs){
 			BlobClient blob = containerClient.getBlobClient(bb.getName());
 			blob.delete();
+		}
+
+		CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions();
+		for(AuctionDAO auction : auctions){
+			db.delAuctions(auction);
 		}
 
 		return "No taki clean up, nie?";

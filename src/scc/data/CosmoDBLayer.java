@@ -21,7 +21,6 @@ public class CosmoDBLayer {
     private CosmosDatabase db;
     private CosmosContainer users;
     private CosmosContainer auctions;
-//    private CosmosContainer questions;
 
     public static synchronized CosmoDBLayer getInstance() {
         if (instance != null) {
@@ -71,10 +70,8 @@ public class CosmoDBLayer {
         this.init();
         return this.users.createItem(user);
     }
-//    public CosmosItemResponse<QuestionDAO> putQuestion(QuestionDAO question) {
-//        this.init();
-//        return this.questions.createItem(question);
-//    }
+
+
     public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {
         this.init();
         return this.auctions.createItem(auction);
@@ -85,6 +82,12 @@ public class CosmoDBLayer {
         this.init();
         PartitionKey key = new PartitionKey(auctionDAO.getId());
         return this.auctions.upsertItem(auctionDAO, key, new CosmosItemRequestOptions());
+    }
+
+    public CosmosItemResponse<UserDAO> updateUser(UserDAO userDAO){
+        this.init();
+        PartitionKey key = new PartitionKey(userDAO.getId());
+        return this.users.upsertItem(userDAO, key, new CosmosItemRequestOptions());
     }
 
 

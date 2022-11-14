@@ -3,7 +3,10 @@ package scc.srv;
 import com.azure.cosmos.util.CosmosPagedIterable;
 import com.google.gson.Gson;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
+import redis.clients.jedis.Jedis;
+import scc.cache.RedisCache;
 import scc.data.*;
 
 import java.time.Duration;
@@ -17,13 +20,14 @@ import java.util.Objects;
 public class AuctionResource {
     CosmoDBLayer db = CosmoDBLayer.getInstance();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+    Jedis jedis = RedisCache.getCachePool().getResource();
 
 
     @Path("/")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String auctionCreate(String input){
+    public String auctionCreate(String input, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
        try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
@@ -33,6 +37,7 @@ public class AuctionResource {
             if (auctionTime.isBefore(LocalDateTime.now())){
                 return "The date is not valid";
             }
+           checkCookieUser(session, auctionDAO.getOwnerId());
            CosmosPagedIterable<UserDAO> result = db.getUserById(auctionDAO.getOwnerId());
            ArrayList<String> users = new ArrayList<String>();
            for( UserDAO e: result) {
@@ -45,7 +50,10 @@ public class AuctionResource {
             db.close();
             return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus()+ ", owner : " + auctionDAO.getOwnerId();
       }
-      catch(Exception e){
+       catch( WebApplicationException e) {
+           throw e;
+       }
+       catch(Exception e){
           return "The input auction data seems to be invalid or the ID is already taken";
        }
     }
@@ -55,13 +63,19 @@ public class AuctionResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateAuction(@PathParam("id")String id, String input){
+    public String updateAuction(@PathParam("id")String id, String input, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
         try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
+            auctionDAO.setStatus("open");
+            auctionDAO.setListOfBids(new ArrayList<BidDAO>());
+            checkCookieUser(session, auctionDAO.getOwnerId());
             db.updateAuction(auctionDAO);
             db.close();
             return "Auction updated, new values : " + auctionDAO.toAuction().toString();
+        }
+        catch( WebApplicationException e) {
+            throw e;
         }
         catch(Exception e){
             return "There is no auction with this ID or the data has invalid form";
@@ -112,7 +126,7 @@ public class AuctionResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String bidCreate(@PathParam("id") String id,String input){
+    public String bidCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
         /**bierze ID aukcji, sprawdza czy taka istnieja*/
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
@@ -151,7 +165,12 @@ public class AuctionResource {
         else{
             /** ustawia na ID userID + wartość i potem wkłada a aukcję zamienia na taką z dobrą listą bidów*/
             bidDAO.setId(bidDAO.getUserId() + " : " + bidDAO.getBid_value());
-//            db.delAuctionById(auction.get(0).getId());
+            try {
+                checkCookieUser(session, bidDAO.getUserId());
+            }
+            catch( WebApplicationException e) {
+                throw e;
+            }
             auction.get(0).setMinPrice(bidDAO.getBid_value());
             try{
             auction.get(0).addBid(bidDAO);
@@ -160,7 +179,6 @@ public class AuctionResource {
                 auction.get(0).setListOfBids(new ArrayList<BidDAO>());
                 auction.get(0).addBid(bidDAO);
             }
-//            db.putAuction(auction.get(0));
             db.updateAuction(auction.get(0));
             db.close();
             return "You have created a bid : " + bidDAO.getId();}
@@ -189,7 +207,7 @@ public class AuctionResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String questionCreate(@PathParam("id") String id,String input){
+    public String questionCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
         for( AuctionDAO e: res) {
@@ -202,12 +220,18 @@ public class AuctionResource {
         QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
         questionDAO.setAuctionId(id);
         CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUserId());
-        ArrayList<String> users = new ArrayList<String>();
+        ArrayList<User> users = new ArrayList<User>();
         for( UserDAO e: result) {
-            users.add(e.toUser().toString());
+            users.add(e.toUser());
         }
         if (users.size() == 0) {
             return "There is no such user here :/";
+        }
+        try {
+            checkCookieUser(session, users.get(0).getId());
+        }
+        catch( WebApplicationException e) {
+            throw e;
         }
         try{
             auction.get(0).addQuestion(questionDAO.getText() + " " + ", from user : " + questionDAO.getId());
@@ -256,9 +280,32 @@ public class AuctionResource {
             }
 
         }
+        if(closingAuctions.size() == 0){
+            return "No actions are close to the end";
+        }
         return closingAuctions.toString();
     }
 
+
+    /**
+     * Throws exception if not appropriate user for operation on Auction
+     */
+    public String checkCookieUser(Cookie session, String id)
+            throws NotAuthorizedException {
+        if (session == null || session.getValue() == null)
+            throw new NotAuthorizedException("No session initialized");
+        String s;
+        try {
+            s = jedis.get(session.getValue());
+        } catch (Exception e) {
+            throw new NotAuthorizedException("No valid session initialized");
+        }
+        if (s == null || s == null || s.length() == 0)
+            throw new NotAuthorizedException("No valid session initialized");
+        if (!s.equals(id) && !s.equals("admin"))
+            throw new NotAuthorizedException("Invalid user : " + s);
+        return s;
+    }
 
 
 

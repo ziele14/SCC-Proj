@@ -1,16 +1,20 @@
 package scc.srv;
 
-import com.azure.core.annotation.Put;
 import com.azure.cosmos.util.CosmosPagedIterable;
 import com.google.gson.Gson;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
-import org.apache.commons.lang3.StringUtils;
+import jakarta.ws.rs.core.NewCookie;
+import jakarta.ws.rs.core.Response;
+import redis.clients.jedis.Jedis;
+import scc.cache.RedisCache;
 import scc.data.*;
 import scc.utils.Hash;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Resource for managing users.
@@ -19,6 +23,7 @@ import java.util.Objects;
 public class UserResource {
 
     CosmoDBLayer db = CosmoDBLayer.getInstance();
+    Jedis jedis = RedisCache.getCachePool().getResource();
 
     /**
      * creates a user from a json file and adds it to our cosmoDB database
@@ -91,10 +96,14 @@ public class UserResource {
     @Path("/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteUser(@PathParam("id")String id){
+    public String deleteUser(@PathParam("id")String id, @CookieParam("scc:session") Cookie session){
         try {
+            checkCookieUser(session, id);
             db.delUserById(id);
             db.close();
+        }
+        catch( WebApplicationException e) {
+            throw e;
         }
         catch(Exception e){
             return "There is no such user in our database";
@@ -127,15 +136,18 @@ public class UserResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateUser(@PathParam("id")String id, String inpucik){
+    public String updateUser(@PathParam("id")String id, String inpucik, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
         try {
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
             userDAO.setPwd(Hash.of(userDAO.getPwd()));
-            db.delUserById(id);
-            db.putUser(userDAO);
+            checkCookieUser(session, id);
+            db.updateUser(userDAO);
             db.close();
             return "User updated, new values : " + userDAO.toUser().toString();
+        }
+        catch( WebApplicationException e) {
+            throw e;
         }
         catch(Exception e){
             return "There is no user with this ID or the data has invalid form";
@@ -157,6 +169,58 @@ public class UserResource {
         db.close();
         return auctions.toString();
 
+    }
+
+    @POST
+    @Path("/auth")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response auth(String input) {
+        boolean pwdOk = false;
+
+        Gson gson = new Gson();
+        UserDAO userDAO = gson.fromJson(input, UserDAO.class);
+        userDAO.setPwd(Hash.of(userDAO.getPwd()));
+
+        CosmosPagedIterable<UserDAO> user = db.getUserById(userDAO.getId());
+        for( UserDAO e: user) {
+            if (Objects.equals(e.getPwd(),userDAO.getPwd())){
+                pwdOk = true;
+            }
+        }
+        if(pwdOk) {
+            String uid = UUID.randomUUID().toString();
+            NewCookie cookie = new NewCookie.Builder("scc:session")
+                    .value(uid)
+                    .path("/")
+                    .comment("sessionid")
+                    .maxAge(3600)
+                    .secure(false)
+                    .httpOnly(true)
+                    .build();
+            jedis.set(uid, userDAO.getId());
+            return Response.ok().cookie(cookie).build();
+        } else
+            throw new NotAuthorizedException("Incorrect login");
+    }
+
+    /**
+     * Throws exception if not appropriate user for operation on Auction
+     */
+    public String checkCookieUser(Cookie session, String id)
+            throws NotAuthorizedException {
+        if (session == null || session.getValue() == null)
+            throw new NotAuthorizedException("No session initialized");
+        String s;
+        try {
+            s = jedis.get(session.getValue());
+        } catch (Exception e) {
+            throw new NotAuthorizedException("No valid session initialized");
+        }
+        if (s == null || s == null || s.length() == 0)
+            throw new NotAuthorizedException("No valid session initialized");
+        if (!s.equals(id) && !s.equals("admin"))
+            throw new NotAuthorizedException("Invalid user : " + s);
+        return s;
     }
 
 }
