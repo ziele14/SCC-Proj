@@ -59,8 +59,7 @@ public class AuctionResource {
         Gson gson = new Gson();
         try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
-            db.delAuctionById(id);
-            db.putAuction(auctionDAO);
+            db.updateAuction(auctionDAO);
             db.close();
             return "Auction updated, new values : " + auctionDAO.toAuction().toString();
         }
@@ -128,8 +127,7 @@ public class AuctionResource {
         }
         if (LocalDateTime.parse(auction.get(0).getEndTime(), formatter).isBefore(LocalDateTime.now())){
             auction.get(0).AuctionClose();
-            db.delAuctionById(auction.get(0).getId());
-            db.putAuction(auction.get(0));
+            db.updateAuction(auction.get(0));
             return "You are too late mate";
 
         }
@@ -153,7 +151,7 @@ public class AuctionResource {
         else{
             /** ustawia na ID userID + wartość i potem wkłada a aukcję zamienia na taką z dobrą listą bidów*/
             bidDAO.setId(bidDAO.getUserId() + " : " + bidDAO.getBid_value());
-            db.delAuctionById(auction.get(0).getId());
+//            db.delAuctionById(auction.get(0).getId());
             auction.get(0).setMinPrice(bidDAO.getBid_value());
             try{
             auction.get(0).addBid(bidDAO);
@@ -162,7 +160,8 @@ public class AuctionResource {
                 auction.get(0).setListOfBids(new ArrayList<BidDAO>());
                 auction.get(0).addBid(bidDAO);
             }
-            db.putAuction(auction.get(0));
+//            db.putAuction(auction.get(0));
+            db.updateAuction(auction.get(0));
             db.close();
             return "You have created a bid : " + bidDAO.getId();}
 
@@ -210,7 +209,6 @@ public class AuctionResource {
         if (users.size() == 0) {
             return "There is no such user here :/";
         }
-        db.delAuctionById(auction.get(0).getId());
         try{
             auction.get(0).addQuestion(questionDAO.getText() + " " + ", from user : " + questionDAO.getId());
         }
@@ -219,7 +217,7 @@ public class AuctionResource {
             auction.get(0).addQuestion(questionDAO.getText() + " " + ", from user : " + questionDAO.getId());
 
         }
-        db.putAuction(auction.get(0));
+        db.updateAuction(auction.get(0));
         db.close();
         return "You have created a question";
     }

@@ -112,8 +112,7 @@ public class UserResource {
                         }
                     }
                 }
-                db.delAuctionById(auction.getId());
-                db.putAuction(auction);
+                db.updateAuction(auction);
             }
         return "User with id = " + id + " has been deleted";
 

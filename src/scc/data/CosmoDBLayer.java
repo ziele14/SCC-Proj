@@ -80,6 +80,14 @@ public class CosmoDBLayer {
         return this.auctions.createItem(auction);
     }
 
+
+    public CosmosItemResponse<AuctionDAO> updateAuction(AuctionDAO auctionDAO){
+        this.init();
+        PartitionKey key = new PartitionKey(auctionDAO.getId());
+        return this.auctions.upsertItem(auctionDAO, key, new CosmosItemRequestOptions());
+    }
+
+
     public CosmosPagedIterable<UserDAO> getUserById(String id) {
         this.init();
         return this.users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);

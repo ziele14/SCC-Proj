@@ -26,3 +26,4 @@ target/
 
 #azure conf
 pom.xml
+azure-functions/pom.xml

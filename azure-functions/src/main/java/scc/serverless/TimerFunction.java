@@ -30,9 +30,10 @@ public class TimerFunction {
 			LocalDateTime auctionTime = LocalDateTime.parse(auction.getEndTime(), formatter);
 			if (auctionTime.isBefore(LocalDateTime.now())){
 				auction.AuctionClose();
-				db.delAuctionById(auction.getId());
-				db.putAuction(auction);
-				db.close();
+				db.updateAuction(auction);
+//				db.delAuctionById(auction.getId());
+//				db.putAuction(auction);
+//				db.close();
 				context.getLogger().info("Auction " + auction.toString() + "has been closed\n\n");
 			}
 		}
