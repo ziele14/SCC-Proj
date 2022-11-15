@@ -1,24 +1,18 @@
 package scc.data;
 
 public class Question {
-    private String auctionId;
     private String text;
     private String userId;
     private String id;
+    private String answer;
 
-    public Question(String text, String userId, String id) {
+    public Question(String text, String userId, String id,String answer) {
         this.text = text;
         this.userId = userId;
         this.id = id;
+        this.answer = answer;
     }
 
-    public String getAuctionId() {
-        return auctionId;
-    }
-
-    public void setAuctionId(String auctionId) {
-        this.auctionId = auctionId;
-    }
 
     public String getText() {
         return text;
@@ -44,13 +38,21 @@ public class Question {
         this.userId = userId;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
     @Override
     public String toString() {
         return "Question{" +
-                "auctionId='" + auctionId + '\'' +
-                ", text='" + text + '\'' +
+                "text='" + text + '\'' +
                 ", userId='" + userId + '\'' +
                 ", id='" + id + '\'' +
+                ", answer='" + answer + '\'' +
                 '}';
     }
 }

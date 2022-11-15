@@ -216,9 +216,11 @@ public class AuctionResource {
         if (auction.size() == 0) {
             return "There is no such auction here";
         }
+
+
+
         Gson gson=new Gson();
         QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
-        questionDAO.setAuctionId(id);
         CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUserId());
         ArrayList<User> users = new ArrayList<User>();
         for( UserDAO e: result) {
@@ -227,6 +229,8 @@ public class AuctionResource {
         if (users.size() == 0) {
             return "There is no such user here :/";
         }
+
+
         try {
             checkCookieUser(session, users.get(0).getId());
         }
@@ -234,16 +238,65 @@ public class AuctionResource {
             throw e;
         }
         try{
-            auction.get(0).addQuestion(questionDAO.getText() + " " + ", from user : " + questionDAO.getId());
+            auction.get(0).addQuestion(questionDAO);
         }
         catch(Exception e){
-            auction.get(0).setListOfQuestions(new ArrayList<String>());
-            auction.get(0).addQuestion(questionDAO.getText() + " " + ", from user : " + questionDAO.getId());
+            auction.get(0).setListOfQuestions(new ArrayList<QuestionDAO>());
+            auction.get(0).addQuestion(questionDAO);
 
         }
         db.updateAuction(auction.get(0));
         db.close();
         return "You have created a question";
+    }
+
+    @Path("/{id}/question/{qid}/reply")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String questionAnswer(@PathParam("id") String auctionId,String input,@PathParam("qid") String questionID, @CookieParam("scc:session") Cookie session){
+        CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(auctionId);
+        ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
+        for( AuctionDAO e: res) {
+            auction.add(e);
+        }
+        if (auction.size() == 0) {
+            return "There is no such auction here";
+        }
+        Gson gson=new Gson();
+        QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
+        CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUserId());
+        ArrayList<User> users = new ArrayList<User>();
+        for( UserDAO e: result) {
+            users.add(e.toUser());
+        }
+        if (users.size() == 0) {
+            return "There is no such user here :/";
+        }
+        if (!users.get(0).getId().equals(auction.get(0).getOwnerId())){
+            return "You cannot do that mate, you ain't the auction owner";
+        }
+        try {
+            checkCookieUser(session, users.get(0).getId());
+        }
+        catch( WebApplicationException e) {
+            throw e;
+        }
+        String reply = questionDAO.getAnswer();
+        for (QuestionDAO question : auction.get(0).getListOfQuestions()){
+            if (question.getId().equals(questionID)){
+                if(question.getAnswer() == null){
+                    question.setAnswer(reply);
+                    db.updateAuction(auction.get(0));
+                    db.close();
+                    return "You have succesfully replied";
+                }
+                else{
+                    return "The question was already answered";
+                }
+            }
+        }
+        return "There is no such question mate";
     }
 
     @Path("/{id}/question")
@@ -253,13 +306,16 @@ public class AuctionResource {
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
         ArrayList<String> questions = new ArrayList<String>();
         for( AuctionDAO e: resGet) {
-            if (e.getListOfBids() == null){
+            if (e.getListOfQuestions() == null){
                 return "There are currently no questions";
             }
-            questions.add(e.getListOfQuestions().toString());
+            for ( QuestionDAO question : e.getListOfQuestions()){
+                questions.add(question.toQuestion().toString());
+            }
+
         }
         db.close();
-        return questions.get(0);
+        return questions.toString();
 
     }
 
