@@ -4,9 +4,9 @@ public class Bid {
     private String id;
     private String auctionId;
     private String userId;
-    private int bid_value;
+    private float bid_value;
 
-    public Bid(String id,String auctionId, String userId, int bid_value) {
+    public Bid(String id, String auctionId, String userId, float bid_value) {
         this.id = id;
         this.auctionId = auctionId;
         this.userId = userId;
@@ -37,11 +37,11 @@ public class Bid {
         this.userId = userId;
     }
 
-    public int getBid_value() {
+    public float getBid_value() {
         return bid_value;
     }
 
-    public void setBid_value(int bid_value) {
+    public void setBid_value(float bid_value) {
         this.bid_value = bid_value;
     }
 

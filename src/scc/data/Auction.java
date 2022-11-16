@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Auction {
     private String id;
     private String title;
-    private String photoId;
+    private String imageId;
     private String description;
     private String ownerId;
     private String end_time;
@@ -16,10 +16,10 @@ public class Auction {
     private ArrayList<BidDAO> listOfBids;
     private ArrayList<QuestionDAO> listOfQuestions;
 
-    public Auction(String id, String title, String photoId, String description, String ownerId, String end_time, int min_price, String winner, String status, ArrayList<BidDAO> listOfBids, ArrayList<QuestionDAO> listOfQuestions) {
+    public Auction(String id, String title, String imageId, String description, String ownerId, String end_time, int min_price, String winner, String status, ArrayList<BidDAO> listOfBids, ArrayList<QuestionDAO> listOfQuestions) {
         this.id = id;
         this.title = title;
-        this.photoId = photoId;
+        this.imageId = imageId;
         this.description = description;
         this.ownerId = ownerId;
         this.end_time = end_time;
@@ -35,7 +35,7 @@ public class Auction {
         return "Auction = (" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", photoId='" + photoId + '\'' +
+                ", photoId='" + imageId + '\'' +
                 ", description='" + description + '\'' +
                 ", ownerId='" + ownerId + '\'' +
                 ", end_time='" + end_time + '\'' +
@@ -63,12 +63,12 @@ public class Auction {
         this.title = title;
     }
 
-    public String getPhotoId() {
-        return photoId;
+    public String getImageId() {
+        return imageId;
     }
 
-    public void setPhotoId(String photoId) {
-        this.photoId = photoId;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 
     public String getDescription() {

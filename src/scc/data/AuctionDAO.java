@@ -22,7 +22,7 @@ public class AuctionDAO {
     }
 
     public AuctionDAO(Auction a) {
-        this(a.getTitle(), a.getDescription(),a.getPhotoId(),a.getOwnerId(),a.getEnd_time(),a.getMin_price());
+        this(a.getTitle(), a.getDescription(),a.getImageId(),a.getOwnerId(),a.getEnd_time(),a.getMin_price());
         this.status = a.getStatus();
     }
 
