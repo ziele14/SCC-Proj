@@ -87,19 +87,18 @@ public class AuctionResource {
     @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String auctionGetAll(){
-        CosmosPagedIterable<AuctionDAO> resGet = db.getAuctions();
-        ArrayList<String> auctions = new ArrayList<String>();
-        for( AuctionDAO e: resGet) {
-            auctions.add(e.toAuction().toString());
-        }
-        db.close();
-        if(auctions.size() == 0){
-            return "It seems as if the auctions have disappeared :o";
-        }
-        else {
-            return auctions.toString();
-        }
+    public String auctionGetAll(@QueryParam("status") String status){
+            CosmosPagedIterable<AuctionDAO> resGet = db.getAuctions(status);
+            ArrayList<String> auctions = new ArrayList<String>();
+            for (AuctionDAO e : resGet) {
+                auctions.add(e.toAuction().toString());
+            }
+            db.close();
+            if (auctions.size() == 0) {
+                return "It seems as if the auctions have disappeared :o";
+            } else {
+                return auctions.toString();
+            }
     }
 
 
@@ -179,6 +178,7 @@ public class AuctionResource {
                 auction.get(0).setListOfBids(new ArrayList<BidDAO>());
                 auction.get(0).addBid(bidDAO);
             }
+//            db.putAuction(auction.get(0));
             db.updateAuction(auction.get(0));
             db.close();
             return "You have created a bid : " + bidDAO.getId();}
@@ -323,7 +323,7 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String listAuctionsAboutToClose(){
-        CosmosPagedIterable<AuctionDAO> result = db.getAuctions();
+        CosmosPagedIterable<AuctionDAO> result = db.getAuctions("open");
         ArrayList<Auction> closingAuctions = new ArrayList<Auction>();
         for( AuctionDAO a: result){
             if (Objects.equals(a.getStatus(),"open")){

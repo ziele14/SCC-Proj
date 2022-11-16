@@ -108,7 +108,7 @@ public class UserResource {
         catch(Exception e){
             return "There is no such user in our database";
         }
-            CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions();
+            CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions(null);
             for(AuctionDAO auction : auctions){
                 if(Objects.equals(auction.getOwnerId(),id)){
                     auction.setOwnerId("Deleted user");
@@ -158,8 +158,8 @@ public class UserResource {
     @Path("/{id}/auctions")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getUsersAuctions(@PathParam("id")String id){
-        CosmosPagedIterable<AuctionDAO> result = db.getAuctions();
+    public String getUsersAuctions(@PathParam("id")String id, @QueryParam("status") String status){
+        CosmosPagedIterable<AuctionDAO> result = db.getAuctions(status);
         ArrayList<Auction> auctions = new ArrayList<Auction>();
         for( AuctionDAO e: result) {
             if (Objects.equals(e.getOwnerId(),id)){

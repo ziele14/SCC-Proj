@@ -11,6 +11,7 @@ import com.azure.cosmos.models.CosmosItemResponse;
 import com.azure.cosmos.models.CosmosQueryRequestOptions;
 import com.azure.cosmos.models.PartitionKey;
 import com.azure.cosmos.util.CosmosPagedIterable;
+import io.micrometer.core.lang.Nullable;
 
 public class CosmoDBLayer {
     private static final String CONNECTION_URL = "https://nazwa.documents.azure.com:443/";
@@ -112,9 +113,12 @@ public class CosmoDBLayer {
         return this.users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
     }
 
-    public CosmosPagedIterable<AuctionDAO> getAuctions() {
+    public CosmosPagedIterable<AuctionDAO> getAuctions(@Nullable String status) {
         this.init();
-        return this.auctions.queryItems("SELECT * FROM auctions ", new CosmosQueryRequestOptions(), AuctionDAO.class);
+        if(status == null){
+            return this.auctions.queryItems("SELECT * FROM auctions ", new CosmosQueryRequestOptions(), AuctionDAO.class);
+        }
+        return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.status=\"" + status + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
 
 

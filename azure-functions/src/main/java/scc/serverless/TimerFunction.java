@@ -23,7 +23,7 @@ public class TimerFunction {
     				ExecutionContext context) {
 
 		context.getLogger().info("Java Timer trigger function executed at: " + LocalDateTime.now());
-		CosmosPagedIterable<AuctionDAO> auctions = CosmoDBLayer.getInstance().getAuctions();
+		CosmosPagedIterable<AuctionDAO> auctions = CosmoDBLayer.getInstance().getAuctions(null);
 		CosmoDBLayer db = CosmoDBLayer.getInstance();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 		for (AuctionDAO auction: auctions){
@@ -31,10 +31,7 @@ public class TimerFunction {
 			if (auctionTime.isBefore(LocalDateTime.now())){
 				auction.AuctionClose();
 				db.updateAuction(auction);
-//				db.delAuctionById(auction.getId());
-//				db.putAuction(auction);
-//				db.close();
-				context.getLogger().info("Auction " + auction.toString() + "has been closed\n\n");
+				context.getLogger().info("Auction " + auction.toAuction().toString() + "has been closed\n\n");
 			}
 		}
 //		try (Jedis jedis = RedisCache.getCachePool().getResource()) {

@@ -11,6 +11,7 @@ import com.azure.cosmos.models.CosmosItemResponse;
 import com.azure.cosmos.models.CosmosQueryRequestOptions;
 import com.azure.cosmos.models.PartitionKey;
 import com.azure.cosmos.util.CosmosPagedIterable;
+import io.micrometer.core.lang.Nullable;
 
 public class CosmoDBLayer {
     private static final String CONNECTION_URL = "https://nazwa.documents.azure.com:443/";
@@ -21,7 +22,6 @@ public class CosmoDBLayer {
     private CosmosDatabase db;
     private CosmosContainer users;
     private CosmosContainer auctions;
-//    private CosmosContainer questions;
 
     public static synchronized CosmoDBLayer getInstance() {
         if (instance != null) {
@@ -42,7 +42,6 @@ public class CosmoDBLayer {
             this.db = this.client.getDatabase(DB_NAME);
             this.users = this.db.getContainer("users");
             this.auctions = this.db.getContainer("auctions");
-//            this.questions=this.db.getContainer("questions");
 
         }
     }
@@ -72,20 +71,26 @@ public class CosmoDBLayer {
         this.init();
         return this.users.createItem(user);
     }
-//    public CosmosItemResponse<QuestionDAO> putQuestion(QuestionDAO question) {
-//        this.init();
-//        return this.questions.createItem(question);
-//    }
+
+
     public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {
         this.init();
         return this.auctions.createItem(auction);
     }
+
 
     public CosmosItemResponse<AuctionDAO> updateAuction(AuctionDAO auctionDAO){
         this.init();
         PartitionKey key = new PartitionKey(auctionDAO.getId());
         return this.auctions.upsertItem(auctionDAO, key, new CosmosItemRequestOptions());
     }
+
+    public CosmosItemResponse<UserDAO> updateUser(UserDAO userDAO){
+        this.init();
+        PartitionKey key = new PartitionKey(userDAO.getId());
+        return this.users.upsertItem(userDAO, key, new CosmosItemRequestOptions());
+    }
+
 
     public CosmosPagedIterable<UserDAO> getUserById(String id) {
         this.init();
@@ -108,10 +113,14 @@ public class CosmoDBLayer {
         return this.users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
     }
 
-    public CosmosPagedIterable<AuctionDAO> getAuctions() {
+    public CosmosPagedIterable<AuctionDAO> getAuctions(@Nullable String status) {
         this.init();
-        return this.auctions.queryItems("SELECT * FROM auctions ", new CosmosQueryRequestOptions(), AuctionDAO.class);
+        if(status == null){
+            return this.auctions.queryItems("SELECT * FROM auctions ", new CosmosQueryRequestOptions(), AuctionDAO.class);
+        }
+        return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.status=\"" + status + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
+
 
     public void close() {
         this.client.close();

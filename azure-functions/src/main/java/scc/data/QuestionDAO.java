@@ -3,24 +3,31 @@ package scc.data;
 public class QuestionDAO {
     private String _rid;
     private String _ts;
-    private String auctionId;
     private String text;
     private String userId;
     private String id;
+    private String answer;
 
 
     public QuestionDAO(){
     }
 
     public QuestionDAO(Question q){
-        this(q.getAuctionId(),q.getText(),q.getUserId(),q.getId());
+        this(q.getText(),q.getUserId(),q.getId());
     }
 
-    public QuestionDAO(String auctionId, String text, String userId, String id) {
-        this.auctionId = auctionId;
+    public QuestionDAO( String text, String userId, String id) {
         this.text = text;
         this.userId = userId;
         this.id = id;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public String getId() {
@@ -46,14 +53,6 @@ public class QuestionDAO {
         this._ts = _ts;
     }
 
-    public String getAuctionId() {
-        return auctionId;
-    }
-
-    public void setAuctionId(String auctionId) {
-        this.auctionId = auctionId;
-    }
-
     public String getText() {
         return text;
     }
@@ -70,5 +69,15 @@ public class QuestionDAO {
         this.userId = userId;
     }
 
-    public Question toQuestion(){return new Question(this.text,this.userId,this.id);}
+    @Override
+    public String toString() {
+        return "QuestionDAO{" +
+                "text='" + text + '\'' +
+                ", userId='" + userId + '\'' +
+                ", id='" + id + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
+    }
+
+    public Question toQuestion(){return new Question(this.text,this.userId,this.id, this.answer);}
 }

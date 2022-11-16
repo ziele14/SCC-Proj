@@ -59,7 +59,7 @@ public class ControlResource
 			blob.delete();
 		}
 
-		CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions();
+		CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions(null);
 		for(AuctionDAO auction : auctions){
 			db.delAuctions(auction);
 		}

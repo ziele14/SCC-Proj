@@ -154,7 +154,12 @@ public class AuctionDAO {
 
     public void AuctionClose(){
         this.status = "closed";
-        this.winner = listOfBids.get(listOfBids.size()-1).getId();
+        if (listOfBids.isEmpty()) {
+            this.winner = "No winner";
+        }
+        else {
+            this.winner = listOfBids.get(listOfBids.size() - 1).getId();
+        }
     }
 
     @Override
