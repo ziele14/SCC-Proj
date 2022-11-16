@@ -13,13 +13,13 @@ public class QuestionDAO {
     }
 
     public QuestionDAO(Question q){
-        this(q.getText(),q.getUserId(),q.getId());
+        this(q.getText(),q.getUserId());
     }
 
-    public QuestionDAO( String text, String userId, String id) {
+    public QuestionDAO( String text, String userId) {
         this.text = text;
         this.userId = userId;
-        this.id = id;
+
     }
 
     public String getAnswer() {

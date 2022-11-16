@@ -115,11 +115,16 @@ public class CosmoDBLayer {
 
     public CosmosPagedIterable<AuctionDAO> getRecentAuctions(@Nullable Integer num) {
         this.init();
-        if (num == null){
+        if (num == null || num == 0){
             return this.auctions.queryItems("SELECT * FROM auctions ORDER BY auctions.id DESC ", new CosmosQueryRequestOptions(), AuctionDAO.class);
         }
         return this.auctions.queryItems("SELECT * FROM auctions ORDER BY auctions.id DESC OFFSET 0 LIMIT " + num + " ", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
+
+//    public Integer getRecentAuctions(@Nullable Integer num) {
+//        this.init();
+//        return num;
+//    }
 
     public CosmosPagedIterable<AuctionDAO> getAuctions(@Nullable String status) {
         this.init();
