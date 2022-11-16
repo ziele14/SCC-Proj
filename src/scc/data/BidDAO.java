@@ -14,8 +14,8 @@ public class BidDAO {
     public BidDAO(Bid b) {
         this();
     }
-    public BidDAO(String id, String userId, int bid_value) {
-        this.id = id;
+
+    public BidDAO(String userId, int bid_value) {
         this.userId = userId;
         this.bid_value = bid_value;
     }

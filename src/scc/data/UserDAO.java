@@ -14,21 +14,19 @@ public class UserDAO {
     private String name;
     private String pwd;
     private String photoId;
-    private String[] channelIds;
 
     public UserDAO() {
     }
 
     public UserDAO(User u) {
-        this(u.getId(), u.getName(), u.getPwd(), u.getPhotoId(), u.getChannelIds());
+        this(u.getId(), u.getName(), u.getPwd(), u.getPhotoId());
     }
 
-    public UserDAO(String id, String name, String pwd, String photoId, String[] channelIds) {
+    public UserDAO(String id, String name, String pwd, String photoId) {
         this.id = id;
         this.name = name;
         this.pwd = pwd;
         this.photoId = photoId;
-        this.channelIds = channelIds;
     }
 
     public String get_rid() {
@@ -79,20 +77,7 @@ public class UserDAO {
         this.photoId = photoId;
     }
 
-    public String[] getChannelIds() {
-        return this.channelIds == null ? new String[0] : this.channelIds;
-    }
-
-    public void setChannelIds(String[] channelIds) {
-        this.channelIds = channelIds;
-    }
-
     public User toUser() {
-        return new User(this.id, this.name, this.pwd, this.photoId, this.channelIds == null ? null : (String[])Arrays.copyOf(this.channelIds, this.channelIds.length));
-    }
-
-    public String toString() {
-        String var10000 = this._rid;
-        return "( _rid = " + var10000 + ", _ts = " + this._ts + ", id = " + this.id + ", name = " + this.name + ", pwd = " + this.pwd + ", photoId = " + this.photoId + ", channelIds = " + Arrays.toString(this.channelIds) + ")";
+        return new User(this.id, this.name, this.pwd, this.photoId);
     }
 }

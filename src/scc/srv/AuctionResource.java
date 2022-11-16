@@ -9,11 +9,13 @@ import redis.clients.jedis.Jedis;
 import scc.cache.RedisCache;
 import scc.data.*;
 
+import java.lang.reflect.Field;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 @Path("/auction")
@@ -21,6 +23,8 @@ public class AuctionResource {
     CosmoDBLayer db = CosmoDBLayer.getInstance();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
     Jedis jedis = RedisCache.getCachePool().getResource();
+    private static AtomicInteger AUCTION_ID = new AtomicInteger(1);
+    private static AtomicInteger QUESTION_ID = new AtomicInteger(1);
 
 
     @Path("/")
@@ -33,6 +37,9 @@ public class AuctionResource {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
             auctionDAO.setStatus("open");
             auctionDAO.setListOfBids(new ArrayList<BidDAO>());
+            auctionDAO.setListOfQuestions(new ArrayList<QuestionDAO>());
+            Integer index = AUCTION_ID.getAndIncrement();
+            auctionDAO.setId(index.toString());
             LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
             if (auctionTime.isBefore(LocalDateTime.now())){
                 return "The date is not valid";
@@ -67,12 +74,21 @@ public class AuctionResource {
         Gson gson = new Gson();
         try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
-            auctionDAO.setStatus("open");
-            auctionDAO.setListOfBids(new ArrayList<BidDAO>());
-            checkCookieUser(session, auctionDAO.getOwnerId());
-            db.updateAuction(auctionDAO);
+            auctionDAO.setId(id);
+            /** bierze tę aukcję*/
+            CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
+            ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
+            for( AuctionDAO e: res) {
+                auction.add(e);
+            }
+            if(auction.size() == 0){
+                return "There's no such action";
+            }
+            checkCookieUser(session, auction.get(0).getOwnerId());
+            AuctionDAO result = mergeObjects(auctionDAO,auction.get(0));
+            db.updateAuction(result);
             db.close();
-            return "Auction updated, new values : " + auctionDAO.toAuction().toString();
+            return "Auction updated, new values : " + result.toAuction().toString();
         }
         catch( WebApplicationException e) {
             throw e;
@@ -165,6 +181,9 @@ public class AuctionResource {
         Gson gson = new Gson();
         BidDAO bidDAO = gson.fromJson(input,BidDAO.class);
         bidDAO.setAuctionId(id);
+        if (bidDAO.getUserId() == null){
+            return "Wrong input lad";
+        }
         /** sprawdza czy taki user istnieje*/
         CosmosPagedIterable<UserDAO> result = db.getUserById(bidDAO.getUserId());
         ArrayList<String> users = new ArrayList<String>();
@@ -195,7 +214,6 @@ public class AuctionResource {
                 auction.get(0).setListOfBids(new ArrayList<BidDAO>());
                 auction.get(0).addBid(bidDAO);
             }
-//            db.putAuction(auction.get(0));
             db.updateAuction(auction.get(0));
             db.close();
             return "You have created a bid : " + bidDAO.getId();}
@@ -238,6 +256,9 @@ public class AuctionResource {
 
         Gson gson=new Gson();
         QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
+        Integer index = QUESTION_ID.getAndIncrement();
+        questionDAO.setId(index.toString());
+        questionDAO.setAnswer(null);
         CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUserId());
         ArrayList<User> users = new ArrayList<User>();
         for( UserDAO e: result) {
@@ -246,7 +267,6 @@ public class AuctionResource {
         if (users.size() == 0) {
             return "There is no such user here :/";
         }
-
 
         try {
             checkCookieUser(session, users.get(0).getId());
@@ -378,6 +398,25 @@ public class AuctionResource {
         if (!s.equals(id) && !s.equals("admin"))
             throw new NotAuthorizedException("Invalid user : " + s);
         return s;
+    }
+
+    public static <T> T mergeObjects(T first, T second){
+        Class<?> clas = first.getClass();
+        Field[] fields = clas.getDeclaredFields();
+        Object result = null;
+        try {
+            result = clas.getDeclaredConstructor().newInstance();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                Object value1 = field.get(first);
+                Object value2 = field.get(second);
+                Object value = (value1 != null) ? value1 : value2;
+                field.set(result, value);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (T) result;
     }
 
 

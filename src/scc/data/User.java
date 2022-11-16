@@ -12,14 +12,12 @@ public class User {
     private String name;
     private String pwd;
     private String photoId;
-    private String[] channelIds;
 
-    public User(String id, String name, String pwd, String photoId, String[] channelIds) {
+    public User(String id, String name, String pwd, String photoId) {
         this.id = id;
         this.name = name;
         this.pwd = pwd;
         this.photoId = photoId;
-        this.channelIds = channelIds;
     }
 
     public String getId() {
@@ -54,17 +52,8 @@ public class User {
         this.photoId = photoId;
     }
 
-    public String[] getChannelIds() {
-        return this.channelIds == null ? new String[0] : this.channelIds;
-    }
-
-    public void setChannelIds(String[] channelIds) {
-        this.channelIds = channelIds;
-    }
-
     public String toString() {
-        String var10000 = this.id;
-        return "id = " + var10000 + ", name = " + this.name + ", pwd = " + this.pwd + ", photoId = " + this.photoId + ", channelIds = " + Arrays.toString(this.channelIds);
+        return "id = " + this.id + ", name = " + this.name + ", pwd = " + this.pwd + ", photoId = " + this.photoId;
     }
 }
 

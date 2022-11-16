@@ -22,12 +22,11 @@ public class AuctionDAO {
     }
 
     public AuctionDAO(Auction a) {
-        this(a.getId(), a.getTitle(), a.getDescription(),a.getPhotoId(),a.getOwnerId(),a.getEnd_time(),a.getMin_price());
+        this(a.getTitle(), a.getDescription(),a.getPhotoId(),a.getOwnerId(),a.getEnd_time(),a.getMin_price());
         this.status = a.getStatus();
     }
 
-    public AuctionDAO( String id,String title, String description, String photoId, String ownerId,String endTime, int minPrice) {
-        this.id = id;
+    public AuctionDAO( String title, String description, String photoId, String ownerId,String endTime, int minPrice) {
         this.title = title;
         this.description = description;
         this.photoId = photoId;

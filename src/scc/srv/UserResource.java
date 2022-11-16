@@ -12,6 +12,7 @@ import scc.cache.RedisCache;
 import scc.data.*;
 import scc.utils.Hash;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
@@ -110,14 +111,16 @@ public class UserResource {
         }
             CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions(null);
             for(AuctionDAO auction : auctions){
-                if(Objects.equals(auction.getOwnerId(),id)){
+                if(Objects.equals(auction.getOwnerId(),id)) {
                     auction.setOwnerId("Deleted user");
-                    for(BidDAO bid : auction.getListOfBids()) {
-                        if(Objects.equals(bid.getUserId(),id)){
-                            auction.getListOfBids().remove(bid);
-                            bid.setUserId("Deleted user");
-                            bid.setId(bid.getUserId() + " : " + bid.getBid_value());
-                            auction.getListOfBids().add(bid);
+                    if (auction.getListOfBids() != null && auction.getListOfBids().size() >= 1) {
+                        for (BidDAO bid : auction.getListOfBids()) {
+                            if (Objects.equals(bid.getUserId(), id)) {
+                                auction.getListOfBids().remove(bid);
+                                bid.setUserId("Deleted user");
+                                bid.setId(bid.getUserId() + " : " + bid.getBid_value());
+                                auction.getListOfBids().add(bid);
+                            }
                         }
                     }
                 }
@@ -140,11 +143,20 @@ public class UserResource {
         Gson gson = new Gson();
         try {
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
-            userDAO.setPwd(Hash.of(userDAO.getPwd()));
+            userDAO.setId(id);
+            if (userDAO.getPwd() != null) {
+                userDAO.setPwd(Hash.of(userDAO.getPwd()));
+            }
             checkCookieUser(session, id);
-            db.updateUser(userDAO);
+            CosmosPagedIterable<UserDAO> res = db.getUserById(id);
+            ArrayList<UserDAO> users = new ArrayList<UserDAO>();
+            for( UserDAO e: res) {
+                users.add(e);
+            }
+            UserDAO result = mergeObjects(userDAO,users.get(0));
+            db.updateUser(result);
             db.close();
-            return "User updated, new values : " + userDAO.toUser().toString();
+            return "User updated, new values : " + result.toUser().toString();
         }
         catch( WebApplicationException e) {
             throw e;
@@ -221,6 +233,25 @@ public class UserResource {
         if (!s.equals(id) && !s.equals("admin"))
             throw new NotAuthorizedException("Invalid user : " + s);
         return s;
+    }
+
+    public static <T> T mergeObjects(T first, T second){
+        Class<?> clas = first.getClass();
+        Field[] fields = clas.getDeclaredFields();
+        Object result = null;
+        try {
+            result = clas.getDeclaredConstructor().newInstance();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                Object value1 = field.get(first);
+                Object value2 = field.get(second);
+                Object value = (value1 != null) ? value1 : value2;
+                field.set(result, value);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (T) result;
     }
 
 }
