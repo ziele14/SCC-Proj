@@ -101,6 +101,23 @@ public class AuctionResource {
             }
     }
 
+    @Path("/recent")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String auctionGetRecent(@QueryParam("len") int len){
+        CosmosPagedIterable<AuctionDAO> resGet = db.getRecentAuctions(len);
+        ArrayList<String> auctions = new ArrayList<String>();
+        for (AuctionDAO e : resGet) {
+            auctions.add(e.toAuction().toString());
+        }
+        db.close();
+        if (auctions.size() == 0) {
+            return "It seems as if the auctions have disappeared :o";
+        } else {
+            return auctions.toString();
+        }
+    }
+
 
     @Path("/{id}")
     @GET
