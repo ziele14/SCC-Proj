@@ -3,13 +3,13 @@ package scc.data;
 public class Bid {
     private String id;
     private String auctionId;
-    private String userId;
+    private String user;
     private float bid_value;
 
-    public Bid(String id, String auctionId, String userId, float bid_value) {
+    public Bid(String id, String auctionId, String user, float bid_value) {
         this.id = id;
         this.auctionId = auctionId;
-        this.userId = userId;
+        this.user = user;
         this.bid_value = bid_value;
     }
 
@@ -29,12 +29,12 @@ public class Bid {
         this.auctionId = auctionId;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public float getBid_value() {
@@ -50,7 +50,7 @@ public class Bid {
         return "Bid{" +
                 "id='" + id + '\'' +
                 ", auctionId='" + auctionId + '\'' +
-                ", userId='" + userId + '\'' +
+                ", userId='" + user + '\'' +
                 ", bid_value=" + bid_value +
                 '}';
     }

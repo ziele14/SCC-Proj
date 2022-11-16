@@ -14,6 +14,8 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -44,8 +46,8 @@ public class AuctionResource {
             if (auctionTime.isBefore(LocalDateTime.now())){
                 return "The date is not valid";
             }
-           checkCookieUser(session, auctionDAO.getOwnerId());
-           CosmosPagedIterable<UserDAO> result = db.getUserById(auctionDAO.getOwnerId());
+           checkCookieUser(session, auctionDAO.getOwner());
+           CosmosPagedIterable<UserDAO> result = db.getUserById(auctionDAO.getOwner());
            ArrayList<String> users = new ArrayList<String>();
            for( UserDAO e: result) {
                users.add(e.toUser().toString());
@@ -55,7 +57,7 @@ public class AuctionResource {
            }
             db.putAuction(auctionDAO);
             db.close();
-            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus()+ ", owner : " + auctionDAO.getOwnerId();
+            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus()+ ", owner : " + auctionDAO.getOwner();
       }
        catch( WebApplicationException e) {
            throw e;
@@ -84,7 +86,7 @@ public class AuctionResource {
             if(auction.size() == 0){
                 return "There's no such action";
             }
-            checkCookieUser(session, auction.get(0).getOwnerId());
+            checkCookieUser(session, auction.get(0).getOwner());
             AuctionDAO result = mergeObjects(auctionDAO,auction.get(0));
             db.updateAuction(result);
             db.close();
@@ -117,11 +119,11 @@ public class AuctionResource {
             }
     }
 
-    @Path("/recent")
+    @Path("/any/recent")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String auctionGetRecent(@QueryParam("len") int len){
-        CosmosPagedIterable<AuctionDAO> resGet = db.getRecentAuctions(len);
+    public String auctionGetRecent(@QueryParam("len") Integer len, @QueryParam("st") Integer off){
+        CosmosPagedIterable<AuctionDAO> resGet = db.getRecentAuctions(len, off);
         ArrayList<String> auctions = new ArrayList<String>();
         for (AuctionDAO e : resGet) {
             auctions.add(e.toAuction().toString());
@@ -181,11 +183,11 @@ public class AuctionResource {
         Gson gson = new Gson();
         BidDAO bidDAO = gson.fromJson(input,BidDAO.class);
         bidDAO.setAuctionId(id);
-        if (bidDAO.getUserId() == null){
+        if (bidDAO.getUser() == null){
             return "Wrong input lad";
         }
         /** sprawdza czy taki user istnieje*/
-        CosmosPagedIterable<UserDAO> result = db.getUserById(bidDAO.getUserId());
+        CosmosPagedIterable<UserDAO> result = db.getUserById(bidDAO.getUser());
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: result) {
             users.add(e.toUser().toString());
@@ -199,9 +201,9 @@ public class AuctionResource {
         }
         else{
             /** ustawia na ID userID + wartość i potem wkłada a aukcję zamienia na taką z dobrą listą bidów*/
-            bidDAO.setId(bidDAO.getUserId() + " : " + bidDAO.getBid_value());
+            bidDAO.setId(bidDAO.getUser() + " : " + bidDAO.getBid_value());
             try {
-                checkCookieUser(session, bidDAO.getUserId());
+                checkCookieUser(session, bidDAO.getUser());
             }
             catch( WebApplicationException e) {
                 throw e;
@@ -224,18 +226,23 @@ public class AuctionResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String listBids(@PathParam("id") String id){
+    public String listBids(@PathParam("id") String id, @QueryParam("st") Integer st, @QueryParam("len") Integer len){
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
-        ArrayList<String> bids = new ArrayList<String>();
+        List<BidDAO> bids = new ArrayList<BidDAO>();
         for( AuctionDAO e: resGet) {
             if (e.getListOfBids() == null || Objects.equals(e.getListOfBids().size(), 0)){
                 return "There are currently no bids lad, go ahead then";
             }
-            bids.add(e.getListOfBids().toString());
+//            bids.add(e.getListOfBids().toString());
+            bids = e.getListOfBids();
+            Collections.reverse(bids);
         }
-
         db.close();
-        return bids.get(0);
+        if (len == null || st == null){
+            return bids.toString();
+        }
+        List<BidDAO> res = bids.subList(st, st + len);
+        return res.toString();
     }
 
     @Path("/{id}/question")
@@ -258,8 +265,8 @@ public class AuctionResource {
         QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
         Integer index = QUESTION_ID.getAndIncrement();
         questionDAO.setId(index.toString());
-        questionDAO.setAnswer(null);
-        CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUserId());
+        questionDAO.setReply(null);
+        CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUser());
         ArrayList<User> users = new ArrayList<User>();
         for( UserDAO e: result) {
             users.add(e.toUser());
@@ -302,7 +309,7 @@ public class AuctionResource {
         }
         Gson gson=new Gson();
         QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
-        CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUserId());
+        CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUser());
         ArrayList<User> users = new ArrayList<User>();
         for( UserDAO e: result) {
             users.add(e.toUser());
@@ -310,7 +317,7 @@ public class AuctionResource {
         if (users.size() == 0) {
             return "There is no such user here :/";
         }
-        if (!users.get(0).getId().equals(auction.get(0).getOwnerId())){
+        if (!users.get(0).getId().equals(auction.get(0).getOwner())){
             return "You cannot do that mate, you ain't the auction owner";
         }
         try {
@@ -319,11 +326,11 @@ public class AuctionResource {
         catch( WebApplicationException e) {
             throw e;
         }
-        String reply = questionDAO.getAnswer();
+        String reply = questionDAO.getReply();
         for (QuestionDAO question : auction.get(0).getListOfQuestions()){
             if (question.getId().equals(questionID)){
-                if(question.getAnswer() == null){
-                    question.setAnswer(reply);
+                if(question.getReply() == null){
+                    question.setReply(reply);
                     db.updateAuction(auction.get(0));
                     db.close();
                     return "You have succesfully replied";

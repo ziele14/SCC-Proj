@@ -103,9 +103,12 @@ public class CosmoDBLayer {
         return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
 
-    public CosmosPagedIterable<AuctionDAO> getAuctionByOwnerId(String ownerId) {
+    public CosmosPagedIterable<AuctionDAO> getAuctionByOwner(String owner, String status) {
         this.init();
-        return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.ownerId=\"" + ownerId + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
+        if (status == null){
+            return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.owner=\"" + owner + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
+        }
+        return this.auctions.queryItems("SELECT * FROM auctions WHERE auctions.owner=\"" + owner + "\" and auctions.status=\"" + status + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
 
     public CosmosPagedIterable<UserDAO> getUsers() {
@@ -113,18 +116,13 @@ public class CosmoDBLayer {
         return this.users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
     }
 
-    public CosmosPagedIterable<AuctionDAO> getRecentAuctions(@Nullable Integer num) {
+    public CosmosPagedIterable<AuctionDAO> getRecentAuctions(@Nullable Integer len, @Nullable Integer off) {
         this.init();
-        if (num == null || num == 0){
+        if (len == null || len == 0 || off == null || off == 0){
             return this.auctions.queryItems("SELECT * FROM auctions ORDER BY auctions.id DESC ", new CosmosQueryRequestOptions(), AuctionDAO.class);
         }
-        return this.auctions.queryItems("SELECT * FROM auctions ORDER BY auctions.id DESC OFFSET 0 LIMIT " + num + " ", new CosmosQueryRequestOptions(), AuctionDAO.class);
+        return this.auctions.queryItems("SELECT * FROM auctions ORDER BY auctions.id DESC OFFSET " + off + " LIMIT " + len + " ", new CosmosQueryRequestOptions(), AuctionDAO.class);
     }
-
-//    public Integer getRecentAuctions(@Nullable Integer num) {
-//        this.init();
-//        return num;
-//    }
 
     public CosmosPagedIterable<AuctionDAO> getAuctions(@Nullable String status) {
         this.init();

@@ -111,14 +111,14 @@ public class UserResource {
         }
             CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions(null);
             for(AuctionDAO auction : auctions){
-                if(Objects.equals(auction.getOwnerId(),id)) {
-                    auction.setOwnerId("Deleted user");
+                if(Objects.equals(auction.getOwner(),id)) {
+                    auction.setOwner("Deleted user");
                     if (auction.getListOfBids() != null && auction.getListOfBids().size() >= 1) {
                         for (BidDAO bid : auction.getListOfBids()) {
-                            if (Objects.equals(bid.getUserId(), id)) {
+                            if (Objects.equals(bid.getUser(), id)) {
                                 auction.getListOfBids().remove(bid);
-                                bid.setUserId("Deleted user");
-                                bid.setId(bid.getUserId() + " : " + bid.getBid_value());
+                                bid.setUser("Deleted user");
+                                bid.setId(bid.getUser() + " : " + bid.getBid_value());
                                 auction.getListOfBids().add(bid);
                             }
                         }
@@ -171,10 +171,10 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getUsersAuctions(@PathParam("id")String id, @QueryParam("status") String status){
-        CosmosPagedIterable<AuctionDAO> result = db.getAuctions(status);
+        CosmosPagedIterable<AuctionDAO> result = db.getAuctionByOwner(id, status);
         ArrayList<Auction> auctions = new ArrayList<Auction>();
         for( AuctionDAO e: result) {
-            if (Objects.equals(e.getOwnerId(),id)){
+            if (Objects.equals(e.getOwner(),id)){
                 auctions.add(e.toAuction());
             }
         }

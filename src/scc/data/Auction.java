@@ -8,7 +8,7 @@ public class Auction {
     private String title;
     private String imageId;
     private String description;
-    private String ownerId;
+    private String owner;
     private String end_time;
     private int min_price;
     private String winner;
@@ -16,12 +16,12 @@ public class Auction {
     private ArrayList<BidDAO> listOfBids;
     private ArrayList<QuestionDAO> listOfQuestions;
 
-    public Auction(String id, String title, String imageId, String description, String ownerId, String end_time, int min_price, String winner, String status, ArrayList<BidDAO> listOfBids, ArrayList<QuestionDAO> listOfQuestions) {
+    public Auction(String id, String title, String imageId, String description, String owner, String end_time, int min_price, String winner, String status, ArrayList<BidDAO> listOfBids, ArrayList<QuestionDAO> listOfQuestions) {
         this.id = id;
         this.title = title;
         this.imageId = imageId;
         this.description = description;
-        this.ownerId = ownerId;
+        this.owner = owner;
         this.end_time = end_time;
         this.min_price = min_price;
         this.winner = winner;
@@ -37,7 +37,7 @@ public class Auction {
                 ", title='" + title + '\'' +
                 ", photoId='" + imageId + '\'' +
                 ", description='" + description + '\'' +
-                ", ownerId='" + ownerId + '\'' +
+                ", ownerId='" + owner + '\'' +
                 ", end_time='" + end_time + '\'' +
                 ", min_price=" + min_price +
                 ", winner='" + winner + '\'' +
@@ -79,12 +79,12 @@ public class Auction {
         this.description = description;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public String getEnd_time() {
