@@ -44,7 +44,7 @@ public class AuctionResource {
             auctionDAO.setId(index.toString());
             LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
             if (auctionTime.isBefore(LocalDateTime.now())){
-                return "The date is not valid";
+                return "The date is not valid. Date should be before now. \nProvided date: " + auctionTime.toString() + "\nNow: " + LocalDateTime.now().toString();
             }
            checkCookieUser(session, auctionDAO.getOwner());
            CosmosPagedIterable<UserDAO> result = db.getUserById(auctionDAO.getOwner());
@@ -57,13 +57,14 @@ public class AuctionResource {
            }
             db.putAuction(auctionDAO);
             db.close();
-            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus()+ ", owner : " + auctionDAO.getOwner();
+//            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus()+ ", owner : " + auctionDAO.getOwner();
+           return gson.toJson(auctionDAO);
       }
        catch( WebApplicationException e) {
            throw e;
        }
        catch(Exception e){
-          return "The input auction data seems to be invalid or the ID is already taken";
+          return "The input auction data seems to be invalid or the ID is already taken\n Provided: " + gson.fromJson(input, AuctionDAO.class).toAuction().toString();
        }
     }
 

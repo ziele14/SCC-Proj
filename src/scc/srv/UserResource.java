@@ -37,12 +37,13 @@ public class UserResource {
         Gson gson = new Gson();
         try {
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
+            UserDAO tempUserDAO = new UserDAO(userDAO.getId(), userDAO.getName(), userDAO.getPwd(), userDAO.getPhotoId());
             userDAO.setPwd(Hash.of(userDAO.getPwd()));
             db.putUser(userDAO);
             db.close();
-            String nitka="User created, name : " + userDAO.getName() + ", ID : " + userDAO.getId();
+//            String nitka="User created, name : " + userDAO.getName() + ", ID : " + userDAO.getId();
 
-            return gson.toJson(userDAO);
+            return gson.toJson(tempUserDAO);
         }
         catch(Exception e){
             return "The input user data seems to be invalid or the ID is already taken";
@@ -191,6 +192,8 @@ public class UserResource {
 
         Gson gson = new Gson();
         UserDAO userDAO = gson.fromJson(input, UserDAO.class);
+        String providedPwd = userDAO.getPwd();
+        String expected = null;
         userDAO.setPwd(Hash.of(userDAO.getPwd()));
 
         CosmosPagedIterable<UserDAO> user = db.getUserById(userDAO.getId());
@@ -198,6 +201,7 @@ public class UserResource {
             if (Objects.equals(e.getPwd(),userDAO.getPwd())){
                 pwdOk = true;
             }
+            expected = e.getPwd();
         }
         if(pwdOk) {
             String uid = UUID.randomUUID().toString();
@@ -212,7 +216,7 @@ public class UserResource {
             jedis.set(uid, userDAO.getId());
             return Response.ok().cookie(cookie).build();
         } else
-            throw new NotAuthorizedException("Incorrect login");
+            throw new NotAuthorizedException("Incorrect login" + "\nprovided: " + providedPwd + "\nHashed: " + expected);
     }
 
     /**

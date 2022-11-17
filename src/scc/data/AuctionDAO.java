@@ -8,7 +8,7 @@ public class AuctionDAO {
     private String _ts;
     private String id;
     private String title;
-    private String photoId;
+    private String imageId;
     private String description;
     private String owner;
     private String endTime;
@@ -26,10 +26,10 @@ public class AuctionDAO {
         this.status = a.getStatus();
     }
 
-    public AuctionDAO(String title, String description, String photoId, String owner, String endTime, int minPrice) {
+    public AuctionDAO(String title, String description, String imageId, String owner, String endTime, int minPrice) {
         this.title = title;
         this.description = description;
-        this.photoId = photoId;
+        this.imageId = imageId;
         this.owner = owner;
         this.endTime = endTime;
         this.minPrice = minPrice;
@@ -69,12 +69,12 @@ public class AuctionDAO {
         this.title = title;
     }
 
-    public String getPhotoId() {
-        return photoId;
+    public String getImageId() {
+        return imageId;
     }
 
-    public void setPhotoId(String photoId) {
-        this.photoId = photoId;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 
     public String getDescription() {
@@ -148,7 +148,7 @@ public class AuctionDAO {
     }
     
     public Auction toAuction(){
-        return new Auction(this.id, this.title,this.description,this.photoId,this.owner,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
+        return new Auction(this.id, this.title,this.description,this.imageId,this.owner,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
     }
 
     public void AuctionClose(){
@@ -168,7 +168,7 @@ public class AuctionDAO {
                 ", _ts='" + _ts + '\'' +
                 ", id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", photoId='" + photoId + '\'' +
+                ", photoId='" + imageId + '\'' +
                 ", description='" + description + '\'' +
                 ", ownerId='" + owner + '\'' +
                 ", endTime='" + endTime + '\'' +
