@@ -12,6 +12,7 @@ import scc.cache.RedisCache;
 import scc.utils.Hash;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import jakarta.ws.rs.core.MediaType;
 
@@ -31,7 +32,7 @@ public class MediaResource
 			.buildClient();
 
 	Jedis jedis = RedisCache.getCachePool().getResource();
-
+	private static AtomicInteger ADDITIONAL = new AtomicInteger(1);
 	/**
 	 * Post a new image.The id of the image is its hash.
 	 */
@@ -41,6 +42,9 @@ public class MediaResource
 	@Produces(MediaType.APPLICATION_JSON)
 	public String upload(byte[] contents) {
 		String key = Hash.of(contents);
+		if(containerClient.getBlobClient(key) instanceof com.azure.storage.blob.BlobClient){
+			key = key + ADDITIONAL.getAndIncrement();
+		}
 		BlobClient blob = containerClient.getBlobClient(key);
 		blob.upload(BinaryData.fromBytes(contents));
 		/** cache tutaj wlatuje, mati*/
