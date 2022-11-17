@@ -10,7 +10,7 @@ public class AuctionDAO {
     private String title;
     private String photoId;
     private String description;
-    private String ownerId;
+    private String owner;
     private String endTime;
     private int minPrice;
     private String winner;
@@ -22,15 +22,15 @@ public class AuctionDAO {
     }
 
     public AuctionDAO(Auction a) {
-        this(a.getTitle(), a.getDescription(),a.getPhotoId(),a.getOwnerId(),a.getEnd_time(),a.getMin_price());
+        this(a.getTitle(), a.getDescription(),a.getImageId(),a.getOwner(),a.getEnd_time(),a.getMin_price());
         this.status = a.getStatus();
     }
 
-    public AuctionDAO( String title, String description, String photoId, String ownerId,String endTime, int minPrice) {
+    public AuctionDAO(String title, String description, String photoId, String owner, String endTime, int minPrice) {
         this.title = title;
         this.description = description;
         this.photoId = photoId;
-        this.ownerId = ownerId;
+        this.owner = owner;
         this.endTime = endTime;
         this.minPrice = minPrice;
         this.status = "open";
@@ -85,12 +85,12 @@ public class AuctionDAO {
         this.description = description;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public String getEndTime() {
@@ -148,7 +148,7 @@ public class AuctionDAO {
     }
     
     public Auction toAuction(){
-        return new Auction(this.id, this.title,this.description,this.photoId,this.ownerId,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
+        return new Auction(this.id, this.title,this.description,this.photoId,this.owner,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
     }
 
     public void AuctionClose(){
@@ -170,7 +170,7 @@ public class AuctionDAO {
                 ", title='" + title + '\'' +
                 ", photoId='" + photoId + '\'' +
                 ", description='" + description + '\'' +
-                ", ownerId='" + ownerId + '\'' +
+                ", ownerId='" + owner + '\'' +
                 ", endTime='" + endTime + '\'' +
                 ", minPrice=" + minPrice +
                 ", winner='" + winner + '\'' +

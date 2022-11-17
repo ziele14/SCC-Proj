@@ -5,7 +5,7 @@ public class BidDAO {
     private String _ts;
     private String id;
     private String auctionId;
-    private String userId;
+    private String user;
     private int bid_value;
 
     public BidDAO() {
@@ -15,8 +15,8 @@ public class BidDAO {
         this();
     }
 
-    public BidDAO(String userId, int bid_value) {
-        this.userId = userId;
+    public BidDAO(String user, int bid_value) {
+        this.user = user;
         this.bid_value = bid_value;
     }
 
@@ -52,8 +52,8 @@ public class BidDAO {
         this.auctionId = auctionId;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser() {
+        return user;
     }
 
     @Override
@@ -61,8 +61,8 @@ public class BidDAO {
         return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public int getBid_value() {
@@ -74,6 +74,6 @@ public class BidDAO {
     }
 
     public Bid toBid(){
-        return new Bid(this.id,this.auctionId,this.userId,this.bid_value);
+        return new Bid(this.id,this.auctionId,this.user,this.bid_value);
     }
 }

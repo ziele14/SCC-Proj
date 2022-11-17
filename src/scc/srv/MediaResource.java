@@ -50,7 +50,7 @@ public class MediaResource
 		/** cache tutaj wlatuje, mati*/
 		jedis.set("image: " + key, Base64.getEncoder().encodeToString(contents));
 		jedis.expire(key,86400);
-		return "The image has been added with this ID : " + key;
+		return key;
 	}
 
 	/**

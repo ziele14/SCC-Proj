@@ -2,15 +2,15 @@ package scc.data;
 
 public class Question {
     private String text;
-    private String userId;
+    private String user;
     private String id;
-    private String answer;
+    private String reply;
 
-    public Question(String text, String userId, String id,String answer) {
+    public Question(String text, String user, String id, String reply) {
         this.text = text;
-        this.userId = userId;
+        this.user = user;
         this.id = id;
-        this.answer = answer;
+        this.reply = reply;
     }
 
 
@@ -30,29 +30,29 @@ public class Question {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getReply() {
+        return reply;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setReply(String reply) {
+        this.reply = reply;
     }
 
     @Override
     public String toString() {
         return "Question{" +
                 "text='" + text + '\'' +
-                ", userId='" + userId + '\'' +
+                ", userId='" + user + '\'' +
                 ", id='" + id + '\'' +
-                ", answer='" + answer + '\'' +
+                ", answer='" + reply + '\'' +
                 '}';
     }
 }
