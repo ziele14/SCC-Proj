@@ -4,30 +4,30 @@ public class QuestionDAO {
     private String _rid;
     private String _ts;
     private String text;
-    private String userId;
+    private String user;
     private String id;
-    private String answer;
+    private String reply;
 
 
     public QuestionDAO(){
     }
 
     public QuestionDAO(Question q){
-        this(q.getText(),q.getUserId());
+        this(q.getText(),q.getUser());
     }
 
-    public QuestionDAO( String text, String userId) {
+    public QuestionDAO( String text, String user) {
         this.text = text;
-        this.userId = userId;
+        this.user = user;
 
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getReply() {
+        return reply;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setReply(String reply) {
+        this.reply = reply;
     }
 
     public String getId() {
@@ -61,23 +61,23 @@ public class QuestionDAO {
         this.text = text;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
         return "QuestionDAO{" +
                 "text='" + text + '\'' +
-                ", userId='" + userId + '\'' +
+                ", userId='" + user + '\'' +
                 ", id='" + id + '\'' +
-                ", answer='" + answer + '\'' +
+                ", answer='" + reply + '\'' +
                 '}';
     }
 
-    public Question toQuestion(){return new Question(this.text,this.userId,this.id, this.answer);}
+    public Question toQuestion(){return new Question(this.text,this.user,this.id, this.reply);}
 }
