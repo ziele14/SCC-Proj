@@ -8,7 +8,6 @@ import jakarta.ws.rs.core.MediaType;
 import redis.clients.jedis.Jedis;
 import scc.cache.RedisCache;
 import scc.data.*;
-
 import java.lang.reflect.Field;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -107,16 +106,17 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionGetAll(@QueryParam("status") String status){
+            Gson gson = new Gson();
             CosmosPagedIterable<AuctionDAO> resGet = db.getAuctions(status);
-            ArrayList<String> auctions = new ArrayList<String>();
+            ArrayList<Auction> auctions = new ArrayList<>();
             for (AuctionDAO e : resGet) {
-                auctions.add(e.toAuction().toString());
+                auctions.add(e.toAuction());
             }
             db.close();
             if (auctions.size() == 0) {
                 return "It seems as if the auctions have disappeared :o";
             } else {
-                return auctions.toString();
+                return gson.toJson(auctions);
             }
     }
 
@@ -124,16 +124,17 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionGetRecent(@QueryParam("len") Integer len, @QueryParam("st") Integer off){
+        Gson gson = new Gson();
         CosmosPagedIterable<AuctionDAO> resGet = db.getRecentAuctions(len, off);
-        ArrayList<String> auctions = new ArrayList<String>();
+        ArrayList<Auction> auctions = new ArrayList<>();
         for (AuctionDAO e : resGet) {
-            auctions.add(e.toAuction().toString());
+            auctions.add(e.toAuction());
         }
         db.close();
         if (auctions.size() == 0) {
             return "It seems as if the auctions have disappeared :o";
         } else {
-            return auctions.toString();
+            return gson.toJson(auctions);
         }
     }
 

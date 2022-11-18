@@ -53,7 +53,8 @@ public class User {
     }
 
     public String toString() {
-        return "id = " + this.id + ", name = " + this.name + ", photoId = " + this.photoId;
+        return "User : " + this.id + ", name = " + this.name + ", photoId = " + this.photoId + "" +
+                "]";
     }
 }
 
