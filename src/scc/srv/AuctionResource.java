@@ -142,16 +142,17 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionGetBtId(@PathParam("id") String id){
+        Gson gson = new Gson();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
-        ArrayList<String> auction = new ArrayList<String>();
+        Auction auction = null;
         for( AuctionDAO e: res) {
-            auction.add(e.toAuction().toString());
+            auction = e.toAuction();
         }
         db.close();
-        if (auction.size() == 0) {
+        if (auction == null) {
             return "The auction with this Id simply doesn't exist";
         }
-        return auction.get(0);
+        return gson.toJson(auction);
     }
 
 
