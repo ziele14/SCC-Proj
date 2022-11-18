@@ -26,12 +26,8 @@ public class MediaResource
 
 	String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=nazwastorage;AccountKey=Z8tKUgWJJDoaSr7/XLFsOXIHJhVKU7YUepYsv/sZRFoM9IX+x+SG3C4JGwtxY6LGaLocpnHJ52mb+AStoHLDEQ==;EndpointSuffix=core.windows.net";
 
-	BlobContainerClient containerClient = new BlobContainerClientBuilder()
-			.connectionString(storageConnectionString)
-			.containerName("images")
-			.buildClient();
 
-	Jedis jedis = RedisCache.getCachePool().getResource();
+
 	private static AtomicInteger ADDITIONAL = new AtomicInteger(1);
 	/**
 	 * Post a new image.The id of the image is its hash.
@@ -41,15 +37,26 @@ public class MediaResource
 	@Consumes(MediaType.APPLICATION_OCTET_STREAM)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String upload(byte[] contents) {
+		BlobContainerClient containerClient = new BlobContainerClientBuilder()
+				.connectionString(storageConnectionString)
+				.containerName("images")
+				.buildClient();
 		String key = Hash.of(contents);
 		if(containerClient.getBlobClient(key) instanceof com.azure.storage.blob.BlobClient){
 			key = key + ADDITIONAL.getAndIncrement();
 		}
 		BlobClient blob = containerClient.getBlobClient(key);
 		blob.upload(BinaryData.fromBytes(contents));
+
 		/** cache tutaj wlatuje, mati*/
-		jedis.set("image: " + key, Base64.getEncoder().encodeToString(contents));
-		jedis.expire(key,86400);
+		try(Jedis jedis = RedisCache.getCachePool().getResource()){
+			jedis.set("image: " + key, Base64.getEncoder().encodeToString(contents));
+			jedis.expire(key, 86400);
+
+		}
+		catch(Exception e){
+			throw new ServiceUnavailableException();
+		}
 		return key;
 	}
 
@@ -61,7 +68,11 @@ public class MediaResource
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public byte[] download(@PathParam("id") String id) {
-		try {
+		BlobContainerClient containerClient = new BlobContainerClientBuilder()
+				.connectionString(storageConnectionString)
+				.containerName("images")
+				.buildClient();
+		try (Jedis jedis = RedisCache.getCachePool().getResource();){
 			if (jedis.get("image: " + id) instanceof String) {
 				byte [] arr = Base64.getDecoder().decode(jedis.get("image: " + id));
 				return arr;
@@ -83,6 +94,10 @@ public class MediaResource
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String list() {
+		BlobContainerClient containerClient = new BlobContainerClientBuilder()
+				.connectionString(storageConnectionString)
+				.containerName("images")
+				.buildClient();
 		PagedIterable<BlobItem> blob = containerClient.listBlobs();
 		ArrayList<String> pictures = new ArrayList<String>();
 		for (BlobItem bb: blob){

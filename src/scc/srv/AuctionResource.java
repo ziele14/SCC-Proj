@@ -21,9 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Path("/auction")
 public class AuctionResource {
-    CosmoDBLayer db = CosmoDBLayer.getInstance();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-    Jedis jedis = RedisCache.getCachePool().getResource();
     private static AtomicInteger AUCTION_ID = new AtomicInteger(1);
     private static AtomicInteger QUESTION_ID = new AtomicInteger(1);
 
@@ -34,6 +32,7 @@ public class AuctionResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionCreate(String input, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
        try {
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
             auctionDAO.setStatus("open");
@@ -75,6 +74,7 @@ public class AuctionResource {
     public String updateAuction(@PathParam("id")String id, String input, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
         try {
+            CosmoDBLayer db = CosmoDBLayer.getInstance();
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
             auctionDAO.setId(id);
             /** bierze tę aukcję*/
@@ -106,6 +106,7 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionGetAll(@QueryParam("status") String status){
+            CosmoDBLayer db = CosmoDBLayer.getInstance();
             Gson gson = new Gson();
             CosmosPagedIterable<AuctionDAO> resGet = db.getAuctions(status);
             ArrayList<Auction> auctions = new ArrayList<>();
@@ -124,6 +125,7 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionGetRecent(@QueryParam("len") Integer len, @QueryParam("st") Integer off){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         Gson gson = new Gson();
         CosmosPagedIterable<AuctionDAO> resGet = db.getRecentAuctions(len, off);
         ArrayList<Auction> auctions = new ArrayList<>();
@@ -143,6 +145,7 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionGetBtId(@PathParam("id") String id){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         Gson gson = new Gson();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         Auction auction = null;
@@ -164,6 +167,7 @@ public class AuctionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String bidCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         /**bierze ID aukcji, sprawdza czy taka istnieja*/
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
@@ -230,6 +234,7 @@ public class AuctionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String listBids(@PathParam("id") String id, @QueryParam("st") Integer st, @QueryParam("len") Integer len){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
         List<BidDAO> bids = new ArrayList<BidDAO>();
         for( AuctionDAO e: resGet) {
@@ -253,6 +258,7 @@ public class AuctionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String questionCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
         for( AuctionDAO e: res) {
@@ -303,6 +309,7 @@ public class AuctionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String questionAnswer(@PathParam("id") String auctionId,String input,@PathParam("qid") String questionID, @CookieParam("scc:session") Cookie session){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(auctionId);
         ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
         for( AuctionDAO e: res) {
@@ -351,6 +358,7 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String listQuestions(@PathParam("id")String id){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
         ArrayList<String> questions = new ArrayList<String>();
         for( AuctionDAO e: resGet) {
@@ -371,6 +379,7 @@ public class AuctionResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String listAuctionsAboutToClose(){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> result = db.getAuctions("open");
         ArrayList<Auction> closingAuctions = new ArrayList<Auction>();
         for( AuctionDAO a: result){
@@ -399,7 +408,7 @@ public class AuctionResource {
         if (session == null || session.getValue() == null)
             throw new NotAuthorizedException("No session initialized");
         String s;
-        try {
+        try(Jedis jedis = RedisCache.getCachePool().getResource();) {
             s = jedis.get(session.getValue());
         } catch (Exception e) {
             throw new NotAuthorizedException("No valid session initialized");

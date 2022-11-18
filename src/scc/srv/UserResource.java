@@ -23,8 +23,6 @@ import java.util.UUID;
 @Path("/user")
 public class UserResource {
 
-    CosmoDBLayer db = CosmoDBLayer.getInstance();
-    Jedis jedis = RedisCache.getCachePool().getResource();
 
     /**
      * creates a user from a json file and adds it to our cosmoDB database
@@ -36,6 +34,7 @@ public class UserResource {
     public String userCreate(String inpucik){
         Gson gson = new Gson();
         try {
+            CosmoDBLayer db = CosmoDBLayer.getInstance();
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
             UserDAO tempUserDAO = new UserDAO(userDAO.getId(), userDAO.getName(), userDAO.getPwd(), userDAO.getPhotoId());
             userDAO.setPwd(Hash.of(userDAO.getPwd()));
@@ -57,6 +56,7 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllUsers(){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<UserDAO> resGet = db.getUsers();
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: resGet) {
@@ -79,6 +79,7 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String userGetById(@PathParam("id") String id){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<UserDAO> res = db.getUserById(id);
         ArrayList<String> users = new ArrayList<String>();
         for( UserDAO e: res) {
@@ -99,6 +100,7 @@ public class UserResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public String deleteUser(@PathParam("id")String id, @CookieParam("scc:session") Cookie session){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         try {
             checkCookieUser(session, id);
             db.delUserById(id);
@@ -141,6 +143,7 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String updateUser(@PathParam("id")String id, String inpucik, @CookieParam("scc:session") Cookie session){
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         Gson gson = new Gson();
         try {
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
@@ -173,6 +176,7 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getUsersAuctions(@PathParam("id")String id, @QueryParam("status") String status){
         Gson gson = new Gson();
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> result = db.getAuctionByOwner(id, status);
         ArrayList<Auction> auctions = new ArrayList<Auction>();
         for( AuctionDAO e: result) {
@@ -190,7 +194,7 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response auth(String input) {
         boolean pwdOk = false;
-
+        CosmoDBLayer db = CosmoDBLayer.getInstance();
         Gson gson = new Gson();
         UserDAO userDAO = gson.fromJson(input, UserDAO.class);
         String providedPwd = userDAO.getPwd();
@@ -214,7 +218,9 @@ public class UserResource {
                     .secure(false)
                     .httpOnly(true)
                     .build();
-            jedis.set(uid, userDAO.getId());
+            try(Jedis jedis = RedisCache.getCachePool().getResource()) {
+                jedis.set(uid, userDAO.getId());
+            }
             return Response.ok().cookie(cookie).build();
         } else
             throw new NotAuthorizedException("Incorrect login" + "\nprovided: " + providedPwd + "\nHashed: " + expected);
@@ -228,7 +234,7 @@ public class UserResource {
         if (session == null || session.getValue() == null)
             throw new NotAuthorizedException("No session initialized");
         String s;
-        try {
+        try(Jedis jedis = RedisCache.getCachePool().getResource()) {
             s = jedis.get(session.getValue());
         } catch (Exception e) {
             throw new NotAuthorizedException("No valid session initialized");
