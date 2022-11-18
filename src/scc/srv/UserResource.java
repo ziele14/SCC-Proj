@@ -23,9 +23,8 @@ import java.util.UUID;
 @Path("/user")
 public class UserResource {
 
-
     /**
-     * creates a user from a json file and adds it to our cosmoDB database
+     * creates a user from a json file and adds it to our cosmoDB database, returns json
      */
     @Path("/")
     @POST
@@ -40,8 +39,6 @@ public class UserResource {
             userDAO.setPwd(Hash.of(userDAO.getPwd()));
             db.putUser(userDAO);
             db.close();
-//            String nitka="User created, name : " + userDAO.getName() + ", ID : " + userDAO.getId();
-
             return gson.toJson(tempUserDAO);
         }
         catch(Exception e){
@@ -56,18 +53,19 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllUsers(){
+        Gson gson = new Gson();
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<UserDAO> resGet = db.getUsers();
-        ArrayList<String> users = new ArrayList<String>();
+        ArrayList<User> users = new ArrayList<>();
         for( UserDAO e: resGet) {
-            users.add(e.toUser().toString());
+            users.add(e.toUser());
         }
         db.close();
         if(users.size() == 0){
             return "It seems there are no users in the database";
         }
         else {
-            return users.toString();
+            return gson.toJson(users);
         }
     }
 
@@ -79,17 +77,16 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String userGetById(@PathParam("id") String id){
+        Gson gson = new Gson();
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<UserDAO> res = db.getUserById(id);
-        ArrayList<String> users = new ArrayList<String>();
-        for( UserDAO e: res) {
-            users.add(e.toUser().toString());
-        }
         db.close();
-        if (users.size() == 0) {
+        try {
+            User user = res.iterator().next().toUser();
+            return gson.toJson(user);
+        } catch (Exception e) {
             return "There is no such user here :/";
         }
-        return users.get(0).toString();
     }
 
 
@@ -153,14 +150,11 @@ public class UserResource {
             }
             checkCookieUser(session, id);
             CosmosPagedIterable<UserDAO> res = db.getUserById(id);
-            ArrayList<UserDAO> users = new ArrayList<UserDAO>();
-            for( UserDAO e: res) {
-                users.add(e);
-            }
-            UserDAO result = mergeObjects(userDAO,users.get(0));
+            UserDAO user = res.iterator().next();
+            UserDAO result = mergeObjects(userDAO,user);
             db.updateUser(result);
             db.close();
-            return "User updated, new values : " + result.toUser().toString();
+            return gson.toJson(result);
         }
         catch( WebApplicationException e) {
             throw e;
@@ -171,6 +165,10 @@ public class UserResource {
 
     }
 
+
+    /**
+     * return all auctions belonging to a given user
+     */
     @Path("/{id}/auctions")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -189,6 +187,10 @@ public class UserResource {
 
     }
 
+
+    /**
+     * authenticates user based on the user ID and password provided
+     */
     @POST
     @Path("/auth")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -200,14 +202,12 @@ public class UserResource {
         String providedPwd = userDAO.getPwd();
         String expected = null;
         userDAO.setPwd(Hash.of(userDAO.getPwd()));
-
-        CosmosPagedIterable<UserDAO> user = db.getUserById(userDAO.getId());
-        for( UserDAO e: user) {
-            if (Objects.equals(e.getPwd(),userDAO.getPwd())){
-                pwdOk = true;
-            }
-            expected = e.getPwd();
+        CosmosPagedIterable<UserDAO> res = db.getUserById(userDAO.getId());
+        UserDAO user = res.iterator().next();
+        if (Objects.equals(user.getPwd(),userDAO.getPwd())){
+            pwdOk = true;
         }
+        expected = user.getPwd();
         if(pwdOk) {
             String uid = UUID.randomUUID().toString();
             NewCookie cookie = new NewCookie.Builder("scc:session")
@@ -225,6 +225,8 @@ public class UserResource {
         } else
             throw new NotAuthorizedException("Incorrect login" + "\nprovided: " + providedPwd + "\nHashed: " + expected);
     }
+
+
 
     /**
      * Throws exception if not appropriate user for operation on Auction
@@ -246,6 +248,11 @@ public class UserResource {
         return s;
     }
 
+
+
+    /**
+     * Merges two items, fills the null fields in the first item with the calues from the second one
+     */
     public static <T> T mergeObjects(T first, T second){
         Class<?> clas = first.getClass();
         Field[] fields = clas.getDeclaredFields();
