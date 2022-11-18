@@ -172,6 +172,7 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getUsersAuctions(@PathParam("id")String id, @QueryParam("status") String status){
+        Gson gson = new Gson();
         CosmosPagedIterable<AuctionDAO> result = db.getAuctionByOwner(id, status);
         ArrayList<Auction> auctions = new ArrayList<Auction>();
         for( AuctionDAO e: result) {
@@ -180,7 +181,7 @@ public class UserResource {
             }
         }
         db.close();
-        return auctions.toString();
+        return gson.toJson(auctions);
 
     }
 
