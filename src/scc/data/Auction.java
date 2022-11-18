@@ -35,7 +35,7 @@ public class Auction {
         return "Auction = (" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", photoId='" + imageId + '\'' +
+                ", imageId='" + imageId + '\'' +
                 ", description='" + description + '\'' +
                 ", ownerId='" + owner + '\'' +
                 ", end_time='" + end_time + '\'' +

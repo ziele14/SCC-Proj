@@ -148,7 +148,7 @@ public class AuctionDAO {
     }
     
     public Auction toAuction(){
-        return new Auction(this.id, this.title,this.description,this.imageId,this.owner,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
+        return new Auction(this.id, this.title,this.imageId, this.description, this.owner,this.endTime,this.minPrice, this.winner,this.status,this.listOfBids,this.listOfQuestions);
     }
 
     public void AuctionClose(){
@@ -168,7 +168,7 @@ public class AuctionDAO {
                 ", _ts='" + _ts + '\'' +
                 ", id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", photoId='" + imageId + '\'' +
+                ", imageId='" + imageId + '\'' +
                 ", description='" + description + '\'' +
                 ", ownerId='" + owner + '\'' +
                 ", endTime='" + endTime + '\'' +

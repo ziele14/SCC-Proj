@@ -292,7 +292,8 @@ public class AuctionResource {
         }
         db.updateAuction(auction.get(0));
         db.close();
-        return "You have created a question";
+        return gson.toJson(questionDAO);
+//        return "You have created a question";
     }
 
     @Path("/{id}/question/{qid}/reply")
