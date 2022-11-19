@@ -34,15 +34,15 @@ public class AuctionResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String auctionCreate(String input, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
-        CosmoDBLayer db = CosmoDBLayer.getInstance();
-        AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
-        auctionDAO.setStatus("open");
-        auctionDAO.setListOfBids(new ArrayList<BidDAO>());
-        auctionDAO.setListOfQuestions(new ArrayList<QuestionDAO>());
-        Integer index = AUCTION_ID.getAndIncrement();
-        auctionDAO.setId(index.toString());
-        LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
        try {
+           CosmoDBLayer db = CosmoDBLayer.getInstance();
+           AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
+           auctionDAO.setStatus("open");
+           auctionDAO.setListOfBids(new ArrayList<BidDAO>());
+           auctionDAO.setListOfQuestions(new ArrayList<QuestionDAO>());
+           Integer index = AUCTION_ID.getAndIncrement();
+           auctionDAO.setId(index.toString());
+           LocalDateTime auctionTime = LocalDateTime.parse(auctionDAO.getEndTime(), formatter);
             if (auctionTime.isBefore(LocalDateTime.now())){
                 return "The date is not valid. Date should be before now. \nProvided date: " + auctionTime.toString() + "\nNow: " + LocalDateTime.now().toString();
             }
