@@ -28,6 +28,13 @@ public class AuctionResource {
     private static AtomicInteger QUESTION_ID = new AtomicInteger(1);
 
 
+
+    /**
+     *
+     * @param input json with the auction details
+     * @param session cookie to check authentication
+     * @return json with values of the auction or appropriate error
+     */
     @Path("/")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -47,18 +54,9 @@ public class AuctionResource {
                 return "The date is not valid. Date should be before now. \nProvided date: " + auctionTime.toString() + "\nNow: " + LocalDateTime.now().toString();
             }
            checkCookieUser(session, auctionDAO.getOwner());
-           CosmosPagedIterable<UserDAO> result = db.getUserById(auctionDAO.getOwner());
-           ArrayList<String> users = new ArrayList<String>();
-           for( UserDAO e: result) {
-               users.add(e.toUser().toString());
-           }
-           if (users.size() == 0) {
-               return "There is no such user here :/";
-           }
-            db.putAuction(auctionDAO);
-            db.close();
-//            return "Auction created, ID : " + auctionDAO.getId() + ", title : " + auctionDAO.getTitle() + ", status : " + auctionDAO.getStatus()+ ", owner : " + auctionDAO.getOwner();
-           return gson.toJson(auctionDAO);
+           db.putAuction(auctionDAO);
+           db.close();
+           return gson.toJson(auctionDAO.toAuction());
       }
        catch( WebApplicationException e) {
            throw e;
@@ -69,6 +67,15 @@ public class AuctionResource {
     }
 
 
+
+
+    /**
+     *
+     * @param id of the auction
+     * @param input json
+     * @param session token
+     * @return updated values
+     */
     @Path("/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -79,20 +86,13 @@ public class AuctionResource {
             CosmoDBLayer db = CosmoDBLayer.getInstance();
             AuctionDAO auctionDAO = gson.fromJson(input, AuctionDAO.class);
             auctionDAO.setId(id);
-            /** bierze tę aukcję*/
             CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
-            ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
-            for( AuctionDAO e: res) {
-                auction.add(e);
-            }
-            if(auction.size() == 0){
-                return "There's no such action";
-            }
-            checkCookieUser(session, auction.get(0).getOwner());
-            AuctionDAO result = mergeObjects(auctionDAO,auction.get(0));
+            AuctionDAO auction = res.iterator().next();
+            checkCookieUser(session, auction.getOwner());
+            AuctionDAO result = mergeObjects(auctionDAO,auction);
             db.updateAuction(result);
             db.close();
-            return "Auction updated, new values : " + result.toAuction().toString();
+            return gson.toJson(result);
         }
         catch( WebApplicationException e) {
             throw e;
@@ -104,6 +104,11 @@ public class AuctionResource {
     }
 
 
+
+    /**
+     * @param status additional query parameter regarding the status of the function
+     * @return json of the auctions
+     */
     @Path("/")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -123,6 +128,12 @@ public class AuctionResource {
             }
     }
 
+
+
+    /**
+     *
+     * returns recent auctions
+     */
     @Path("/any/recent")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -143,6 +154,12 @@ public class AuctionResource {
     }
 
 
+
+    /**
+     *
+     * @param id of the auction we wish to obtain information about
+     * @return json of the auction
+     */
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -150,87 +167,91 @@ public class AuctionResource {
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         Gson gson = new Gson();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
-        Auction auction = null;
-        for( AuctionDAO e: res) {
-            auction = e.toAuction();
+        try {
+            Auction auction = res.iterator().next().toAuction();
+            return gson.toJson(auction);
         }
-        db.close();
-        if (auction == null) {
-            return "The auction with this Id simply doesn't exist";
+        catch(Exception e){
+            return "The auction like that simply doesn't exist";
         }
-        return gson.toJson(auction);
     }
 
 
-
-
+    /**
+     *
+     * @param id of the auction we want to put a bid to
+     * @param input json of the biDAO object
+     * @param session cookie token
+     * @return json of the bid
+     */
     @Path("/{id}/bid")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String bidCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
         CosmoDBLayer db = CosmoDBLayer.getInstance();
-        /**bierze ID aukcji, sprawdza czy taka istnieja*/
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
-        ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
-        for( AuctionDAO e: res) {
-            auction.add(e);
+        /** chceck if the auction exists*/
+        if (res.iterator().hasNext()) {
+            AuctionDAO auction = res.iterator().next();
+            if (!Objects.equals(auction.getStatus(), "open")) {
+                return "The auction is not open";
+            }
+            if (LocalDateTime.parse(auction.getEndTime(), formatter).isBefore(LocalDateTime.now())) {
+                auction.AuctionClose();
+                db.updateAuction(auction);
+                return "You are too late mate";
+            }
+            /** creates bid object from input*/
+            Gson gson = new Gson();
+            BidDAO bidDAO = gson.fromJson(input, BidDAO.class);
+            bidDAO.setAuctionId(id);
+            if (bidDAO.getUser() == null) {
+                return "Wrong input lad";
+            }
+            CosmosPagedIterable<UserDAO> result = db.getUserById(bidDAO.getUser());
+            if (!result.iterator().hasNext()) {
+                return "There is no such user here :/";
+            }
+            if (bidDAO.getBid_value() <= auction.getMinPrice()) {
+                return "This bid is too small, you need to pay more than " + auction.getMinPrice() + " and you provided: " + bidDAO.getBid_value();
+            } else {
+                /** sets the bid id */
+                bidDAO.setId(bidDAO.getUser() + " : " + bidDAO.getBid_value());
+                try {
+                    checkCookieUser(session, bidDAO.getUser());
+                } catch (WebApplicationException e) {
+                    throw e;
+                }
+                auction.setMinPrice(bidDAO.getBid_value());
+                /** checks if the bid list is created properly (should be) */
+                try {
+                    auction.addBid(bidDAO);
+                } catch (Exception e) {
+                    auction.setListOfBids(new ArrayList<BidDAO>());
+                    auction.addBid(bidDAO);
+                }
+                db.updateAuction(auction);
+                db.close();
+                return gson.toJson(bidDAO.toBid());
+            }
         }
-        if (auction.size() == 0) {
+        else {
             return "There is no such auction here";
         }
-        if (!Objects.equals(auction.get(0).getStatus(),"open") ){
-            return "The auction is not open";
-        }
-        if (LocalDateTime.parse(auction.get(0).getEndTime(), formatter).isBefore(LocalDateTime.now())){
-            auction.get(0).AuctionClose();
-            db.updateAuction(auction.get(0));
-            return "You are too late mate";
-
-        }
-        /** tworzy gsona, zczytuje dane, sprawdza czy ID aukcji w jsonie jest takie samo jak powinno, sprawdza czy cena się zgadza*/
-        Gson gson = new Gson();
-        BidDAO bidDAO = gson.fromJson(input,BidDAO.class);
-        bidDAO.setAuctionId(id);
-        if (bidDAO.getUser() == null){
-            return "Wrong input lad";
-        }
-        /** sprawdza czy taki user istnieje*/
-        CosmosPagedIterable<UserDAO> result = db.getUserById(bidDAO.getUser());
-        ArrayList<String> users = new ArrayList<String>();
-        for( UserDAO e: result) {
-            users.add(e.toUser().toString());
-        }
-        if (users.size() == 0) {
-            return "There is no such user here :/";
-        }
-
-        if (bidDAO.getBid_value() <= auction.get(0).getMinPrice()){
-            return "This bid is too small, you need to pay more than " + auction.get(0).getMinPrice() + " and you provided: " + bidDAO.getBid_value();
-        }
-        else{
-            /** ustawia na ID userID + wartość i potem wkłada a aukcję zamienia na taką z dobrą listą bidów*/
-            bidDAO.setId(bidDAO.getUser() + " : " + bidDAO.getBid_value());
-            try {
-                checkCookieUser(session, bidDAO.getUser());
-            }
-            catch( WebApplicationException e) {
-                throw e;
-            }
-            auction.get(0).setMinPrice(bidDAO.getBid_value());
-            try{
-            auction.get(0).addBid(bidDAO);
-                }
-            catch(Exception e){
-                auction.get(0).setListOfBids(new ArrayList<BidDAO>());
-                auction.get(0).addBid(bidDAO);
-            }
-            db.updateAuction(auction.get(0));
-            db.close();
-            return "You have created a bid : " + bidDAO.getId();}
 
     }
 
+
+
+
+    /**
+     *
+     * @param id of the function
+     * @param st
+     * @param len
+     * @return gson of the resulting list of bids
+     */
     @Path("/{id}/bid")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
@@ -242,9 +263,8 @@ public class AuctionResource {
         List<Bid> bids = new ArrayList<Bid>();
         for( AuctionDAO e: resGet) {
             if (e.getListOfBids() == null || Objects.equals(e.getListOfBids().size(), 0)){
-                return "There are currently no bids lad, go ahead then";
+                return gson.toJson(bids);
             }
-//            bids.add(e.getListOfBids().toString());
             for (BidDAO b: e.getListOfBids()){
                 bids.add(b.toBid());
             }
@@ -258,6 +278,16 @@ public class AuctionResource {
         return gson.toJson(res);
     }
 
+
+
+
+    /**
+     *
+     * @param id of the auction
+     * @param input of the question string
+     * @param session
+     * @return
+     */
     @Path("/{id}/question")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -265,67 +295,62 @@ public class AuctionResource {
     public String questionCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
-        ArrayList<AuctionDAO> auction = new ArrayList<AuctionDAO>();
-        for( AuctionDAO e: res) {
-            auction.add(e);
+        if(!res.iterator().hasNext()){
+            return "There is no such action";
         }
-        if (auction.size() == 0) {
-            return "There is no such auction here";
-        }
-
-
-
+        AuctionDAO auction = res.iterator().next();
         Gson gson=new Gson();
-        QuestionDAO questionDAO=gson.fromJson(input,QuestionDAO.class);
+        QuestionDAO questionDAO = gson.fromJson(input,QuestionDAO.class);
         Integer index = QUESTION_ID.getAndIncrement();
         questionDAO.setId(index.toString());
         questionDAO.setReply(null);
         CosmosPagedIterable<UserDAO> result = db.getUserById(questionDAO.getUser());
-        ArrayList<User> users = new ArrayList<User>();
-        for( UserDAO e: result) {
-            users.add(e.toUser());
+        if(!result.iterator().hasNext()){
+            return "There is no such user";
         }
-        if (users.size() == 0) {
-            return "There is no such user here :/";
-        }
-
+        UserDAO user = result.iterator().next();
         try {
-            checkCookieUser(session, users.get(0).getId());
+            checkCookieUser(session, user.getId());
         }
         catch( WebApplicationException e) {
             throw e;
         }
         try{
-            auction.get(0).addQuestion(questionDAO);
+            auction.addQuestion(questionDAO);
         }
         catch(Exception e){
-            auction.get(0).setListOfQuestions(new ArrayList<QuestionDAO>());
-            auction.get(0).addQuestion(questionDAO);
+            auction.setListOfQuestions(new ArrayList<QuestionDAO>());
+            auction.addQuestion(questionDAO);
 
         }
-        db.updateAuction(auction.get(0));
+        db.updateAuction(auction);
         db.close();
         return gson.toJson(questionDAO);
-//        return "You have created a question";
     }
 
+
+
+
+    /**
+     *
+     * @param auctionId the id of the auction
+     * @param input json
+     * @param questionID
+     * @param session
+     * @return
+     */
     @Path("/{id}/question/{qid}/reply")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String questionAnswer(@PathParam("id") String auctionId,String input,@PathParam("qid") String questionID, @CookieParam("scc:session") Cookie session){
-
         // Getting proper auction
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(auctionId);
-        ArrayList<AuctionDAO> auction = new ArrayList<>();
-        for( AuctionDAO e: res) {
-            auction.add(e);
+        if(!res.iterator().hasNext()){
+            return "There is no such auction";
         }
-        if (auction.size() == 0) {
-            return "There is no such auction here";
-        }
-        AuctionDAO auctionDAO = auction.get(0);
+        AuctionDAO auction = res.iterator().next();
 
         // Getting reply
         Gson gson=new Gson();
@@ -334,16 +359,16 @@ public class AuctionResource {
         String reply = jsonObj.get("reply").getAsString();
 
         try {
-            checkCookieUser(session, auctionDAO.getOwner());
+            checkCookieUser(session, auction.getOwner());
         }
         catch( WebApplicationException e) {
             throw e;
         }
-        for (QuestionDAO question : auction.get(0).getListOfQuestions()){
+        for (QuestionDAO question : auction.getListOfQuestions()){
             if (question.getId().equals(questionID)){
                 if(question.getReply() == null){
                     question.setReply(reply);
-                    db.updateAuction(auction.get(0));
+                    db.updateAuction(auction);
                     db.close();
                     return "You have successfully replied";
                 }
@@ -355,31 +380,49 @@ public class AuctionResource {
         return "There is no such question mate";
     }
 
+
+
+
+    /**
+     *
+     * Gets all questions of some auction
+     * @param id
+     * @return
+     */
     @Path("/{id}/question")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String listQuestions(@PathParam("id")String id){
+        Gson gson = new Gson();
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> resGet = db.getAuctionById(id);
-        ArrayList<String> questions = new ArrayList<String>();
-        for( AuctionDAO e: resGet) {
-            if (e.getListOfQuestions() == null){
-                return "There are currently no questions";
+        ArrayList<Question> questions = new ArrayList<>();
+        try {
+            AuctionDAO auction = resGet.iterator().next();
+            for ( QuestionDAO question : auction.getListOfQuestions()){
+                questions.add(question.toQuestion());
             }
-            for ( QuestionDAO question : e.getListOfQuestions()){
-                questions.add(question.toQuestion().toString());
-            }
-
+            db.close();
+            return gson.toJson(questions);
         }
-        db.close();
-        return questions.toString();
-
+        catch(Exception e){
+            throw new ServiceUnavailableException();
+        }
     }
 
+
+
+
+
+
+    /**
+     * @return list of auction that are about to close
+     */
     @Path("/closing")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String listAuctionsAboutToClose(){
+        Gson gson = new Gson();
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> result = db.getAuctions("open");
         ArrayList<Auction> closingAuctions = new ArrayList<Auction>();
@@ -390,15 +433,15 @@ public class AuctionResource {
                 if (Math.abs(diff.toDays()) <= 7){
                     closingAuctions.add(a.toAuction());
                 }
-
             }
-
         }
         if(closingAuctions.size() == 0){
-            return "No actions are close to the end";
+            return gson.toJson(closingAuctions);
         }
-        return closingAuctions.toString();
+        return gson.toJson(closingAuctions);
     }
+
+
 
 
     /**
@@ -421,6 +464,13 @@ public class AuctionResource {
         return s;
     }
 
+
+
+
+
+    /**
+     * Merges two objects, used in update operation
+     */
     public static <T> T mergeObjects(T first, T second){
         Class<?> clas = first.getClass();
         Field[] fields = clas.getDeclaredFields();
