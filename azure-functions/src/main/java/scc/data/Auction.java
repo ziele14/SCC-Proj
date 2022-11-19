@@ -10,13 +10,13 @@ public class Auction {
     private String description;
     private String owner;
     private String end_time;
-    private int min_price;
+    private float min_price;
     private String winner;
     private String status;
     private ArrayList<BidDAO> listOfBids;
     private ArrayList<QuestionDAO> listOfQuestions;
 
-    public Auction(String id, String title, String imageId, String description, String owner, String end_time, int min_price, String winner, String status, ArrayList<BidDAO> listOfBids, ArrayList<QuestionDAO> listOfQuestions) {
+    public Auction(String id, String title, String imageId, String description, String owner, String end_time, float min_price, String winner, String status, ArrayList<BidDAO> listOfBids, ArrayList<QuestionDAO> listOfQuestions) {
         this.id = id;
         this.title = title;
         this.imageId = imageId;
@@ -35,7 +35,7 @@ public class Auction {
         return "Auction = (" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", photoId='" + imageId + '\'' +
+                ", imageId='" + imageId + '\'' +
                 ", description='" + description + '\'' +
                 ", ownerId='" + owner + '\'' +
                 ", end_time='" + end_time + '\'' +
@@ -95,11 +95,11 @@ public class Auction {
         this.end_time = end_time;
     }
 
-    public int getMin_price() {
+    public float getMin_price() {
         return min_price;
     }
 
-    public void setMin_price(int min_price) {
+    public void setMin_price(float min_price) {
         this.min_price = min_price;
     }
 

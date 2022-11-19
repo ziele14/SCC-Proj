@@ -6,7 +6,7 @@ public class BidDAO {
     private String id;
     private String auctionId;
     private String user;
-    private int bid_value;
+    private float bid_value;
 
     public BidDAO() {
     }
@@ -65,11 +65,11 @@ public class BidDAO {
         this.user = user;
     }
 
-    public int getBid_value() {
+    public float getBid_value() {
         return bid_value;
     }
 
-    public void setBid_value(int bid_value) {
+    public void setBid_value(float bid_value) {
         this.bid_value = bid_value;
     }
 
