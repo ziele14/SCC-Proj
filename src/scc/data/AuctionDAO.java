@@ -12,7 +12,7 @@ public class AuctionDAO {
     private String description;
     private String owner;
     private String endTime;
-    private int minPrice;
+    private float minPrice;
     private String winner;
     private String status;
     private ArrayList<BidDAO> listOfBids;
@@ -26,7 +26,7 @@ public class AuctionDAO {
         this.status = a.getStatus();
     }
 
-    public AuctionDAO(String title, String description, String imageId, String owner, String endTime, int minPrice) {
+    public AuctionDAO(String title, String description, String imageId, String owner, String endTime, float minPrice) {
         this.title = title;
         this.description = description;
         this.imageId = imageId;
@@ -123,11 +123,11 @@ public class AuctionDAO {
 
     public void addQuestion(QuestionDAO questionId) {this.listOfQuestions.add(questionId);}
 
-    public int getMinPrice() {
+    public float getMinPrice() {
         return minPrice;
     }
 
-    public void setMinPrice(int minPrice) {
+    public void setMinPrice(float minPrice) {
         this.minPrice = minPrice;
     }
 
