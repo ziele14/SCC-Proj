@@ -48,15 +48,15 @@ public class MediaResource
 		BlobClient blob = containerClient.getBlobClient(key);
 		blob.upload(BinaryData.fromBytes(contents));
 
-		/** cache tutaj wlatuje, mati*/
-		try(Jedis jedis = RedisCache.getCachePool().getResource()){
-			jedis.set("image: " + key, Base64.getEncoder().encodeToString(contents));
-			jedis.expire(key, 86400);
-
-		}
-		catch(Exception e){
-			throw new ServiceUnavailableException();
-		}
+//		/** cache tutaj wlatuje, mati*/
+//		try(Jedis jedis = RedisCache.getCachePool().getResource()){
+//			jedis.set("image: " + key, Base64.getEncoder().encodeToString(contents));
+//			jedis.expire(key, 86400);
+//
+//		}
+//		catch(Exception e){
+//			throw new ServiceUnavailableException();
+//		}
 		return key;
 	}
 
@@ -72,19 +72,20 @@ public class MediaResource
 				.connectionString(storageConnectionString)
 				.containerName("images")
 				.buildClient();
-		try (Jedis jedis = RedisCache.getCachePool().getResource();){
-			if (jedis.get("image: " + id) instanceof String) {
-				byte [] arr = Base64.getDecoder().decode(jedis.get("image: " + id));
-				return arr;
-			}
-			BlobClient blob = containerClient.getBlobClient(id);
-			BinaryData data = blob.downloadContent();
-			byte[] arr = data.toBytes();
-			return arr;
-		}
-		catch(Exception e) {
-			throw new ServiceUnavailableException();
-		}
+//		try (Jedis jedis = RedisCache.getCachePool().getResource();){
+////			if (jedis.get("image: " + id) instanceof String) {
+////				byte [] arr = Base64.getDecoder().decode(jedis.get("image: " + id));
+////				return arr;
+////			}
+//
+//		}
+		BlobClient blob = containerClient.getBlobClient(id);
+		BinaryData data = blob.downloadContent();
+		byte[] arr = data.toBytes();
+		return arr;
+//		catch(Exception e) {
+//			throw new ServiceUnavailableException();
+//		}
 	}
 
 	/**

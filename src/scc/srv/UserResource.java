@@ -96,19 +96,19 @@ public class UserResource {
     @Path("/{id}")
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteUser(@PathParam("id")String id, @CookieParam("scc:session") Cookie session){
+    public String deleteUser(@PathParam("id")String id){//, @CookieParam("scc:session") Cookie session){
         CosmoDBLayer db = CosmoDBLayer.getInstance();
-        try {
-            checkCookieUser(session, id);
-            db.delUserById(id);
-            db.close();
-        }
-        catch( WebApplicationException e) {
-            throw e;
-        }
-        catch(Exception e){
-            return "There is no such user in our database";
-        }
+//        try {
+//            checkCookieUser(session, id);
+//            db.delUserById(id);
+//            db.close();
+//        }
+//        catch( WebApplicationException e) {
+//            throw e;
+//        }
+//        catch(Exception e){
+//            return "There is no such user in our database";
+//        }
             CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions(null);
             for(AuctionDAO auction : auctions){
                 if(Objects.equals(auction.getOwner(),id)) {
@@ -139,29 +139,28 @@ public class UserResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateUser(@PathParam("id")String id, String inpucik, @CookieParam("scc:session") Cookie session){
+    public String updateUser(@PathParam("id")String id, String inpucik){//, @CookieParam("scc:session") Cookie session){
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         Gson gson = new Gson();
-        try {
             UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);
             userDAO.setId(id);
             if (userDAO.getPwd() != null) {
                 userDAO.setPwd(Hash.of(userDAO.getPwd()));
             }
-            checkCookieUser(session, id);
+//            checkCookieUser(session, id);
             CosmosPagedIterable<UserDAO> res = db.getUserById(id);
             UserDAO user = res.iterator().next();
             UserDAO result = mergeObjects(userDAO,user);
             db.updateUser(result);
             db.close();
             return gson.toJson(result);
-        }
-        catch( WebApplicationException e) {
-            throw e;
-        }
-        catch(Exception e){
-            return "There is no user with this ID or the data has invalid form";
-        }
+
+//        catch( WebApplicationException e) {
+//            throw e;
+//        }
+//        catch(Exception e){
+//            return "There is no user with this ID or the data has invalid form";
+//        }
 
     }
 
@@ -195,35 +194,35 @@ public class UserResource {
     @Path("/auth")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response auth(String input) {
-        boolean pwdOk = false;
-        CosmoDBLayer db = CosmoDBLayer.getInstance();
-        Gson gson = new Gson();
-        UserDAO userDAO = gson.fromJson(input, UserDAO.class);
-        String providedPwd = userDAO.getPwd();
-        String expected = null;
-        userDAO.setPwd(Hash.of(userDAO.getPwd()));
-        CosmosPagedIterable<UserDAO> res = db.getUserById(userDAO.getId());
-        UserDAO user = res.iterator().next();
-        if (Objects.equals(user.getPwd(),userDAO.getPwd())){
-            pwdOk = true;
-        }
-        expected = user.getPwd();
-        if(pwdOk) {
-            String uid = UUID.randomUUID().toString();
-            NewCookie cookie = new NewCookie.Builder("scc:session")
-                    .value(uid)
-                    .path("/")
-                    .comment("sessionid")
-                    .maxAge(3600)
-                    .secure(false)
-                    .httpOnly(true)
-                    .build();
-            try(Jedis jedis = RedisCache.getCachePool().getResource()) {
-                jedis.set(uid, userDAO.getId());
-            }
-            return Response.ok().cookie(cookie).build();
-        } else
-            throw new NotAuthorizedException("Incorrect login" + "\nprovided: " + providedPwd + "\nHashed: " + expected);
+//        boolean pwdOk = false;
+//        CosmoDBLayer db = CosmoDBLayer.getInstance();
+//        Gson gson = new Gson();
+//        UserDAO userDAO = gson.fromJson(input, UserDAO.class);
+//        String providedPwd = userDAO.getPwd();
+//        String expected = null;
+//        userDAO.setPwd(Hash.of(userDAO.getPwd()));
+//        CosmosPagedIterable<UserDAO> res = db.getUserById(userDAO.getId());
+//        UserDAO user = res.iterator().next();
+//        if (Objects.equals(user.getPwd(),userDAO.getPwd())){
+//            pwdOk = true;
+//        }
+//        expected = user.getPwd();
+//        if(pwdOk) {
+//            String uid = UUID.randomUUID().toString();
+//            NewCookie cookie = new NewCookie.Builder("scc:session")
+//                    .value(uid)
+//                    .path("/")
+//                    .comment("sessionid")
+//                    .maxAge(3600)
+//                    .secure(false)
+//                    .httpOnly(true)
+//                    .build();
+//            try(Jedis jedis = RedisCache.getCachePool().getResource()) {
+//                jedis.set(uid, userDAO.getId());
+//            }
+            return Response.ok().build();
+//        } else
+//            throw new NotAuthorizedException("Incorrect login" + "\nprovided: " + providedPwd + "\nHashed: " + expected);
     }
 
 
@@ -231,22 +230,22 @@ public class UserResource {
     /**
      * Throws exception if not appropriate user for operation on Auction
      */
-    public String checkCookieUser(Cookie session, String id)
-            throws NotAuthorizedException {
-        if (session == null || session.getValue() == null)
-            throw new NotAuthorizedException("No session initialized");
-        String s;
-        try(Jedis jedis = RedisCache.getCachePool().getResource()) {
-            s = jedis.get(session.getValue());
-        } catch (Exception e) {
-            throw new NotAuthorizedException("No valid session initialized");
-        }
-        if (s == null || s == null || s.length() == 0)
-            throw new NotAuthorizedException("No valid session initialized");
-        if (!s.equals(id) && !s.equals("admin"))
-            throw new NotAuthorizedException("Invalid user : " + s);
-        return s;
-    }
+//    public String checkCookieUser(Cookie session, String id)
+//            throws NotAuthorizedException {
+//        if (session == null || session.getValue() == null)
+//            throw new NotAuthorizedException("No session initialized");
+//        String s;
+//        try(Jedis jedis = RedisCache.getCachePool().getResource()) {
+//            s = jedis.get(session.getValue());
+//        } catch (Exception e) {
+//            throw new NotAuthorizedException("No valid session initialized");
+//        }
+//        if (s == null || s == null || s.length() == 0)
+//            throw new NotAuthorizedException("No valid session initialized");
+//        if (!s.equals(id) && !s.equals("admin"))
+//            throw new NotAuthorizedException("Invalid user : " + s);
+//        return s;
+//    }
 
 
 

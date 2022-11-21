@@ -32,14 +32,14 @@ public class AuctionResource {
     /**
      *
      * @param input json with the auction details
-     * @param session cookie to check authentication
+//     * @param session cookie to check authentication
      * @return json with values of the auction or appropriate error
      */
     @Path("/")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String auctionCreate(String input, @CookieParam("scc:session") Cookie session){
+    public String auctionCreate(String input){//, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
        try {
            CosmoDBLayer db = CosmoDBLayer.getInstance();
@@ -53,7 +53,7 @@ public class AuctionResource {
             if (auctionTime.isBefore(LocalDateTime.now())){
                 return "The date is not valid. Date should be before now. \nProvided date: " + auctionTime.toString() + "\nNow: " + LocalDateTime.now().toString();
             }
-           checkCookieUser(session, auctionDAO.getOwner());
+//           checkCookieUser(session, auctionDAO.getOwner());
            db.putAuction(auctionDAO);
            db.close();
            return gson.toJson(auctionDAO.toAuction());
@@ -73,14 +73,14 @@ public class AuctionResource {
      *
      * @param id of the auction
      * @param input json
-     * @param session token
+//     * @param session token
      * @return updated values
      */
     @Path("/{id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateAuction(@PathParam("id")String id, String input, @CookieParam("scc:session") Cookie session){
+    public String updateAuction(@PathParam("id")String id, String input){//, @CookieParam("scc:session") Cookie session){
         Gson gson = new Gson();
         try {
             CosmoDBLayer db = CosmoDBLayer.getInstance();
@@ -88,7 +88,7 @@ public class AuctionResource {
             auctionDAO.setId(id);
             CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
             AuctionDAO auction = res.iterator().next();
-            checkCookieUser(session, auction.getOwner());
+//            checkCookieUser(session, auction.getOwner());
             AuctionDAO result = mergeObjects(auctionDAO,auction);
             db.updateAuction(result);
             db.close();
@@ -181,14 +181,14 @@ public class AuctionResource {
      *
      * @param id of the auction we want to put a bid to
      * @param input json of the biDAO object
-     * @param session cookie token
+//     * @param session cookie token
      * @return json of the bid
      */
     @Path("/{id}/bid")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String bidCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
+    public String bidCreate(@PathParam("id") String id,String input){//, @CookieParam("scc:session") Cookie session){
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         /** chceck if the auction exists*/
@@ -218,11 +218,11 @@ public class AuctionResource {
             } else {
                 /** sets the bid id */
                 bidDAO.setId(bidDAO.getUser() + " : " + bidDAO.getBid_value());
-                try {
-                    checkCookieUser(session, bidDAO.getUser());
-                } catch (WebApplicationException e) {
-                    throw e;
-                }
+//                try {
+//                    checkCookieUser(session, bidDAO.getUser());
+//                } catch (WebApplicationException e) {
+//                    throw e;
+//                }
                 auction.setMinPrice(bidDAO.getBid_value());
                 /** checks if the bid list is created properly (should be) */
                 try {
@@ -285,14 +285,14 @@ public class AuctionResource {
      *
      * @param id of the auction
      * @param input of the question string
-     * @param session
+//     * @param session
      * @return
      */
     @Path("/{id}/question")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String questionCreate(@PathParam("id") String id,String input, @CookieParam("scc:session") Cookie session){
+    public String questionCreate(@PathParam("id") String id,String input){//, @CookieParam("scc:session") Cookie session){
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(id);
         if(!res.iterator().hasNext()){
@@ -309,12 +309,12 @@ public class AuctionResource {
             return "There is no such user";
         }
         UserDAO user = result.iterator().next();
-        try {
-            checkCookieUser(session, user.getId());
-        }
-        catch( WebApplicationException e) {
-            throw e;
-        }
+//        try {
+//            checkCookieUser(session, user.getId());
+//        }
+//        catch( WebApplicationException e) {
+//            throw e;
+//        }
         try{
             auction.addQuestion(questionDAO);
         }
@@ -336,14 +336,14 @@ public class AuctionResource {
      * @param auctionId the id of the auction
      * @param input json
      * @param questionID
-     * @param session
+//     * @param session
      * @return
      */
     @Path("/{id}/question/{qid}/reply")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String questionAnswer(@PathParam("id") String auctionId,String input,@PathParam("qid") String questionID, @CookieParam("scc:session") Cookie session){
+    public String questionAnswer(@PathParam("id") String auctionId,String input,@PathParam("qid") String questionID){//, @CookieParam("scc:session") Cookie session){
         // Getting proper auction
         CosmoDBLayer db = CosmoDBLayer.getInstance();
         CosmosPagedIterable<AuctionDAO> res = db.getAuctionById(auctionId);
@@ -358,12 +358,12 @@ public class AuctionResource {
         JsonObject jsonObj = element.getAsJsonObject();
         String reply = jsonObj.get("reply").getAsString();
 
-        try {
-            checkCookieUser(session, auction.getOwner());
-        }
-        catch( WebApplicationException e) {
-            throw e;
-        }
+//        try {
+//            checkCookieUser(session, auction.getOwner());
+//        }
+//        catch( WebApplicationException e) {
+//            throw e;
+//        }
         for (QuestionDAO question : auction.getListOfQuestions()){
             if (question.getId().equals(questionID)){
                 if(question.getReply() == null){
