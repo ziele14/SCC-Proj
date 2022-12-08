@@ -24,9 +24,9 @@ hs_err_pid*
 # target directory
 target/
 
-#azure conf
-pom.xml
-azure-functions/pom.xml
+# #azure conf
+# pom.xml
+# azure-functions/pom.xml
 
 #tests
 trab-test/
