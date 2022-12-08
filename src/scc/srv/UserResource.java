@@ -211,14 +211,15 @@ public class UserResource {
         expected = user.getPwd();
         if(pwdOk) {
             String uid = UUID.randomUUID().toString();
-            NewCookie cookie = new NewCookie.Builder("scc:session")
-                    .value(uid)
-                    .path("/")
-                    .comment("sessionid")
-                    .maxAge(3600)
-                    .secure(false)
-                    .httpOnly(true)
-                    .build();
+//            NewCookie cookie = new NewCookie.Builder("scc:session")
+//                    .value(uid)
+//                    .path("/")
+//                    .comment("sessionid")
+//                    .maxAge(3600)
+//                    .secure(false)
+//                    .httpOnly(true)
+//                    .build();
+            NewCookie cookie = new NewCookie("scc:session", uid, "/", "", "sessionid", 3600, false, true);
             try(Jedis jedis = RedisCache.getCachePool().getResource()) {
                 jedis.set(uid, userDAO.getId());
             }
