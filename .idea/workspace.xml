@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="jakieś tam zmiany">
+    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="teraz">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" afterDir="false" />
     </list>
@@ -48,7 +48,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670530367762</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="teraz">
+      <created>1670530642164</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670530642164</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -68,6 +75,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="jakieś tam zmiany" />
-    <option name="LAST_COMMIT_MESSAGE" value="jakieś tam zmiany" />
+    <MESSAGE value="teraz" />
+    <option name="LAST_COMMIT_MESSAGE" value="teraz" />
   </component>
 </project>

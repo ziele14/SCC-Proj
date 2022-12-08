@@ -15,7 +15,6 @@ import scc.data.AuctionDAO;
 import scc.data.CosmoDBLayer;
 import scc.data.UserDAO;
 
-import javax.print.attribute.standard.Media;
 
 /**
  * Class with control endpoints.
