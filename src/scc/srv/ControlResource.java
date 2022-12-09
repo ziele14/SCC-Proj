@@ -44,7 +44,7 @@ public class ControlResource
 	public String cleanUp(){
 		CosmoDBLayer db = CosmoDBLayer.getInstance();
 		BlobContainerClient containerClient = new BlobContainerClientBuilder()
-				.connectionString("DefaultEndpointsProtocol=https;AccountName=nazwastorage;AccountKey=Z8tKUgWJJDoaSr7/XLFsOXIHJhVKU7YUepYsv/sZRFoM9IX+x+SG3C4JGwtxY6LGaLocpnHJ52mb+AStoHLDEQ==;EndpointSuffix=core.windows.net")
+				.connectionString("DefaultEndpointsProtocol=https;AccountName=nazwadb;AccountKey=dlQ9N9X0PZI201Lykzv8Q1aEOiPP49L6G2z+A51k8Qyya5TwnK+1gbMISVHAAcn8/Qu4CA2Sru/O+AStzldsjQ==;EndpointSuffix=core.windows.net")
 				.containerName("images")
 				.buildClient();
 
