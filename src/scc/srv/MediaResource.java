@@ -11,6 +11,7 @@ import redis.clients.jedis.Jedis;
 import scc.cache.RedisCache;
 import scc.utils.Hash;
 
+import java.io.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -37,16 +38,32 @@ public class MediaResource
 	@Consumes(MediaType.APPLICATION_OCTET_STREAM)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String upload(byte[] contents) {
-		BlobContainerClient containerClient = new BlobContainerClientBuilder()
-				.connectionString(storageConnectionString)
-				.containerName("images")
-				.buildClient();
 		String key = Hash.of(contents);
-		if(containerClient.getBlobClient(key) instanceof com.azure.storage.blob.BlobClient){
-			key = key + ADDITIONAL.getAndIncrement();
+
+		FileOutputStream out = null;
+		try {
+			out = new FileOutputStream("/mnt/vol/"+key);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
 		}
-		BlobClient blob = containerClient.getBlobClient(key);
-		blob.upload(BinaryData.fromBytes(contents));
+		try {
+			out.write(contents);
+			out.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+
+//		BlobContainerClient containerClient = new BlobContainerClientBuilder()
+//				.connectionString(storageConnectionString)
+//				.containerName("images")
+//				.buildClient();
+
+//		if(containerClient.getBlobClient(key) instanceof com.azure.storage.blob.BlobClient){
+//			key = key + ADDITIONAL.getAndIncrement();
+//		}
+//		BlobClient blob = containerClient.getBlobClient(key);
+//		blob.upload(BinaryData.fromBytes(contents));
 
 		/** cache tutaj wlatuje, mati*/
 		try(Jedis jedis = RedisCache.getCachePool().getResource()){
@@ -68,23 +85,42 @@ public class MediaResource
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public byte[] download(@PathParam("id") String id) {
-		BlobContainerClient containerClient = new BlobContainerClientBuilder()
-				.connectionString(storageConnectionString)
-				.containerName("images")
-				.buildClient();
+//		BlobContainerClient containerClient = new BlobContainerClientBuilder()
+//				.connectionString(storageConnectionString)
+//				.containerName("images")
+//				.buildClient();
+
 		try (Jedis jedis = RedisCache.getCachePool().getResource();){
 			if (jedis.get("image: " + id) instanceof String) {
 				byte [] arr = Base64.getDecoder().decode(jedis.get("image: " + id));
 				return arr;
 			}
-			BlobClient blob = containerClient.getBlobClient(id);
-			BinaryData data = blob.downloadContent();
-			byte[] arr = data.toBytes();
-			return arr;
+
+//			BlobClient blob = containerClient.getBlobClient(id);
+//			BinaryData data = blob.downloadContent();
+//			byte[] arr = data.toBytes();
+//			return arr;
+			try {
+				// Open the file using the file path
+				FileInputStream fileInputStream = new FileInputStream("/mnt/vol/"+id);
+
+				// Create a byte array to hold the contents of the file
+				byte[] data = new byte[fileInputStream.available()];
+
+				// Read the file into the byte array
+				fileInputStream.read(data);
+
+
+				return data;
+			} catch (IOException e) {
+				// Handle the exception
+			}
+
 		}
 		catch(Exception e) {
 			throw new ServiceUnavailableException();
 		}
+		return null ;
 	}
 
 	/**
@@ -94,23 +130,37 @@ public class MediaResource
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String list() {
-		BlobContainerClient containerClient = new BlobContainerClientBuilder()
-				.connectionString(storageConnectionString)
-				.containerName("images")
-				.buildClient();
-		PagedIterable<BlobItem> blob = containerClient.listBlobs();
+		String dir = "/mnt/vol/";
+
+		// Create a File object for the directory
+		File directory = new File(dir);
+
+		// Get all the files in the directory
+		File[] files = directory.listFiles();
+
+		// Loop through the files and print the names of the binary files
 		ArrayList<String> pictures = new ArrayList<String>();
-		for (BlobItem bb: blob){
-			String BName = bb.getName();
-			pictures.add(BName);
+		for (File file : files) {
+			pictures.add(file.getName());
+
 		}
 		if (pictures.size() == 0){
 			return "The images list is unfortunately empty";
 		}
 		else {
 			return pictures.toString();
-		}
 	}
+//		BlobContainerClient containerClient = new BlobContainerClientBuilder()
+//				.connectionString(storageConnectionString)
+//				.containerName("images")
+//				.buildClient();
+//		PagedIterable<BlobItem> blob = containerClient.listBlobs();
+//		ArrayList<String> pictures = new ArrayList<String>();
+//		for (BlobItem bb: blob){
+//			String BName = bb.getName();
+//			pictures.add(BName);
+//		}
 
 
+}
 }
