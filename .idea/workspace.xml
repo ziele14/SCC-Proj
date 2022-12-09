@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="teraz">
+    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="teraz aa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scc/data/CosmoDBLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/data/CosmoDBLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +30,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,6 +46,7 @@
       <workItem from="1669377760457" duration="1244000" />
       <workItem from="1669380237885" duration="553000" />
       <workItem from="1670509198379" duration="2747000" />
+      <workItem from="1670581219742" duration="278000" />
     </task>
     <task id="LOCAL-00001" summary="jakieś tam zmiany">
       <created>1670530367762</created>
@@ -55,7 +62,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670530642164</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="teraz aa">
+      <created>1670532040530</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670532040530</updated>
+    </task>
+    <task id="LOCAL-00004" summary="teraz aa">
+      <created>1670532056807</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670532056807</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -71,11 +92,11 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="jakieś tam zmiany" />
     <MESSAGE value="teraz" />
-    <option name="LAST_COMMIT_MESSAGE" value="teraz" />
+    <MESSAGE value="teraz aa" />
+    <option name="LAST_COMMIT_MESSAGE" value="teraz aa" />
   </component>
 </project>

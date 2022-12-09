@@ -1,0 +1,104 @@
+Index: src/scc/srv/UserResource.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package scc.srv;\r\n\r\nimport com.azure.cosmos.util.CosmosPagedIterable;\r\nimport com.google.gson.Gson;\r\nimport jakarta.ws.rs.*;\r\nimport jakarta.ws.rs.core.Cookie;\r\nimport jakarta.ws.rs.core.MediaType;\r\nimport jakarta.ws.rs.core.NewCookie;\r\nimport jakarta.ws.rs.core.Response;\r\nimport redis.clients.jedis.Jedis;\r\nimport scc.cache.RedisCache;\r\nimport scc.data.*;\r\nimport scc.utils.Hash;\r\n\r\nimport java.lang.reflect.Field;\r\nimport java.util.ArrayList;\r\nimport java.util.Objects;\r\nimport java.util.UUID;\r\n\r\n/**\r\n * Resource for managing users.\r\n */\r\n@Path(\"/user\")\r\npublic class UserResource {\r\n\r\n    /**\r\n     * creates a user from a json file and adds it to our cosmoDB database, returns json\r\n     */\r\n    @Path(\"/\")\r\n    @POST\r\n    @Consumes(MediaType.APPLICATION_JSON)\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public String userCreate(String inpucik){\r\n        Gson gson = new Gson();\r\n        try {\r\n            CosmoDBLayer db = CosmoDBLayer.getInstance();\r\n            UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);\r\n            UserDAO tempUserDAO = new UserDAO(userDAO.getId(), userDAO.getName(), userDAO.getPwd(), userDAO.getPhotoId());\r\n            userDAO.setPwd(Hash.of(userDAO.getPwd()));\r\n            db.putUser(userDAO);\r\n            db.close();\r\n            return gson.toJson(tempUserDAO);\r\n        }\r\n        catch(Exception e){\r\n            return \"The input user data seems to be invalid or the ID is already taken\";\r\n        }\r\n    }\r\n\r\n    /**\r\n     * returns all users\r\n     */\r\n    @Path(\"/\")\r\n    @GET\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public String getAllUsers(){\r\n        Gson gson = new Gson();\r\n        CosmoDBLayer db = CosmoDBLayer.getInstance();\r\n        CosmosPagedIterable<UserDAO> resGet = db.getUsers();\r\n        ArrayList<User> users = new ArrayList<>();\r\n        for( UserDAO e: resGet) {\r\n            users.add(e.toUser());\r\n        }\r\n        db.close();\r\n        if(users.size() == 0){\r\n            return \"It seems there are no users in the database\";\r\n        }\r\n        else {\r\n            return gson.toJson(users);\r\n        }\r\n    }\r\n\r\n\r\n    /**\r\n     * returns user by id\r\n     */\r\n    @Path(\"/{id}\")\r\n    @GET\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public String userGetById(@PathParam(\"id\") String id){\r\n        Gson gson = new Gson();\r\n        CosmoDBLayer db = CosmoDBLayer.getInstance();\r\n        CosmosPagedIterable<UserDAO> res = db.getUserById(id);\r\n        db.close();\r\n        try {\r\n            User user = res.iterator().next().toUser();\r\n            return gson.toJson(user);\r\n        } catch (Exception e) {\r\n            return \"There is no such user here :/\";\r\n        }\r\n    }\r\n\r\n\r\n    /**\r\n     * deletes user\r\n     */\r\n    @Path(\"/{id}\")\r\n    @DELETE\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public String deleteUser(@PathParam(\"id\")String id, @CookieParam(\"scc:session\") Cookie session){\r\n        CosmoDBLayer db = CosmoDBLayer.getInstance();\r\n        try {\r\n            checkCookieUser(session, id);\r\n            db.delUserById(id);\r\n            db.close();\r\n        }\r\n        catch( WebApplicationException e) {\r\n            throw e;\r\n        }\r\n        catch(Exception e){\r\n            return \"There is no such user in our database\";\r\n        }\r\n            CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions(null);\r\n            for(AuctionDAO auction : auctions){\r\n                if(Objects.equals(auction.getOwner(),id)) {\r\n                    auction.setOwner(\"Deleted user\");\r\n                    if (auction.getListOfBids() != null && auction.getListOfBids().size() >= 1) {\r\n                        for (BidDAO bid : auction.getListOfBids()) {\r\n                            if (Objects.equals(bid.getUser(), id)) {\r\n                                auction.getListOfBids().remove(bid);\r\n                                bid.setUser(\"Deleted user\");\r\n                                bid.setId(bid.getUser() + \" : \" + bid.getBid_value());\r\n                                auction.getListOfBids().add(bid);\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n                db.updateAuction(auction);\r\n            }\r\n        return \"User with id = \" + id + \" has been deleted\";\r\n\r\n\r\n    }\r\n\r\n\r\n    /**\r\n     * changes user\r\n     */\r\n    @Path(\"/{id}\")\r\n    @PUT\r\n    @Consumes(MediaType.APPLICATION_JSON)\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public String updateUser(@PathParam(\"id\")String id, String inpucik, @CookieParam(\"scc:session\") Cookie session){\r\n        CosmoDBLayer db = CosmoDBLayer.getInstance();\r\n        Gson gson = new Gson();\r\n        try {\r\n            UserDAO userDAO = gson.fromJson(inpucik, UserDAO.class);\r\n            userDAO.setId(id);\r\n            if (userDAO.getPwd() != null) {\r\n                userDAO.setPwd(Hash.of(userDAO.getPwd()));\r\n            }\r\n            checkCookieUser(session, id);\r\n            CosmosPagedIterable<UserDAO> res = db.getUserById(id);\r\n            UserDAO user = res.iterator().next();\r\n            UserDAO result = mergeObjects(userDAO,user);\r\n            db.updateUser(result);\r\n            db.close();\r\n            return gson.toJson(result);\r\n        }\r\n        catch( WebApplicationException e) {\r\n            throw e;\r\n        }\r\n        catch(Exception e){\r\n            return \"There is no user with this ID or the data has invalid form\";\r\n        }\r\n\r\n    }\r\n\r\n\r\n    /**\r\n     * return all auctions belonging to a given user\r\n     */\r\n    @Path(\"/{id}/auctions\")\r\n    @GET\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public String getUsersAuctions(@PathParam(\"id\")String id, @QueryParam(\"status\") String status){\r\n        Gson gson = new Gson();\r\n        CosmoDBLayer db = CosmoDBLayer.getInstance();\r\n        CosmosPagedIterable<AuctionDAO> result = db.getAuctionByOwner(id, status);\r\n        ArrayList<Auction> auctions = new ArrayList<Auction>();\r\n        for( AuctionDAO e: result) {\r\n            if (Objects.equals(e.getOwner(),id)){\r\n                auctions.add(e.toAuction());\r\n            }\r\n        }\r\n        db.close();\r\n        return gson.toJson(auctions);\r\n\r\n    }\r\n\r\n\r\n    /**\r\n     * authenticates user based on the user ID and password provided\r\n     */\r\n    @POST\r\n    @Path(\"/auth\")\r\n    @Consumes(MediaType.APPLICATION_JSON)\r\n    public Response auth(String input) {\r\n        boolean pwdOk = false;\r\n        CosmoDBLayer db = CosmoDBLayer.getInstance();\r\n        Gson gson = new Gson();\r\n        UserDAO userDAO = gson.fromJson(input, UserDAO.class);\r\n        String providedPwd = userDAO.getPwd();\r\n        String expected = null;\r\n        userDAO.setPwd(Hash.of(userDAO.getPwd()));\r\n        CosmosPagedIterable<UserDAO> res = db.getUserById(userDAO.getId());\r\n        UserDAO user = res.iterator().next();\r\n        if (Objects.equals(user.getPwd(),userDAO.getPwd())){\r\n            pwdOk = true;\r\n        }\r\n        expected = user.getPwd();\r\n        if(pwdOk) {\r\n            String uid = UUID.randomUUID().toString();\r\n            NewCookie cookie = new NewCookie.Builder(\"scc:session\")\r\n                    .value(uid)\r\n                    .path(\"/\")\r\n                    .comment(\"sessionid\")\r\n                    .maxAge(3600)\r\n                    .secure(false)\r\n                    .httpOnly(true)\r\n                    .build();\r\n            try(Jedis jedis = RedisCache.getCachePool().getResource()) {\r\n                jedis.set(uid, userDAO.getId());\r\n            }\r\n            return Response.ok().cookie(cookie).build();\r\n        } else\r\n            throw new NotAuthorizedException(\"Incorrect login\" + \"\\nprovided: \" + providedPwd + \"\\nHashed: \" + expected);\r\n    }\r\n\r\n\r\n\r\n    /**\r\n     * Throws exception if not appropriate user for operation on Auction\r\n     */\r\n    public String checkCookieUser(Cookie session, String id)\r\n            throws NotAuthorizedException {\r\n        if (session == null || session.getValue() == null)\r\n            throw new NotAuthorizedException(\"No session initialized\");\r\n        String s;\r\n        try(Jedis jedis = RedisCache.getCachePool().getResource()) {\r\n            s = jedis.get(session.getValue());\r\n        } catch (Exception e) {\r\n            throw new NotAuthorizedException(\"No valid session initialized\");\r\n        }\r\n        if (s == null || s == null || s.length() == 0)\r\n            throw new NotAuthorizedException(\"No valid session initialized\");\r\n        if (!s.equals(id) && !s.equals(\"admin\"))\r\n            throw new NotAuthorizedException(\"Invalid user : \" + s);\r\n        return s;\r\n    }\r\n\r\n\r\n\r\n    /**\r\n     * Merges two items, fills the null fields in the first item with the calues from the second one\r\n     */\r\n    public static <T> T mergeObjects(T first, T second){\r\n        Class<?> clas = first.getClass();\r\n        Field[] fields = clas.getDeclaredFields();\r\n        Object result = null;\r\n        try {\r\n            result = clas.getDeclaredConstructor().newInstance();\r\n            for (Field field : fields) {\r\n                field.setAccessible(true);\r\n                Object value1 = field.get(first);\r\n                Object value2 = field.get(second);\r\n                Object value = (value1 != null) ? value1 : value2;\r\n                field.set(result, value);\r\n            }\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        return (T) result;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/scc/srv/UserResource.java b/src/scc/srv/UserResource.java
+--- a/src/scc/srv/UserResource.java	(revision 71b6e5633a1b0be5cb7f64977cca79840ce41ab7)
++++ b/src/scc/srv/UserResource.java	(date 1670526446817)
+@@ -218,6 +218,7 @@
+                     .secure(false)
+                     .httpOnly(true)
+                     .build();
++//            NewCookie cookie = new NewCookie("scc:session", uid, "/", "", "sessionid", 3600, false, true);
+             try(Jedis jedis = RedisCache.getCachePool().getResource()) {
+                 jedis.set(uid, userDAO.getId());
+             }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"029f798f-f0fd-401d-9d7e-ebdb39f471c2\" name=\"Changes\" comment=\"nowe azurowe bajery\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2IdTPlc7Ivgr1DGQp6yMHCUHgAj\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"029f798f-f0fd-401d-9d7e-ebdb39f471c2\" name=\"Changes\" comment=\"\" />\r\n      <created>1670510442264</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1670510442264</updated>\r\n      <workItem from=\"1670510443904\" duration=\"2899000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"nowe azurowe bajery\">\r\n      <created>1670512410465</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670512410465</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"nowe azurowe bajery\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"nowe azurowe bajery\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 71b6e5633a1b0be5cb7f64977cca79840ce41ab7)
++++ b/.idea/workspace.xml	(date 1670526446894)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="029f798f-f0fd-401d-9d7e-ebdb39f471c2" name="Changes" comment="nowe azurowe bajery" />
++    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="nowe azurowe bajery">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/scc/srv/UserResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/srv/UserResource.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -13,40 +16,31 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="srakenpierdaken" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectId" id="2IdTPlc7Ivgr1DGQp6yMHCUHgAj" />
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectId" id="2I2RapyoJZpBtitUlfhVDEgCS0y" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent">
+-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+-    <property name="WebServerToolWindowFactoryState" value="false" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+-      <changelist id="029f798f-f0fd-401d-9d7e-ebdb39f471c2" name="Changes" comment="" />
+-      <created>1670510442264</created>
++      <changelist id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="" />
++      <created>1669377757868</created>
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+-      <updated>1670510442264</updated>
+-      <workItem from="1670510443904" duration="2899000" />
+-    </task>
+-    <task id="LOCAL-00001" summary="nowe azurowe bajery">
+-      <created>1670512410465</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1670512410465</updated>
++      <updated>1669377757868</updated>
++      <workItem from="1669377760457" duration="1244000" />
++      <workItem from="1669380237885" duration="553000" />
++      <workItem from="1670509198379" duration="2747000" />
+     </task>
+-    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -62,9 +56,6 @@
+         </entry>
+       </map>
+     </option>
+-  </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="nowe azurowe bajery" />
+-    <option name="LAST_COMMIT_MESSAGE" value="nowe azurowe bajery" />
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+ </project>
+\ No newline at end of file

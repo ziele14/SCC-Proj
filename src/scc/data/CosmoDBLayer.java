@@ -61,6 +61,7 @@ public class CosmoDBLayer {
         this.init();
         return this.users.deleteItem(user, new CosmosItemRequestOptions());
     }
+
     public CosmosItemResponse<Object> delAuctions(AuctionDAO auction) {
         this.init();
         return this.auctions.deleteItem(auction, new CosmosItemRequestOptions());
