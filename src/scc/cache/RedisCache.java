@@ -5,8 +5,11 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisCache {
-    private static final String RedisHostname = "cacheprojekt.redis.cache.windows.net";
-    private static final String RedisKey = "jzppIqO2I4VYMc4Kelxps00IXeg15GoQDAzCaADCOHs=";
+//    private static final String RedisHostname = "cacheprojekt.redis.cache.windows.net";
+    private static final String RedisHostname = "matty-cache";
+
+//    private static final String RedisKey = "";
+//    private static final String RedisKey = "jzppIqO2I4VYMc4Kelxps00IXeg15GoQDAzCaADCOHs=";
 
     private static JedisPool instance;
 
@@ -22,7 +25,7 @@ public class RedisCache {
         poolConfig.setTestWhileIdle(true);
         poolConfig.setNumTestsPerEvictionRun(3);
         poolConfig.setBlockWhenExhausted(true);
-        instance = new JedisPool(poolConfig, RedisHostname, 6380, 1000, RedisKey, true);
+        instance = new JedisPool(poolConfig, RedisHostname, 6379, 1000, false);
         return instance;
 
     }
