@@ -14,8 +14,8 @@ import com.azure.cosmos.util.CosmosPagedIterable;
 import io.micrometer.core.lang.Nullable;
 
 public class CosmoDBLayer {
-    private static final String CONNECTION_URL = "https://nazwa.documents.azure.com:443/";
-    private static final String DB_KEY = "Svs6zM8EEmGrsKiNEhH5ZC30NbcuNpleTm1JHjHaMNFiKcbhw3vgSkNeTHgc8kW4qP7xOOkcMXoqaKMU68H76Q==";
+    private static final String CONNECTION_URL = "https://nazwadb.documents.azure.com:443/";
+    private static final String DB_KEY = "9EXWUoSLcHCqVrc9nyinopCvUJqmNd8pcuZWzkgt1pkpTPgebI4TELPLQtIxov5qnreXmrv4YB5yACDbBJYmmQ==";
     private static final String DB_NAME = "nazwadb";
     private static CosmoDBLayer instance;
     private CosmosClient client;
