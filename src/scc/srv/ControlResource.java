@@ -16,6 +16,7 @@ import scc.data.CosmoDBLayer;
 import scc.data.UserDAO;
 
 import javax.print.attribute.standard.Media;
+import java.io.File;
 
 /**
  * Class with control endpoints.
@@ -43,20 +44,36 @@ public class ControlResource
 	@Produces(MediaType.TEXT_PLAIN)
 	public String cleanUp(){
 		CosmoDBLayer db = CosmoDBLayer.getInstance();
-		BlobContainerClient containerClient = new BlobContainerClientBuilder()
-				.connectionString("DefaultEndpointsProtocol=https;AccountName=nazwadb;AccountKey=dlQ9N9X0PZI201Lykzv8Q1aEOiPP49L6G2z+A51k8Qyya5TwnK+1gbMISVHAAcn8/Qu4CA2Sru/O+AStzldsjQ==;EndpointSuffix=core.windows.net")
-				.containerName("images")
-				.buildClient();
+//		BlobContainerClient containerClient = new BlobContainerClientBuilder()
+//				.connectionString("DefaultEndpointsProtocol=https;AccountName=nazwadb;AccountKey=dlQ9N9X0PZI201Lykzv8Q1aEOiPP49L6G2z+A51k8Qyya5TwnK+1gbMISVHAAcn8/Qu4CA2Sru/O+AStzldsjQ==;EndpointSuffix=core.windows.net")
+//				.containerName("images")
+//				.buildClient();
 
 		CosmosPagedIterable<UserDAO> users = db.getUsers();
 		for(UserDAO user : users){
 			db.delUser(user);
 		}
 
-		PagedIterable<BlobItem> blobs = containerClient.listBlobs();
-		for (BlobItem bb : blobs){
-			BlobClient blob = containerClient.getBlobClient(bb.getName());
-			blob.delete();
+//		PagedIterable<BlobItem> blobs = containerClient.listBlobs();
+//		for (BlobItem bb : blobs){
+//			BlobClient blob = containerClient.getBlobClient(bb.getName());
+//			blob.delete();
+//		}
+
+		// Specify the directory where the files are located
+		String dir = "/mnt/vol/";
+
+		// Create a File object for the directory
+		File directory = new File(dir);
+
+		// Get all the files in the directory
+		File[] files = directory.listFiles();
+
+		// Loop through the files and delete them
+		for (File file : files) {
+			if (file.isFile()) {
+				file.delete();
+			}
 		}
 
 		CosmosPagedIterable<AuctionDAO> auctions = db.getAuctions(null);

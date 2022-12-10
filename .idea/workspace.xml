@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="029f798f-f0fd-401d-9d7e-ebdb39f471c2" name="Changes" comment="nowe azurowe bajery" />
+    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="działa??">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scc/cache/RedisCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/cache/RedisCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scc/srv/MediaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/srv/MediaResource.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,12 +18,15 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="blobout" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2IdTPlc7Ivgr1DGQp6yMHCUHgAj" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2I2RapyoJZpBtitUlfhVDEgCS0y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,26 +35,51 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="029f798f-f0fd-401d-9d7e-ebdb39f471c2" name="Changes" comment="" />
-      <created>1670510442264</created>
+      <changelist id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="" />
+      <created>1669377757868</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1670510442264</updated>
-      <workItem from="1670510443904" duration="2899000" />
+      <updated>1669377757868</updated>
+      <workItem from="1669377760457" duration="1244000" />
+      <workItem from="1669380237885" duration="553000" />
+      <workItem from="1670509198379" duration="2747000" />
+      <workItem from="1670581219742" duration="278000" />
+      <workItem from="1670602909667" duration="6506000" />
+      <workItem from="1670674249283" duration="275000" />
     </task>
-    <task id="LOCAL-00001" summary="nowe azurowe bajery">
-      <created>1670512410465</created>
+    <task id="LOCAL-00001" summary="jakieś tam zmiany">
+      <created>1670530367762</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1670512410465</updated>
+      <updated>1670530367762</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="teraz">
+      <created>1670530642164</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670530642164</updated>
+    </task>
+    <task id="LOCAL-00003" summary="teraz aa">
+      <created>1670532040530</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670532040530</updated>
+    </task>
+    <task id="LOCAL-00004" summary="teraz aa">
+      <created>1670532056807</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670532056807</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -62,9 +95,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nowe azurowe bajery" />
-    <option name="LAST_COMMIT_MESSAGE" value="nowe azurowe bajery" />
+    <MESSAGE value="jakieś tam zmiany" />
+    <MESSAGE value="teraz" />
+    <MESSAGE value="teraz aa" />
+    <option name="LAST_COMMIT_MESSAGE" value="teraz aa" />
   </component>
 </project>
