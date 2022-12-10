@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matty-cache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matty-cache
+  template:
+    metadata:
+      labels:
+        app: matty-cache
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: matty-cache
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: matty-cache
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: matty-cache
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scc-proj-pl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scc-proj-pl
+  template:
+    metadata:
+      labels:
+        app: scc-proj-pl
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: scc-proj-pl
+        image: mmaecki/sccproj
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: "/mnt/vol"
+          name: mediavolume
+        env:
+        - name: REDIS
+          value: "matty-cache"
+      volumes:
+      - name: mediavolume
+        persistentVolumeClaim: 
+          claimName: azure-managed-disk
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scc-proj-pl
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+  selector:
+    app: scc-proj-pl
+---
+apiVersion: v1
+kind: PersistentVolumeClaim 
+metadata:
+  name: azure-managed-disk 
+spec:
+  accessModes:
+  - ReadWriteOnce 
+  storageClassName: azurefile 
+  resources:
+    requests:
+      storage: 1Gi
