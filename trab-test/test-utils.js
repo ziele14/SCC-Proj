@@ -203,15 +203,23 @@ function genNewAuction(context, events, done) {
 		randomNum = random( 300000)
 	}
 	d.setTime(Date.now() + randomNum + random( 300000));
-	var minutes = d.getMinutes();
+	var minutes = (d.getMinutes() + 1);
 	var hours = d.getHours();
+	var day = d.getDate();
+	var month = d.getMonth() + 1;
 	if(d.getMinutes() < 10){
 		minutes = "0"+minutes;
 	}
 	if(hours < 10){
 		hours = "0" + hours
 	}
-	context.vars.endTime = d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + " " + hours + ":" + minutes;
+	if(day < 10){
+		day = "0" + day
+	}
+	if(month < 10){
+		month = "0" + month
+	}
+	context.vars.endTime = day + "-" + month + "-" + d.getFullYear() + " " + hours + ":" + minutes;
 	if( Math.random() > 0.2) { 
 		context.vars.status = "open";
 		context.vars.numBids = random( maxBids);
@@ -340,15 +348,23 @@ function decideNextAction(context, events, done) {
 			randomNum = random( 300000)
 		}
 		d.setTime(Date.now() + randomNum + random( 300000));
-		var minutes = d.getMinutes();
+		var minutes = (d.getMinutes() + 1);
 		var hours = d.getHours();
+		var day = d.getDate();
+		var month = d.getMonth() + 1;
 		if(d.getMinutes() < 10){
 			minutes = "0"+minutes;
 		}
 		if(hours < 10){
 			hours = "0" + hours
 		}
-		context.vars.endTime = d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + " " + hours + ":" + minutes;
+		if(day < 10){
+			day = "0" + day
+		}
+		if(month < 10){
+			month = "0" + month
+		}
+		context.vars.endTime = day + "-" + month + "-" + d.getFullYear() + " " + hours + ":" + minutes;
 		context.vars.status = "open";
 		}
 	if( context.vars.nextAction >= 4) {
