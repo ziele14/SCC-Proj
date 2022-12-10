@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="działa??">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scc/cache/RedisCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/cache/RedisCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/srv/ControlResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scc/srv/MediaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scc/srv/MediaResource.java" afterDir="false" />
-    </list>
+    <list default="true" id="1b1026b6-4535-4201-bdda-aac8fa21f92e" name="Changes" comment="poprawa poprawiona" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +44,7 @@
       <workItem from="1670509198379" duration="2747000" />
       <workItem from="1670581219742" duration="278000" />
       <workItem from="1670602909667" duration="6506000" />
-      <workItem from="1670674249283" duration="275000" />
+      <workItem from="1670674249283" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="jakieś tam zmiany">
       <created>1670530367762</created>
@@ -79,7 +74,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670532056807</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="cleanup poprawiony">
+      <created>1670674550526</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670674550526</updated>
+    </task>
+    <task id="LOCAL-00006" summary="poprawa poprawiona">
+      <created>1670674769428</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670674769428</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +110,8 @@
     <MESSAGE value="jakieś tam zmiany" />
     <MESSAGE value="teraz" />
     <MESSAGE value="teraz aa" />
-    <option name="LAST_COMMIT_MESSAGE" value="teraz aa" />
+    <MESSAGE value="cleanup poprawiony" />
+    <MESSAGE value="poprawa poprawiona" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawa poprawiona" />
   </component>
 </project>
